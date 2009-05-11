@@ -14,5 +14,6 @@ namespace FogUM
 {
     public class Apaga_me
     {
+        private int deletable;
     }
 }
