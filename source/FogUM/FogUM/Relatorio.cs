@@ -5,12 +5,12 @@ using System.Text;
 
 namespace FogUM
 {
-    public class Relatório
+    public class Relatorio
     {
         private int codigo;
         private String comentario;
 
-        public String Codigo
+        public int Codigo
         {
             get { return codigo; }
             set { codigo = value; }

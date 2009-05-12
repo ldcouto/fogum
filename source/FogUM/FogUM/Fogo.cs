@@ -22,7 +22,7 @@ namespace FogUM
         private int baixas_bombeiros;
         private string comentario;
         private int estado;
-        //private Relatorio relatorio;
+        private Relatorio relatorio;
 
         private int Codigo
         {
@@ -106,6 +106,12 @@ namespace FogUM
         {
             get { return estado; }
             set { estado = value; }
+        }
+
+        private Relatorio Rel
+        {
+            get { return relatorio; }
+            set { relatorio = value; }
         }
 
        
