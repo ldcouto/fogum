@@ -66,7 +66,7 @@ namespace FogUM
 
         //constructores
         
-        public Coorporacao(string cod,string nome,string morada,float latitude, float longitude,int n_veiculos,int n_homens)
+        public Coorporacao(int cod,string nome,string morada,float latitude, float longitude,int n_veiculos,int n_homens)
         {
             this.codigo = cod;
             this.nome = nome;

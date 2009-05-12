@@ -38,7 +38,7 @@ namespace FogUM
 
         //constructores
        
-        public Heli(string cod,string desig)
+        public Heli(int cod,string desig)
         {
             this.codigo = cod;
             this.designacao = desig;
