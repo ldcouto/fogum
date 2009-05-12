@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D133CF06-3A05-4B8C-9B01-1C46E1B673E1}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -57,7 +57,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apaga-me.cs" />
+    <Compile Include="BD_FogUM.cs" />
+    <Compile Include="Comandante.cs" />
+    <Compile Include="Coorporacao.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -66,7 +68,16 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fogo.cs" />
+    <Compile Include="Heli.cs" />
+    <Compile Include="Interface_Civil.cs" />
+    <Compile Include="Interface_Cmd.cs" />
+    <Compile Include="Interface_Login.cs" />
+    <Compile Include="Proc_Civil.cs" />
+    <Compile Include="Proc_Cmd.cs" />
+    <Compile Include="Proc_Login.cs" />
+    <Compile Include="Proc_WebService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unidade.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -91,9 +102,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
