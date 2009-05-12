@@ -1,0 +1,5 @@
+C:\Documents and Settings\Vasco\Os meus documentos\workspace\source\FogUM\FogUM\bin\FogUM.dll
+C:\Documents and Settings\Vasco\Os meus documentos\workspace\source\FogUM\FogUM\bin\FogUM.pdb
+C:\Documents and Settings\Vasco\Os meus documentos\workspace\source\FogUM\FogUM\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Vasco\Os meus documentos\workspace\source\FogUM\FogUM\obj\Debug\FogUM.dll
+C:\Documents and Settings\Vasco\Os meus documentos\workspace\source\FogUM\FogUM\obj\Debug\FogUM.pdb
