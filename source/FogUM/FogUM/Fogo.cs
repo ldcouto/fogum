@@ -11,7 +11,7 @@ namespace FogUM
         private int codigo;
         private float latitude;
         private float longitude;
-        private float raio_foge;
+        private float raio_fogo;
         private float raio_seg;
         private string concelho;
         private string distrito;
@@ -22,86 +22,87 @@ namespace FogUM
         private int baixas_bombeiros;
         private string comentario;
         private int estado;
+        //private Relatorio relatorio;
 
-        private int cod
+        private int Codigo
         {
             get { return codigo; }
             set { codigo = value; }
         }
         
-        private float lat
+        private float Latitude
         {
             get { return latitude; }
             set { latitude = value; }
         }
         
-        private float longi
+        private float Longitude
         {
             get { return longitude; }
             set { longitude = value; }
         } 
         
-        private float raio_f
+        private float Raio_fogo
         {
-            get { return raio_foge; }
-            set { raio_foge = value; }
+            get { return raio_fogo; }
+            set { raio_fogo = value; }
         }
         
-        private float raio_s
+        private float Raio_seg
         {
             get { return raio_seg; }
             set { raio_seg = value; }
         }
         
-        private string conc
+        private string Concelho
         {
             get { return concelho; }
             set { concelho = value; }
         }
 
-        private string dist
+        private string Distrito
         {
             get { return distrito; }
             set { distrito = value; }
         }
 
-        private DateTime dh_com
+        private DateTime Dh_comeco
         {
             get { return dh_comeco; }
             set { dh_comeco = value; }
         }
 
-        private DateTime dh_circ
+        private DateTime Dh_circunscrito
         {
             get { return dh_circunscrito; }
             set { dh_circunscrito = value; }
         }
 
-        private DateTime dh_ext
+        private DateTime Dh_extinto
         {
             get { return dh_extinto; }
             set { dh_extinto = value; }
         }
         
-        private int baixas_c
+        private int Baixas_civis
         {
             get { return baixas_civis; }
             set { baixas_civis = value; }
         }
         
-        private int baixas_b
+        private int Baixas_bombeiros
         {
             get { return baixas_bombeiros; }
             set { baixas_bombeiros = value; }
         }
         
-        private string coment
+        private string Comentario
         {
             get { return comentario; }
             set { comentario = value; }
         }
         
-        private int est
+        private int Estado
         {
             get { return estado; }
             set { estado = value; }
@@ -115,13 +116,13 @@ namespace FogUM
             this.codigo=0;
             this.latitude=0;
             this.longitude=0;
-            this.raio_foge=0;
+            this.raio_fogo=0;
             this.raio_seg=0;
             this.concelho="";
             this.distrito="";
-            //this.dh_comeco=Null;
-            //this.dh_circunscrito=Null;
-            //this.dh_extinto=Null;
+            this.dh_comeco = new DateTime();
+            this.dh_circunscrito = new DateTime();
+            this.dh_extinto = new DateTime();
             this.baixas_civis=0;
             this.baixas_bombeiros=0;
             this.comentario="";
@@ -133,7 +134,7 @@ namespace FogUM
             this.codigo=cod;
             this.latitude=lat;
             this.longitude=longi;
-            this.raio_foge=raio_f;
+            this.raio_fogo=raio_f;
             this.raio_seg=raio_s;
             this.concelho=conc;
             this.distrito=dist;
