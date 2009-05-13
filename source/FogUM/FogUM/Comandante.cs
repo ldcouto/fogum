@@ -44,8 +44,7 @@ namespace FogUM
             set { pass = value; }
         }
 
-        //Constructores
-
+        //CONTRUCTORES
         public Comandante(int cod,string nome, string user, string pass)
         {
             this.codigo = cod;

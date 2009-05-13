@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FogUM
 {
-    class Deposito
+    public class Deposito
     {
         private int codigo;
         private float latitude;
@@ -41,6 +41,15 @@ namespace FogUM
         {
             get { return descricao; }
             set { descricao = value; }
+        }
+
+        //CONSTRUCTORES
+        public Deposito(int cod,float latitude,float longitude,float volume,String desc)
+        {
+            this.codigo = cod;
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.descricao = desc;
         }
     }
 }

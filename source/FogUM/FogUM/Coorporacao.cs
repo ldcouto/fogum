@@ -21,6 +21,7 @@ namespace FogUM
         private float longitude;
         private int n_homens;
         private int n_veiculos;
+        private Boolean disponivel;
 
         public int Cod
         {
@@ -64,8 +65,13 @@ namespace FogUM
             set { n_veiculos = value; }
         }
 
-        //constructores
+        public Boolean Disponivel
+        {
+            get { return disponivel; }
+            set { disponivel = value; }
+        }
         
+        //CONSTRUCTORES
         public Coorporacao(int cod,string nome,string morada,float latitude, float longitude,int n_veiculos,int n_homens)
         {
             this.codigo = cod;
@@ -75,7 +81,7 @@ namespace FogUM
             this.longitude = longitude;
             this.n_veiculos = n_veiculos;
             this.n_homens = n_homens;
-            
+            this.disponivel = true;
         }
     }
 }

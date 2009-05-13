@@ -21,5 +21,12 @@ namespace FogUM
             get { return comentario; }
             set { comentario = value; }
         }
+
+        //CONTRUCTORES
+        public Relatorio(int cod, String comentario)
+        {
+            this.codigo = cod;
+            this.comentario = comentario;
+        }
     }
 }

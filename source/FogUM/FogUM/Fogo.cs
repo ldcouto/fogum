@@ -116,7 +116,7 @@ namespace FogUM
 
        
 
-        //constructores
+        //CONSTRUCTORES
         public Fogo()
         {
             this.codigo=0;
