@@ -22,7 +22,7 @@ namespace FogUM
         private List<Deposito> depositosDisp;
         private BD_FogUM bd;
         private List<Relatorio> relatorio;
-        private Dictionary<int, Unidade> unidades;
+        private SortedDictionary<int, Unidade> unidades;
         
         
         public Comandante Cmd
@@ -54,7 +54,7 @@ namespace FogUM
             set { relatorio = value; }
         }
 
-        public Dictionary<int, Unidade> Unidades
+        public SortedDictionary<int, Unidade> Unidades
         {
             get { return unidades; }
             set { unidades = value; }
@@ -74,12 +74,12 @@ namespace FogUM
             return false;
         }
 
-        /* public Dictionary<int, Unidade> getUnidadesDisponiveis()
+        /* public SortedDictionary<int, Unidade> getUnidadesDisponiveis()
          {
              getUnidadesDisponiveis() - Vai a base de dados buscar as unidades disponiveis 
          }*/
 
-        public Dictionary<int, Unidade> getUnidadesDestacadas()
+        public SortedDictionary<int, Unidade> getUnidadesDestacadas()
         {
             //igual a propriedade Unidades
             return unidades;
@@ -88,7 +88,15 @@ namespace FogUM
         public void remUnidade(int cod)
         {
             //muda a tag de disponivel
+            Unidade aux;
+            unidades.TryGetValue(cod, out aux);
+            //falta saber se é heli ou coorporacao
+
             //faz update dessa unidade na base de dados
+            //bd.updateCoorp(aux);
+            //ou
+            //bd.updateHeli(aux);
+
             // Remove da map a unidade(feito)
             unidades.Remove(cod);
             
@@ -96,7 +104,9 @@ namespace FogUM
         
         public void adicionaUnidades(Unidade uni)
         {
-            //Muda a tag na base de dados temos k mudar 
+           
+            //Muda a tag na base de dados 
+            //adiciona a map do comandante
         }
 
         /*public List<int> getListaEstados()
@@ -108,6 +118,13 @@ namespace FogUM
         {
             //falta a data
             this.fogoCombate.Estado = estad;
+
+            if (estad == 2)
+            {
+                //MAdiciona a Data
+                DateTime agora = new DateTime();
+                this.fogoCombate.Dh_circunscrito = agora;
+            }
         }
         //mudei este para void????????
         public void novoFogo()
@@ -116,14 +133,18 @@ namespace FogUM
         }
 
         
-        /*public Boolean subFomFogo(Fogo nFogo)
-        { 
-        // Vai a base de dados e submete um novo fogo
-        }*/
+        public Boolean subFomFogo(Fogo nFogo)
+        {
+            bd.subFomFogo(nFogo);
+            return true;
+        }
+
         public void selTermComb()
         {
-            // 4 combate terminado falta por a data
-            this.fogoCombate.Estado = 4;
+            // 3 Extinto - combate terminado falta por a data
+            this.fogoCombate.Estado = 3;
+            
+            //Muda a Data
             DateTime agora = new DateTime();
             this.fogoCombate.Dh_extinto = agora;
         }
@@ -144,10 +165,13 @@ namespace FogUM
         }*/
 
         
-         /* public Boolean submitRel(Relatorio rel)
+         public Boolean submitRel(Relatorio rel)
         {
-            //Insere na base de dados o relatorio
-        }*/
+            relatorio.Add(rel);
+             //adiciona a base de dados, penso que é preciso
+            bd.submitRel(rel);
+            return true;
+        }
          
 
     }
