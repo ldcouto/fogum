@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace FogUM
 {
-    public class Unidade
+    public abstract class Unidade
     {
     }
 }

@@ -119,7 +119,7 @@ namespace FogUM
         //CONSTRUCTORES
         public Fogo()
         {
-            this.codigo=0;
+           // this.codigo=0; temos de mudar isto
             this.latitude=0;
             this.longitude=0;
             this.raio_fogo=0;
@@ -127,12 +127,12 @@ namespace FogUM
             this.concelho="";
             this.distrito="";
             this.dh_comeco = new DateTime();
-            this.dh_circunscrito = new DateTime();
-            this.dh_extinto = new DateTime();
+            //this.dh_circunscrito = new DateTime();
+            //this.dh_extinto = new DateTime();
             this.baixas_civis=0;
             this.baixas_bombeiros=0;
             this.comentario="";
-            this.estado=0;
+            this.estado=1; //1- Começo
         }
 
         public Fogo(int cod, float lat, float longi, float raio_f, float raio_s, string conc, string dist, DateTime dh_com, DateTime dh_cir, DateTime dh_ext, int baixas_civ, int baixas_bomb, string coment, int est)

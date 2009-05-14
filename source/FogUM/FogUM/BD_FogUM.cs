@@ -39,6 +39,24 @@ namespace FogUM
        
         //Metodos k falta fazer
         //public Dictionary<int, Unidade> getUnidadesDisponiveis()-metodo que da um map com a lista de unidades disponiveis
-       
+
+        public void updateHeli(Heli helic)
+        {
+            //Faz um update na base de dados, mudança de flag
+        }
+        public void updateCoorp(Coorporacao coorp)
+        {
+            //Faz um update na base de dados, mudança de flag
+        }
+
+        public void subFomFogo(Fogo nFogo)
+        {
+            //submete fogo a base de dados nao sei se é insere ou update
+        }
+
+        public void submitRel(Relatorio rel)
+        {
+            //adiciona relatorio a base de dados        
+        }
     }
 }
