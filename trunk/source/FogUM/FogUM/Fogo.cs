@@ -24,91 +24,91 @@ namespace FogUM
         private int estado;
         private Relatorio relatorio;
 
-        private int Codigo
+        public int Codigo
         {
             get { return codigo; }
             set { codigo = value; }
         }
-        
-        private float Latitude
+
+        public float Latitude
         {
             get { return latitude; }
             set { latitude = value; }
         }
-        
-        private float Longitude
+
+        public float Longitude
         {
             get { return longitude; }
             set { longitude = value; }
-        } 
-        
-        private float Raio_fogo
+        }
+
+        public float Raio_fogo
         {
             get { return raio_fogo; }
             set { raio_fogo = value; }
         }
-        
-        private float Raio_seg
+
+        public float Raio_seg
         {
             get { return raio_seg; }
             set { raio_seg = value; }
         }
-        
-        private string Concelho
+
+        public string Concelho
         {
             get { return concelho; }
             set { concelho = value; }
         }
 
-        private string Distrito
+        public string Distrito
         {
             get { return distrito; }
             set { distrito = value; }
         }
 
-        private DateTime Dh_comeco
+        public DateTime Dh_comeco
         {
             get { return dh_comeco; }
             set { dh_comeco = value; }
         }
 
-        private DateTime Dh_circunscrito
+        public DateTime Dh_circunscrito
         {
             get { return dh_circunscrito; }
             set { dh_circunscrito = value; }
         }
 
-        private DateTime Dh_extinto
+        public DateTime Dh_extinto
         {
             get { return dh_extinto; }
             set { dh_extinto = value; }
         }
-        
-        private int Baixas_civis
+
+        public int Baixas_civis
         {
             get { return baixas_civis; }
             set { baixas_civis = value; }
         }
-        
-        private int Baixas_bombeiros
+
+        public int Baixas_bombeiros
         {
             get { return baixas_bombeiros; }
             set { baixas_bombeiros = value; }
         }
-        
-        private string Comentario
+
+        public string Comentario
         {
             get { return comentario; }
             set { comentario = value; }
         }
-        
-        private int Estado
+
+        public int Estado
         {
             get { return estado; }
             set { estado = value; }
         }
 
-        private Relatorio Rel
+        public Relatorio Rel
         {
             get { return relatorio; }
             set { relatorio = value; }

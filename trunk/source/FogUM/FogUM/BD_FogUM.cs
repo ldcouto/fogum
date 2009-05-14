@@ -36,5 +36,9 @@ namespace FogUM
         {
             //metodo que insere um voluntario na BD
         }
+       
+        //Metodos k falta fazer
+        //public Dictionary<int, Unidade> getUnidadesDisponiveis()-metodo que da um map com a lista de unidades disponiveis
+       
     }
 }
