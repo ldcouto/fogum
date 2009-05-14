@@ -65,11 +65,16 @@ namespace FogUM
             set { n_veiculos = value; }
         }
 
+
         public Boolean Disponivel
         {
             get { return disponivel; }
             set { disponivel = value; }
         }
+
+
+      
+
         
         //CONSTRUCTORES
         public Coorporacao(int cod,string nome,string morada,float latitude, float longitude,int n_veiculos,int n_homens)

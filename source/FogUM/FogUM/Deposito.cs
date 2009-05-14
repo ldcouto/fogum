@@ -51,5 +51,12 @@ namespace FogUM
             this.longitude = longitude;
             this.descricao = desc;
         }
+        public Deposito()
+        {
+            //this.codigo = 0; Tem k se fazer a incrementar automaticamente
+            this.latitude = 0;
+            this.longitude = 0;
+            this.descricao = "";
+        }
     }
 }
