@@ -8,6 +8,8 @@ namespace FogUM
     public class Voluntario
     {
         private int codigo;
+        private int disp;
+        private int codDist;
         private String nome;
         private String morada;
         private String distrito;
@@ -18,6 +20,18 @@ namespace FogUM
         {
             get { return codigo; }
             set { codigo = value; }
+        }
+
+        public int Disp
+        {
+            get { return disp; }
+            set { disp = value; }
+        }
+
+        public int CodDist
+        {
+            get { return codDist; }
+            set { codDist = value; }
         }
 
         public String Nome
@@ -51,9 +65,11 @@ namespace FogUM
         }
 
         //CONSTRUCTORES
-        public Voluntario(int cod, String nome, String morada, String distrito, String telefone, String email)
+        public Voluntario(int cod, int disp, int codDist, String nome, String morada, String distrito, String telefone, String email)
         {
             this.codigo = cod;
+            this.disp = disp;
+            this.codDist = codDist;
             this.nome = nome;
             this.morada = morada;
             this.distrito = distrito;

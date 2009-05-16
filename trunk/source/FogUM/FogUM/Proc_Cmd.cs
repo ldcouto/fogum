@@ -59,6 +59,9 @@ namespace FogUM
             get { return unidades; }
             set { unidades = value; }
         }
+
+
+
         //metodos....
         public Boolean verificaRaioSeg(float raioSeg)
         {
@@ -133,9 +136,9 @@ namespace FogUM
         }
 
         
-        public Boolean subFomFogo(Fogo nFogo)
+        public Boolean subFomFogo(Fogo nFogo, Comandante cmd)
         {
-            bd.subFomFogo(nFogo);
+            bd.setNovoFogo(nFogo, cmd);
             return true;
         }
 
@@ -165,11 +168,11 @@ namespace FogUM
         }*/
 
         
-         public Boolean submitRel(Relatorio rel)
+         public Boolean submitRel(Relatorio rel, Fogo f)
         {
             relatorio.Add(rel);
              //adiciona a base de dados, penso que é preciso
-            bd.submitRel(rel);
+            bd.submitRel(rel, f);
             return true;
         }
          

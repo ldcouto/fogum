@@ -28,7 +28,7 @@ insert into DISTRITO (DISTRITO_DESIGN) values ('Braga')
 /* Generate test data for the table "Corporacao".               */
 /*==============================================================*/
 insert into CORPORACAO (CORPORACAO_DESIGN, LATITUDE_CORP, LONGITUDE_CORP, NUM_HOMENS_DISP, NUM_VEICULOS_DISP) values (
-	'Bombeiros Voluntários de Guimarães',41.44669926365472, -8.29843282699585, 160 ,31)
+	'Bombeiros Voluntários de Guimarães', True ,41.44669926365472, -8.29843282699585, 160 ,31)
 
 
 /*==============================================================*/
