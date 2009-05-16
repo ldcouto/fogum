@@ -38,6 +38,9 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Web.Extensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -58,13 +61,26 @@
     <Content Include="App_Data\BDF_log.ldf">
       <DependentUpon>BDF.mdf</DependentUpon>
     </Content>
+    <Content Include="BDTestForm.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDTestForm.aspx.cs">
+      <DependentUpon>BDTestForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BDTestForm.aspx.designer.cs">
+      <DependentUpon>BDTestForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BD_FogUM.cs" />
     <Compile Include="Comandante.cs" />
-    <Compile Include="Coorporacao.cs" />
+    <Compile Include="Corporacao.cs" />
+    <Compile Include="DBLinq.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBLinq.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -88,7 +104,19 @@
     <Compile Include="Voluntario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="DBLinq.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DBLinq.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DBLinq.dbml.layout">
+      <DependentUpon>DBLinq.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />

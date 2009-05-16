@@ -37,6 +37,13 @@ namespace FogUM
         }
 
         //constructores
+
+        public Heli(HELI bdH)
+        {
+            this.codigo = bdH.COD_HELI;
+            this.designacao = bdH.HELI_DESIGN;
+            this.disponivel = bdH.HELI_DISPONIBILIDADE;
+        }
        
         public Heli(int cod,string desig)
         {

@@ -9,12 +9,21 @@ namespace FogUM
     public class Fogo
     {
         private int codigo;
-        private float latitude;
-        private float longitude;
+
+        private int codConcelho;
+
+        public int CodConcelho
+        {
+            get { return codConcelho; }
+            set { codConcelho = value; }
+        }
+
+        private double latitude;
+        private double longitude;
         private float raio_fogo;
         private float raio_seg;
         private string concelho;
-        private string distrito;
+        // private string distrito; <- Não tá na BD - Luis
         private DateTime dh_comeco;
         private DateTime dh_circunscrito;
         private DateTime dh_extinto;
@@ -30,13 +39,13 @@ namespace FogUM
             set { codigo = value; }
         }
 
-        public float Latitude
+        public double Latitude
         {
             get { return latitude; }
             set { latitude = value; }
         }
 
-        public float Longitude
+        public double Longitude
         {
             get { return longitude; }
             set { longitude = value; }
@@ -59,12 +68,12 @@ namespace FogUM
             get { return concelho; }
             set { concelho = value; }
         }
-
-        public string Distrito
-        {
-            get { return distrito; }
-            set { distrito = value; }
-        }
+        // Fogo não leva distrito! - Luis
+        //public string Distrito
+        //{
+        //    get { return distrito; }
+        //    set { distrito = value; }
+        //}
 
         public DateTime Dh_comeco
         {
@@ -120,12 +129,13 @@ namespace FogUM
         public Fogo()
         {
            // this.codigo=0; temos de mudar isto
+            this.codConcelho = 0;
             this.latitude=0;
             this.longitude=0;
             this.raio_fogo=0;
             this.raio_seg=0;
             this.concelho="";
-            this.distrito="";
+          //  this.distrito="";
             this.dh_comeco = new DateTime();
             //this.dh_circunscrito = new DateTime();
             //this.dh_extinto = new DateTime();
@@ -135,15 +145,34 @@ namespace FogUM
             this.estado=1; //1- Começo
         }
 
-        public Fogo(int cod, float lat, float longi, float raio_f, float raio_s, string conc, string dist, DateTime dh_com, DateTime dh_cir, DateTime dh_ext, int baixas_civ, int baixas_bomb, string coment, int est)
+        public Fogo(FOGO bdf)
+        {
+            this.codigo=bdf.COD_FOGO;
+            this.codConcelho = bdf.COD_CONCELHO;
+            this.latitude = bdf.LATITUDE_FOGO;
+            this.longitude = bdf.LONGITUDE_FOGO;
+            this.raio_fogo = (float) bdf.RAIO_FOGO;
+            this.raio_seg = (float) bdf.RAIO_SEGURANCA;
+            this.concelho = bdf.CONCELHO.CONCELHO_DESIGN;
+            this.dh_comeco = bdf.DH_START;
+            this.dh_circunscrito = bdf.DH_CIRCUNSCRITO;
+            this.dh_extinto = bdf.DH_FIM;
+            this.baixas_civis = (int) bdf.BAIXAS_CIVIS;
+            this.baixas_bombeiros = (int) bdf.BAIXAS_BOMBEIROS;
+            this.comentario = bdf.RELATORIO.COMENTARIO;
+            this.estado = (int) bdf.COD_ESTADO;
+        }
+
+        public Fogo(int cod, int codConcelho, double lat, double longi, float raio_f, float raio_s, string conc, DateTime dh_com, DateTime dh_cir, DateTime dh_ext, int baixas_civ, int baixas_bomb, string coment, int est)
         {
             this.codigo=cod;
+            this.codConcelho = codConcelho;
             this.latitude=lat;
             this.longitude=longi;
             this.raio_fogo=raio_f;
             this.raio_seg=raio_s;
             this.concelho=conc;
-            this.distrito=dist;
+        //    this.distrito=dist;
             this.dh_comeco=dh_com;
             this.dh_circunscrito=dh_cir;
             this.dh_extinto=dh_ext;

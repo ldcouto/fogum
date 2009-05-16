@@ -14,5 +14,6 @@ namespace FogUM
 {
     public abstract class Unidade
     {
+
     }
 }
