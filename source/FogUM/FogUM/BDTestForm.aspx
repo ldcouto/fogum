@@ -12,13 +12,18 @@
     
         <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
         <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
-        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Button" />
+        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="teste2" />
         <asp:BulletedList ID="BulletedList1" runat="server" Height="90px" Width="261px">
         </asp:BulletedList>
     
         <asp:Button ID="Button3" runat="server" onclick="Button3_Click" Text="Button" />
     
     </div>
+    <p>
+    
+        <asp:Button ID="Button4" runat="server" onclick="Button3_Click" Text="Teste" />
+    
+    </p>
     </form>
 </body>
 </html>
