@@ -39,8 +39,8 @@ namespace FogUM
             procCmd.FogoCombate.Raio_fogo = 2;
             procCmd.FogoCombate.Raio_seg = 4;
             ListBox1.Items.Add(procCmd.verificaRaio(4).ToString());
-            DateTime n = new DateTime();
-            ListBox1.Items.Add(n.ToString());
+            DateTime agora = DateTime.Now.Date;
+            ListBox1.Items.Add(agora.ToString());
             //Comandante c = new Comandante(1, "João Castro", "JCastro", "JC22");
             //testes.teste3(c);
         }
