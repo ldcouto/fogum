@@ -84,20 +84,30 @@ namespace FogUM
             return false;
         }
           //- Vai a base de dados buscar as unidades disponiveis 
-         /*public Dictionary<int, Corporacao> getCoorpDisponiveis()
+         public Dictionary<int, Corporacao> getCoorpDisponiveis()
          {
-             return getCoorpDisponiveis(); 
+             Dictionary<int, Corporacao> novo = new Dictionary<int, Corporacao>();
+             novo = bd.getCorpsDisponiveis();
+             return novo;
+
          }
          
         public Dictionary<int, Heli> getHeliDisponiveis()
          {
-             return getHeliDisponiveis();
-         }*/
+             return bd.getHelisDisponiveis();
+
+         }
 
         public Dictionary<int, Corporacao> getCoorpDestacadas()
         {
             //igual a propriedade Unidades
             return corporacoes;
+        }
+
+        public Dictionary<int, Heli> getHelisDestacados()
+        {
+            //igual a propriedade Unidades
+            return helis;
         }
 
         public void remCorp(int cod)
@@ -147,7 +157,7 @@ namespace FogUM
             if (estad == 2)
             {
                 //MAdiciona a Data
-                DateTime agora = new DateTime();
+                DateTime agora = DateTime.Now.Date;
                 this.fogoCombate.Dh_circunscrito = agora;
             }
         }
@@ -170,7 +180,7 @@ namespace FogUM
             this.fogoCombate.Estado = 3;
             
             //Muda a Data
-            DateTime agora = new DateTime();
+            DateTime agora = DateTime.Now.Date;
             this.fogoCombate.Dh_extinto = agora;
 
             //falta libertar Helis e corp
