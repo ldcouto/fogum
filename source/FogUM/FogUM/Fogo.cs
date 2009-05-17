@@ -136,7 +136,7 @@ namespace FogUM
             this.raio_seg=0;
             this.concelho="";
           //  this.distrito="";
-            this.dh_comeco = new DateTime();
+            this.dh_comeco = DateTime.Now;
             //this.dh_circunscrito = new DateTime();
             //this.dh_extinto = new DateTime();
             this.baixas_civis=0;

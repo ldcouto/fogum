@@ -33,13 +33,13 @@ namespace FogUM
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-
+            //Mexi aqui para teste pois nao conseguia adicionar outro butao. VAsco
             ListBox1.Items.Add("Zona de teste Proc_cmd");
             procCmd.novoFogo();
             procCmd.FogoCombate.Raio_fogo = 2;
             procCmd.FogoCombate.Raio_seg = 4;
             ListBox1.Items.Add(procCmd.verificaRaio(4).ToString());
-            DateTime agora = DateTime.Now.Date;
+            DateTime agora = DateTime.Now;
             ListBox1.Items.Add(agora.ToString());
             //Comandante c = new Comandante(1, "João Castro", "JCastro", "JC22");
             //testes.teste3(c);

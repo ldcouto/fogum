@@ -157,7 +157,7 @@ namespace FogUM
             if (estad == 2)
             {
                 //MAdiciona a Data
-                DateTime agora = DateTime.Now.Date;
+                DateTime agora = DateTime.Now;
                 this.fogoCombate.Dh_circunscrito = agora;
             }
         }
@@ -180,7 +180,7 @@ namespace FogUM
             this.fogoCombate.Estado = 3;
             
             //Muda a Data
-            DateTime agora = DateTime.Now.Date;
+            DateTime agora = DateTime.Now;
             this.fogoCombate.Dh_extinto = agora;
 
             //falta libertar Helis e corp
