@@ -22,7 +22,8 @@ namespace FogUM
         private List<Deposito> depositosDisp;
         private BD_FogUM bd;
         private List<Relatorio> relatorio;
-        private SortedDictionary<int, Unidade> unidades;
+        private Dictionary<int, Corporacao> corporacoes;
+        private Dictionary<int, Heli> helis;
         
         
         public Comandante Cmd
@@ -54,10 +55,16 @@ namespace FogUM
             set { relatorio = value; }
         }
 
-        public SortedDictionary<int, Unidade> Unidades
+        public Dictionary<int, Corporacao> Corperacoes
         {
-            get { return unidades; }
-            set { unidades = value; }
+            get { return corporacoes; }
+            set { corporacoes = value; }
+        }
+
+        public Dictionary<int, Heli> Helis
+        {
+            get { return helis; }
+            set { helis = value; }
         }
 
 
@@ -76,42 +83,57 @@ namespace FogUM
                 return true;
             return false;
         }
-
-        /* public SortedDictionary<int, Unidade> getUnidadesDisponiveis()
+          //- Vai a base de dados buscar as unidades disponiveis 
+         /*public Dictionary<int, Corporacao> getCoorpDisponiveis()
          {
-             getUnidadesDisponiveis() - Vai a base de dados buscar as unidades disponiveis 
+             return getCoorpDisponiveis(); 
+         }
+         
+        public Dictionary<int, Heli> getHeliDisponiveis()
+         {
+             return getHeliDisponiveis();
          }*/
 
-        public SortedDictionary<int, Unidade> getUnidadesDestacadas()
+        public Dictionary<int, Corporacao> getCoorpDestacadas()
         {
             //igual a propriedade Unidades
-            return unidades;
+            return corporacoes;
         }
 
-        public void remUnidade(int cod)
+        public void remCorp(int cod)
         {
-            //muda a tag de disponivel
-            Unidade aux;
-            unidades.TryGetValue(cod, out aux);
-            //falta saber se é heli ou coorporacao
-
-            //faz update dessa unidade na base de dados
-            //bd.updateCoorp(aux);
-            //ou
-            //bd.updateHeli(aux);
-
-            // Remove da map a unidade(feito)
-            unidades.Remove(cod);
+            Corporacao aux;
+            corporacoes.TryGetValue(cod, out aux);
+            aux.Disponivel = false;
+            bd.updateCorp(aux);
+            corporacoes.Remove(cod);                     
             
         }
-        
-        public void adicionaUnidades(Unidade uni)
+        public void remHeli(int cod)
         {
-           
-            //Muda a tag na base de dados 
-            //adiciona a map do comandante
+            Heli aux;
+            helis.TryGetValue(cod, out aux);
+            aux.Disp = false;
+            bd.updateHeli(aux);
+            helis.Remove(cod); 
         }
 
+        
+        public void adicionaCorp(Corporacao corp)
+        {
+            corp.Disponivel = false;
+            bd.updateCorp(corp);
+            corporacoes.Add(corp.Cod, corp);
+        }
+
+        public void adicionaHeli(Heli hel)
+        {
+            hel.Disp = false;
+            bd.updateHeli(hel);
+            helis.Add(hel.Cod, hel);
+        }
+
+        
         /*public List<int> getListaEstados()
         {
             //Nao faço a minima ideia do k faz
@@ -150,6 +172,8 @@ namespace FogUM
             //Muda a Data
             DateTime agora = new DateTime();
             this.fogoCombate.Dh_extinto = agora;
+
+            //falta libertar Helis e corp
         }
         public void setRaio(float raioNovo)
         {

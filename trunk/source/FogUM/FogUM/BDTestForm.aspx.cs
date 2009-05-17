@@ -18,6 +18,7 @@ namespace FogUM
     {
 
         BD_FogUM testes = new BD_FogUM();
+        Proc_Cmd procCmd = new Proc_Cmd();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,8 +33,22 @@ namespace FogUM
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Comandante c = new Comandante(1, "João Castro", "JCastro", "JC22");
-            testes.teste3(c);
+
+            ListBox1.Items.Add("Zona de teste Proc_cmd");
+            procCmd.novoFogo();
+            procCmd.FogoCombate.Raio_fogo = 2;
+            procCmd.FogoCombate.Raio_seg = 4;
+            ListBox1.Items.Add(procCmd.verificaRaio(4).ToString());
+            DateTime n = new DateTime();
+            ListBox1.Items.Add(n.ToString());
+            //Comandante c = new Comandante(1, "João Castro", "JCastro", "JC22");
+            //testes.teste3(c);
+        }
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            ListBox1.Items.Add("vasda");
+        
+           
         }
 
         protected void Button3_Click(object sender, EventArgs e)
