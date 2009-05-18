@@ -20,6 +20,7 @@ namespace FogUM
         BD_FogUM testes = new BD_FogUM();
         Comandante c1 = new Comandante(1, "Rui Pereira", "teste", "teste");
         Proc_Cmd procCmd = new Proc_Cmd(new Comandante(1, "Rui Pereira", "teste", "teste"));
+        Parser parsefog = new Parser();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,6 +48,7 @@ namespace FogUM
             ListBox1.Items.Add(procCmd.getCoorpDisponiveis().Count.ToString());
             //Comandante c = new Comandante(1, "João Castro", "JCastro", "JC22");
             //testes.teste3(c);
+            parsefog.parseFogo();
         }
         protected void Button4_Click(object sender, EventArgs e)
         {
