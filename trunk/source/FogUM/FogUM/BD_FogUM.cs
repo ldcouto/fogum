@@ -133,18 +133,27 @@ namespace FogUM
         /// <summary>
         /// Devolver uma lista com os relatórios pendentes para um dado Comandante.
         /// </summary>
-        /// <param name="cmd">O nome do comandante cujos relatórios são pedidos.</param>
+        /// <param name="cmd">O username do comandante cujos relatórios são pedidos.</param>
         /// <returns>A lista de relatórios pendentes.</returns>
-        public List<Relatorio> getRelsPendentes(string cmd)
+        public List<Relatorio> getRelsPendentes(string cmdUsername)
         {
-           // List<Relatorio> r = new List<Relatorio>();
+            List<Relatorio> r = new List<Relatorio>();
 
-            throw new Exception("Not yet Implemented");
+            DBLinqDataContext bdf = new DBLinqDataContext();
 
-          //  return r;
+            var relQuery =
+                from aux in bdf.FOGOs
+                where aux.COD_RELATORIO == null && aux.COMANDANTE.USERNAME == cmdUsername
+                select aux.COD_FOGO;
+
+            foreach (int cf in relQuery)
+            {
+                Relatorio r1 = new Relatorio(cf, "Ainda não preenchido");
+                r.Add(r1);
+            }
+        
+            return r;
         }
-
-
 
         /// <summary>
         /// Devolver um fogo a partir dum código
