@@ -95,6 +95,7 @@
     <Compile Include="Interface_Civil.cs" />
     <Compile Include="Interface_Cmd.cs" />
     <Compile Include="Interface_Login.cs" />
+    <Compile Include="Parser.cs" />
     <Compile Include="Proc_Civil.cs" />
     <Compile Include="Proc_Cmd.cs" />
     <Compile Include="Proc_Login.cs" />
