@@ -18,7 +18,8 @@ namespace FogUM
     {
 
         BD_FogUM testes = new BD_FogUM();
-        Proc_Cmd procCmd = new Proc_Cmd();
+        Comandante c1 = new Comandante(1, "Rui Pereira", "teste", "teste");
+        Proc_Cmd procCmd = new Proc_Cmd(new Comandante(1, "Rui Pereira", "teste", "teste"));
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,9 +39,12 @@ namespace FogUM
             procCmd.novoFogo();
             procCmd.FogoCombate.Raio_fogo = 2;
             procCmd.FogoCombate.Raio_seg = 4;
+            procCmd.getCoorpDisponiveis();
             ListBox1.Items.Add(procCmd.verificaRaio(4).ToString());
             DateTime agora = DateTime.Now;
+            ListBox1.Items.Add(GeoCodeCalc.CalcDistance(41.455079, -8.295364, 38.72034, -9.135818, GeoCodeCalcMeasurement.Kilometers).ToString()); 
             ListBox1.Items.Add(agora.ToString());
+            ListBox1.Items.Add(procCmd.getCoorpDisponiveis().Count.ToString());
             //Comandante c = new Comandante(1, "João Castro", "JCastro", "JC22");
             //testes.teste3(c);
         }

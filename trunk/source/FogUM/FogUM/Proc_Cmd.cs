@@ -13,6 +13,7 @@ using System.Collections.Generic;
 
 
 
+
 namespace FogUM
 {
     public class Proc_Cmd
@@ -21,11 +22,14 @@ namespace FogUM
         private Fogo fogoCombate;
         private List<Deposito> depositosDisp;
         private BD_FogUM bd;
-        private List<Relatorio> relatorio;
+        private List<Relatorio> relatorios ;
         private Dictionary<int, Corporacao> corporacoes;
         private Dictionary<int, Heli> helis;
-        
-        
+
+     
+
+
+
         public Comandante Cmd
         {
             get { return cmd; }
@@ -51,8 +55,8 @@ namespace FogUM
         }
         public List<Relatorio> Relatorio
         {
-            get { return relatorio; }
-            set { relatorio = value; }
+            get { return relatorios; }
+            set { relatorios = value; }
         }
 
         public Dictionary<int, Corporacao> Corperacoes
@@ -67,6 +71,16 @@ namespace FogUM
             set { helis = value; }
         }
 
+
+        public Proc_Cmd(Comandante cmd)
+        {
+            this.cmd = cmd;
+            this.depositosDisp = new List<Deposito>();
+            this.bd = new BD_FogUM();
+         //   this.relatorios = bd.getRelsPendentes(cmd.User); Falta funcionar na base de dados
+            this.corporacoes = new Dictionary<int, Corporacao>();
+            this.helis = new Dictionary<int, Heli>();
+        }
 
 
         //metodos....
@@ -86,9 +100,7 @@ namespace FogUM
           //- Vai a base de dados buscar as unidades disponiveis 
          public Dictionary<int, Corporacao> getCoorpDisponiveis()
          {
-             Dictionary<int, Corporacao> novo = new Dictionary<int, Corporacao>();
-             novo = bd.getCorpsDisponiveis();
-             return novo;
+              return bd.getCorpsDisponiveis();
 
          }
          
@@ -114,7 +126,7 @@ namespace FogUM
         {
             Corporacao aux;
             corporacoes.TryGetValue(cod, out aux);
-            aux.Disponivel = false;
+            aux.Disponivel = true;
             bd.updateCorp(aux);
             corporacoes.Remove(cod);                     
             
@@ -123,7 +135,7 @@ namespace FogUM
         {
             Heli aux;
             helis.TryGetValue(cod, out aux);
-            aux.Disp = false;
+            aux.Disp = true;
             bd.updateHeli(aux);
             helis.Remove(cod); 
         }
@@ -195,20 +207,34 @@ namespace FogUM
             this.fogoCombate.Raio_seg = raioNovo;
         }
 
-        /*
-        public Relatorio getRelatorio(String relatorioP)
+        
+        public Relatorio getRelatorio(int codRel)
         {
-            //Nao faço ideia do k faz
-        }*/
+            foreach (Relatorio r in this.relatorios)
+            {
+                if (r.Codigo == codRel)
+                    return r;
+            }
+            return null;
+        }
 
         
          public Boolean submitRel(Relatorio rel, Fogo f)
         {
-            relatorio.Add(rel);
+            relatorios.Add(rel);
              //adiciona a base de dados, penso que é preciso
             bd.submitRel(rel, f);
             return true;
         }
+
+         public void constDepDisp(float dis)
+         {
+             dis += fogoCombate.Raio_fogo;
+             List<Deposito> aux = bd.getDepositos();
+             foreach (Deposito dep in aux)
+                 if (GeoCodeCalc.CalcDistance(fogoCombate.Latitude, fogoCombate.Longitude, dep.Latitude, dep.Longitude, GeoCodeCalcMeasurement.Kilometers) < dis)
+                     depositosDisp.Add(dep);
+         }
          
 
     }
