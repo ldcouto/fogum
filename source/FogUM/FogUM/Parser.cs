@@ -25,6 +25,7 @@ namespace FogUM
                 from fog in bdf.FOGOs
                 select fog;
             StringBuilder sb = new StringBuilder();
+            
             sb.Append("<Tab_fogo>\n");
             foreach (FOGO f in fQuery)
             {
@@ -32,8 +33,7 @@ namespace FogUM
                 sb.Append("\t\t<bbomb>" + f.BAIXAS_BOMBEIROS + "<\\bbomb> \n");
                 sb.Append("\t\t<bcivis>" + f.BAIXAS_CIVIS + "<\\bcivis> \n"); 
                 sb.Append("\t<\\fogo>\n");
-                //sb.Append(System.Environment.NewLine);
-                
+                        
             }
             sb.Append("<\\Tab_fogo>\n");
             path.Write(sb.ToString());
