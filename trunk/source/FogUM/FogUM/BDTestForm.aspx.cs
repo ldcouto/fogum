@@ -38,6 +38,7 @@ namespace FogUM
             //Mexi aqui para teste pois nao conseguia adicionar outro butao. VAsco
             ListBox1.Items.Add("Zona de teste Proc_cmd");
             procCmd.novoFogo();
+            
             procCmd.FogoCombate.Raio_fogo = 2;
             procCmd.FogoCombate.Raio_seg = 4;
             procCmd.getCoorpDisponiveis();
