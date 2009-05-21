@@ -38,7 +38,9 @@ namespace FogUM
             //Mexi aqui para teste pois nao conseguia adicionar outro butao. VAsco
             ListBox1.Items.Add("Zona de teste Proc_cmd");
             procCmd.novoFogo();
-            
+            double x = 41.455079;
+            double y = -8.295364;
+            String vasco = "Rua prof. José Teixeira de Maria,Brito,Portugal";
             procCmd.FogoCombate.Raio_fogo = 2;
             procCmd.FogoCombate.Raio_seg = 4;
             procCmd.getCoorpDisponiveis();
@@ -49,7 +51,9 @@ namespace FogUM
             ListBox1.Items.Add(procCmd.getCoorpDisponiveis().Count.ToString());
             //Comandante c = new Comandante(1, "João Castro", "JCastro", "JC22");
             //testes.teste3(c);
-            parsefog.parseFogo();
+            parsefog.criarXML();
+            ListBox1.Items.Add("XML Criado");
+           
         }
         protected void Button4_Click(object sender, EventArgs e)
         {
