@@ -1,10 +1,205 @@
-<Tab_fogo>
-	<fogo>
-		<bbomb>0<\bbomb> 
-		<bcivis>1<\bcivis> 
-	<\fogo>
-	<fogo>
-		<bbomb>23<\bbomb> 
-		<bcivis>10<\bcivis> 
-	<\fogo>
-<\Tab_fogo>
+<TAB_FOGO>
+
+	<FOGO>
+		<codFogo> 15 </codFogo> 
+		<codEstado> 1 </codEstado> 
+		<codConcelho> 2 </codConcelho> 
+		<codComandante> 3 </codComandante> 
+		<latitude> 41,4475356297077 </latitude> 
+		<longitude> -8,28096628189087 </longitude> 
+		<dataCircunscrito> 23-05-2009 16:15:10 </dataCircunscrito> 
+		<dataFim> 23-05-2009 17:45:10 </dataFim> 
+		<dataInicio> 23-05-2009 14:25:10 </dataInicio> 
+		<raioFogo> 2 </raioFogo> 
+		<raioSeguranca> 2 </raioSeguranca> 
+		<baixasBomb> 0 </baixasBomb> 
+		<baixasCivis> 1 </baixasCivis> 
+		<codRelatorio>  </codRelatorio> 
+		<relatorio>  </relatorio> 
+	</FOGO>
+
+	<FOGO>
+		<codFogo> 18 </codFogo> 
+		<codEstado> 1 </codEstado> 
+		<codConcelho> 3 </codConcelho> 
+		<codComandante> 1 </codComandante> 
+		<latitude> 41,4475356297077 </latitude> 
+		<longitude> -8,28096628189087 </longitude> 
+		<dataCircunscrito> 23-01-2009 17:25:55 </dataCircunscrito> 
+		<dataFim> 23-01-2009 18:25:55 </dataFim> 
+		<dataInicio> 23-01-2009 14:25:55 </dataInicio> 
+		<raioFogo> 15 </raioFogo> 
+		<raioSeguranca> 17 </raioSeguranca> 
+		<baixasBomb> 23 </baixasBomb> 
+		<baixasCivis> 10 </baixasCivis> 
+		<codRelatorio>  </codRelatorio> 
+		<relatorio>  </relatorio> 
+	</FOGO>
+
+</TAB_FOGO>
+
+<TAB_COMANDANTE>
+
+	<COMANDANTE>
+		<nome> João da Silva </nome> 
+		<codComandante> 2 </codComandate> 
+		<username> JSilva </username> 
+		<password> cmd01  </password> 
+	</COMANDANTE>
+
+	<COMANDANTE>
+		<nome> Marco da Costa </nome> 
+		<codComandante> 3 </codComandate> 
+		<username> MCosta </username> 
+		<password> cmd02  </password> 
+	</COMANDANTE>
+
+	<COMANDANTE>
+		<nome> Rui Pereira </nome> 
+		<codComandante> 1 </codComandate> 
+		<username> teste </username> 
+		<password> teste  </password> 
+	</COMANDANTE>
+
+	<COMANDANTE>
+		<nome> João Castro </nome> 
+		<codComandante> 11 </codComandate> 
+		<username> JCastro </username> 
+		<password> JC22   </password> 
+	</COMANDANTE>
+
+</TAB_COMANDANTE>
+
+<TAB_CONCELHO>
+
+	<CONCELHO>
+		<codConcelho> 3 </codConcelho> 
+		<concDesignacao> Santo Tirso </concDesignacao> 
+	</CONCELHO>
+
+	<CONCELHO>
+		<codConcelho> 1 </codConcelho> 
+		<concDesignacao> Barcelos </concDesignacao> 
+	</CONCELHO>
+
+	<CONCELHO>
+		<codConcelho> 2 </codConcelho> 
+		<concDesignacao> Guimarães </concDesignacao> 
+	</CONCELHO>
+
+</TAB_CONCELHO>
+
+<TAB_CORPORACAO>
+
+	<CORPORACAO>
+		<codCorporacao> 2 </codCorporacao> 
+		<designCorporacao> Bombeiros Voluntários de Guimarães </designCorporacao> 
+		<latitude> 4,14466992636547E+15 </latitude> 
+		<longitude> -829843282699585 </longitude> 
+		<numHomens> 160 </numHomens> 
+		<numVeiculos> 31 </numVeiculos> 
+		<disponibilidade> True </disponibilidade> 
+	</CORPORACAO>
+
+</TAB_CORPORACAO>
+
+<TAB_CORPFOGO>
+
+	<CORP_FOGO>
+		<codCorporacao> 2 </codCorporacao> 
+		<codFogo> 15 </codFogo> 
+		<numHomens> 20 </numHomens> 
+		<numVeiculos> 20 </numVeiculos> 
+	</CORP_FOGO>
+
+</TAB_CORPFOGO>
+
+<TAB_DEPOSITOS>
+
+	<DEPOSITO>
+		<codDeposito> 5 </codDeposito> 
+		<codTipoDeposito> 2 </codTipoDeposito> 
+		<volume> 2500000 </volume> 
+		<latitude> 41,4438844910126 </latitude> 
+		<longitude> -8,30270290374756 </longitude> 
+	</DEPOSITO>
+
+	<DEPOSITO>
+		<codDeposito> 6 </codDeposito> 
+		<codTipoDeposito> 1 </codTipoDeposito> 
+		<volume> 1500000 </volume> 
+		<latitude> 41,3694820253064 </latitude> 
+		<longitude> -8,30021381378174 </longitude> 
+	</DEPOSITO>
+
+</TAB_DEPOSITO>
+
+<TAB_DISTRITOS>
+
+	<DISTRITO>
+		<codDistrito> 2 </codDistrito> 
+		<designDistrito> Braga </designDistrito> 
+	</DISTRITO>
+
+	<DISTRITO>
+		<codDistrito> 1 </codDistrito> 
+		<designDistrito> Porto </designDistrito> 
+	</DISTRITO>
+
+</TAB_DISTRITOS>
+
+<TAB_ESTADO_FOGO>
+
+	<ESTADO_FOGO>
+		<codEstado> 3 </codEstado> 
+		<designEstado> Extinto </designEstado> 
+	</ESTADO_FOGO>
+
+	<ESTADO_FOGO>
+		<codEstado> 1 </codEstado> 
+		<designEstado> Não Circunscrito </designEstado> 
+	</ESTADO_FOGO>
+
+	<ESTADO_FOGO>
+		<codEstado> 2 </codEstado> 
+		<designEstado> Circunscrito </designEstado> 
+	</ESTADO_FOGO>
+
+</TAB_ESTADO_FOGO>
+
+<TAB_HELI>
+
+</TAB_HELI>
+
+<TAB_HELIFOGOS>
+
+</TAB_HELIFOGOS>
+
+<TAB_RELATORIO>
+
+	<RELATORIO>
+		<codRelatorio> 6 </codRelatorio> 
+		<codFogo> 15 </codFogo> 
+		<comentario> Causa desconhecida. Fogo numa zona civil. Poucos estragos. </comentario> 
+	</RELATORIO>
+
+</TAB_RELATORIO>
+
+<TAB_TIPOS_DEPO>
+
+	<TIPO_DEPO>
+		<codTipo> 2 </codTipo> 
+		<designTipo> Piscina </designTipo> 
+	</TIPO_DEPO>
+
+	<TIPO_DEPO>
+		<codTipo> 1 </codTipo> 
+		<designTipo> Tanque de Rega </designTipo> 
+	</TIPO_DEPO>
+
+</TAB_TIPOS_DEPO>
+
+<TAB_VOLUNTARIADO>
+
+</TAB_VOLUNTARIADO>
+
