@@ -26,10 +26,6 @@ namespace FogUM
         private Dictionary<int, Corporacao> corporacoes;
         private Dictionary<int, Heli> helis;
 
-     
-
-
-
         public Comandante Cmd
         {
             get { return cmd; }
@@ -101,7 +97,6 @@ namespace FogUM
          public Dictionary<int, Corporacao> getCoorpDisponiveis()
          {
               return bd.getCorpsDisponiveis();
-
          }
          
         public Dictionary<int, Heli> getHeliDisponiveis()

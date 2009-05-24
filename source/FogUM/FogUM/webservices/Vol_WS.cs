@@ -16,10 +16,39 @@ namespace FogUM.webservices
     public class Vol_WS
     {
         private String disp;
+        public String Disp
+        {
+            get { return disp; }
+            set { disp = value; }
+        }
+
         private String nome;
+        public String Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+
         private String distrito;
+        public String Distrito
+        {
+            get { return distrito; }
+            set { distrito = value; }
+        }
+
         private String telefone;
+        public String Telefone
+        {
+            get { return telefone; }
+            set { telefone = value; }
+        }
+
         private String email;
+        public String Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
 
 
         public Vol_WS(VOLUNTARIADO bdVol)
@@ -31,6 +60,15 @@ namespace FogUM.webservices
             this.telefone = bdVol.NUM_TELEFONE.ToString();
             this.email = bdVol.EMAIL;
 
+        }
+
+        public Vol_WS()
+        {
+            this.disp="";
+            this.distrito ="";
+            this.email="";
+            this.nome="";
+            this.telefone="";
         }
 
         public Vol_WS(Voluntario volN)

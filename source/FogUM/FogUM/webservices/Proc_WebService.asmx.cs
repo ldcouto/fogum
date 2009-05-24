@@ -7,13 +7,15 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.Xml.Linq;
+using System.Collections.Generic;
+using FogUM.bd;
 
 namespace FogUM.webservices
 {
     /// <summary>
-    /// Summary description for Proc_WebService
+    /// WebServices da Plataforma FogUM
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
+    [WebService(Name="FogUM WS", Description="Web Services Plataforma FogUM", Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -26,5 +28,23 @@ namespace FogUM.webservices
         {
             return "Hello World";
         }
+
+        [System.Web.Services.WebMethod(Description="Obter lista de voluntários para o seu distrito")]
+        public List<Vol_WS> listVols(int codigoDistrito)
+        {
+            List<Vol_WS> r = new List<Vol_WS>();
+            BD_FogUM bdf = new BD_FogUM();
+            List<Voluntario> aux = new List<Voluntario>();
+            aux = bdf.getVols(codigoDistrito);
+            foreach (Voluntario v in aux)
+            {
+                r.Add(new Vol_WS(v));
+            }
+            return r;
+        }
+
+
+
+
     }
 }
