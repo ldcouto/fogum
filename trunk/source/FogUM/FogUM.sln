@@ -6,6 +6,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "FogUM\website\", "{09AC8A57-A2F1-4C1F-8394-0EED2991A7AC}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
+		ProjectReferences = "{D133CF06-3A05-4B8C-9B01-1C46E1B673E1}|FogUM.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/website"
 		Debug.AspNetCompiler.PhysicalPath = "FogUM\website\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\website\"

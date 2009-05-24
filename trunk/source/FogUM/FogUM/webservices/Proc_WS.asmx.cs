@@ -32,7 +32,7 @@ namespace FogUM.webservices
 
 
 
-        [System.Web.Services.WebMethod()]
+    [System.Web.Services.WebMethod()]
     public List<int> teste1()
     {
         DBLinqDataContext bdf = new DBLinqDataContext();
