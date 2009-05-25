@@ -5,3 +5,8 @@ C:\Documents and Settings\Luis\Os meus documentos\fogumWS\fogum\source\FogUM\Fog
 C:\Documents and Settings\Luis\Os meus documentos\fogumWS\fogum\source\FogUM\FogUM\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Luis\Os meus documentos\fogumWS\fogum\source\FogUM\FogUM\obj\Debug\FogUM.dll
 C:\Documents and Settings\Luis\Os meus documentos\fogumWS\fogum\source\FogUM\FogUM\obj\Debug\FogUM.pdb
+C:\Documents and Settings\Vasco\Os meus documentos\workspace\source\FogUM\FogUM\bin\FogUM.dll
+C:\Documents and Settings\Vasco\Os meus documentos\workspace\source\FogUM\FogUM\bin\FogUM.pdb
+C:\Documents and Settings\Vasco\Os meus documentos\workspace\source\FogUM\FogUM\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Vasco\Os meus documentos\workspace\source\FogUM\FogUM\obj\Debug\FogUM.dll
+C:\Documents and Settings\Vasco\Os meus documentos\workspace\source\FogUM\FogUM\obj\Debug\FogUM.pdb
