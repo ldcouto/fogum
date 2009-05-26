@@ -72,6 +72,149 @@ namespace FogUM
         //-------GETS----------------
         //-------------------------
 
+        public List<EstFogo> getEstFogos(DateTime dt)
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            List<EstFogo> r = new List<EstFogo>();
+            var auxQuery =
+                    from fogs in bdf.FOGOs
+                    where fogs.DH_FIM.Date.Equals(dt.Date)
+                    select fogs.COD_FOGO;
+            foreach(int i in auxQuery)
+                r.Add(this.getEFAux(i));
+            return r;
+        }
+
+        private EstFogo getEFAux(int codFogo)
+        {
+            EstFogo r = new EstFogo();
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var fQuery =
+                from fogs in bdf.FOGOs
+                where fogs.COD_FOGO == codFogo
+                select fogs;
+            if (fQuery == null) return r;
+            else{
+                var fQ = fQuery.First();
+                r.AreaArdida = (float)fQ.RAIO_FOGO;
+                r.Cmd = fQ.COMANDANTE.NOME;
+                r.DhEnd = fQ.DH_FIM.ToString();
+                r.DhStart = fQ.DH_START.ToString();
+                r.Estado = fQ.ESTADO_FOGO.ESTADO_DESIGN;
+                r.NBaixasB = (int) fQ.BAIXAS_BOMBEIROS;
+                r.NCompanhias =
+                    (from fCs in bdf.CORPFOGOs
+                    where fCs.COD_FOGO == codFogo
+                    select fCs).Count();
+                r.NHelis =
+                    (from fCs in bdf.HELIFOGOs
+                     where fCs.COD_FOGO == codFogo
+                     select fCs).Count();
+                r.Zona = fQ.CONCELHO.CONCELHO_DESIGN;
+
+                var corpQuery =
+                    from corp in bdf.CORPORACAOs
+                    join aux in bdf.CORPFOGOs on corp.COD_CORPORACAO equals aux.COD_CORPORACAO
+                    where aux.COD_FOGO == codFogo
+                    select corp;
+
+                r.NHelis = (from hs in bdf.HELIs
+                            join aux in bdf.HELIFOGOs on hs.COD_HELI equals aux.COD_HELI
+                            where aux.COD_FOGO == codFogo
+                            select aux.COD_HELI).Count();
+
+                var fQuery3 = 
+                    from cs in bdf.CORPORACAOs
+                    join aux in bdf.CORPFOGOs on cs.COD_CORPORACAO equals aux.COD_CORPORACAO
+                    where aux.COD_FOGO == codFogo
+                    select new { Homens = cs.NUM_HOMENS_DISP, Veiculos=cs.NUM_VEICULOS_DISP };
+
+                r.NVeiculos=0;
+                r.NHomens=0;
+                foreach (var aux in fQuery3)
+                {
+                    r.NVeiculos += (int) aux.Veiculos;
+                    r.NHomens += (int) aux.Homens;
+                }
+
+                return r;
+            }
+        }
+
+        /// <summary>
+        /// Devolver o total de fogos ocorridos num ano
+        /// </summary>
+        /// <param name="ano">O ano desejado</param>
+        /// <returns>Número de fogos que Terminaram no ano dado</returns>
+        public int getFogosAno(int ano)
+        {
+            int r = 0;
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var fQuery =
+                from fogs in bdf.FOGOs
+                where fogs.DH_FIM.Year == ano
+                select fogs.COD_FOGO;
+            r = fQuery.Count();
+            return r;
+        }
+
+        /// <summary>
+        /// Devolver o total de baixas civis num ano
+        /// </summary>
+        /// <param name="ano">O ano desejado</param>
+        /// <returns>Número de baixas civis em fogos que Terminaram no ano dado</returns>
+        public int getBaixasCAno(int ano)
+        {
+            int r = 0;
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var fQuery =
+                from fogs in bdf.FOGOs
+                where fogs.DH_FIM.Year == ano
+                select fogs.BAIXAS_CIVIS;
+
+            foreach (int b in fQuery)
+                r += b;
+            return r;
+        }
+
+        /// <summary>
+        /// Devolver o total de baixas nos bombeiros num ano
+        /// </summary>
+        /// <param name="ano">O ano desejado</param>
+        /// <returns>Número de baixas nos bombeiros em fogos que Terminaram no ano dado</returns>
+        public int getBaixasBAno(int ano)
+        {
+            int r = 0;
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var fQuery =
+                from fogs in bdf.FOGOs
+                where fogs.DH_FIM.Year == ano
+                select fogs.BAIXAS_BOMBEIROS;
+
+            foreach (int b in fQuery)
+                r += b;
+            return r;
+        }
+
+        /// <summary>
+        /// Devolver o total da área ardida num ano
+        /// </summary>
+        /// <param name="ano">O ano desejado</param>
+        /// <returns>Total de área ardida em fogos que Terminaram no ano dado</returns>
+        public float getAAano(int ano)
+        {
+            float r = 0;
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var fQuery =
+                from fogs in bdf.FOGOs
+                where fogs.DH_FIM.Year == ano
+                select fogs.RAIO_FOGO;
+
+            foreach (float a in fQuery)
+                r += a;
+            return r;
+        }
+
         /// <summary>
         /// Devolver lista de voluntários para um dado distrito
         /// </summary>
