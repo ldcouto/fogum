@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D133CF06-3A05-4B8C-9B01-1C46E1B673E1}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -56,11 +56,8 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="webservices\Proc_WebService.asmx" />
-    <Content Include="webservices\Proc_WS.asmx" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="bd\BD_FogUM.cs" />
+    <Compile Include="bd\EstFogo.cs" />
     <Compile Include="classesDados\Comandante.cs" />
     <Compile Include="classesDados\Corporacao.cs" />
     <Compile Include="bd\DBLinq.designer.cs">
@@ -79,19 +76,10 @@
     <Compile Include="proc\Proc_Civil.cs" />
     <Compile Include="proc\Proc_Cmd.cs" />
     <Compile Include="proc\Proc_Login.cs" />
-    <Compile Include="webservices\Proc_WebService.asmx.cs">
-      <DependentUpon>Proc_WebService.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="webservices\Proc_WS.asmx.cs">
-      <DependentUpon>Proc_WS.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="classesDados\Relatorio.cs" />
     <Compile Include="classesDados\Unidade.cs" />
     <Compile Include="classesDados\Voluntario.cs" />
-    <Compile Include="webservices\Vol_WS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bd\DBLinq.dbml">
@@ -131,9 +119,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
