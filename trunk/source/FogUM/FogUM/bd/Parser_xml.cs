@@ -820,7 +820,7 @@ namespace FogUM
         {
 
 
-            apagaBD();
+           // apagaBD();
 
 
             Regex expFg = new Regex("<FOGO>");
