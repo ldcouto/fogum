@@ -372,26 +372,6 @@ namespace FogUM
             path.Close();
         }
 
-        public void criarTXT()
-        {
-            TextWriter path = new StreamWriter("bd.txt");
-            path.WriteLine("<FogUM>");
-            path.Write(this.parseFogo());
-            path.Write(this.parseComandante());
-            path.Write(this.parseConselho());
-            path.Write(this.parseCorporacao());
-            path.Write(this.parseCorpFogo());
-            path.Write(this.parseDepositos());
-            path.Write(this.parseDistritos());
-            path.Write(this.parseEstadoFogo());
-            path.Write(this.parseHeli());
-            path.Write(this.parseHeliFogo());
-            path.Write(this.parseRelatorio());
-            path.Write(this.parseTiposDepos());
-            path.Write(this.parseVoluntariado());
-            path.WriteLine("</FogUM>");
-            path.Close();
-        }
 
 
     }
