@@ -16,8 +16,9 @@ public partial class testes_WF1t : PageBase
     {
         Comandante c1 = new Comandante(1,"","","");
         Proc_Cmd pc = new Proc_Cmd(c1);
-        Dictionary<int,Corporacao> r = pc.getCoorpDisponiveis();
-        foreach (KeyValuePair<int, Corporacao> kp in r)
-            ListBox1.Items.Add(kp.Value.Nome);
+        Proc_Civil pci = new Proc_Civil();
+        Dictionary<int,Fogo> r = pci.selectMapaIncendios();
+        foreach (KeyValuePair<int, Fogo> kp in r)
+            ListBox1.Items.Add(kp.Value.Estado.ToString());
     }
 }

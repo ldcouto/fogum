@@ -160,7 +160,10 @@ namespace FogUM
             this.dh_extinto = bdf.DH_FIM;
             this.baixas_civis = (int) bdf.BAIXAS_CIVIS;
             this.baixas_bombeiros = (int) bdf.BAIXAS_BOMBEIROS;
-            this.comentario = bdf.RELATORIO.COMENTARIO;
+            string aux = "";
+            if (bdf.RELATORIO != null)
+                aux = bdf.RELATORIO.COMENTARIO;
+            this.comentario = aux;
             this.estado = (int) bdf.COD_ESTADO;
         }
 

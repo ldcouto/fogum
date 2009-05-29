@@ -17,8 +17,34 @@ namespace FogUM
     public class BD_FogUM
     {
 
-        private static int COD_ESTADO_EXTINTO=3;
+        //private int nextCodCmd;
+        //private int nextCodConcelho;
+        //private int nextCodCorp;
+        //private int nextCodDepo;
+        //private int nextCodEstado;
+        //private int nextCodFogo;
+        //private int nextCodHeli;
+        //private int nextCodRel;
+        //private int nextCodTipo;
+        //private int nextCodVol;
 
+        //public BD_FogUM()
+        //{
+        //    this.nextCodCmd = this.nextCodCmd();
+        //    this.nextCodConcelho = this.nextCodConcelho();
+        //    this.nextCodCorp = this.nextCodCorp();
+        //    this.nextCodDepo = this.nextCodDepo();
+        //    this.nextCodEstado = this.nextCodEstado();
+        //    this.nextCodFogo = this.nextCodFogo();
+        //    this.nextCodHeli = this.nextCodHeli();
+        //    this.nextCodRel = this.nextCodRel();
+        //    this.nextCodTipo = this.nextCodTipo();
+        //    this.nextCodVol = this.nextCodVol();         
+        //}
+
+        private static int COD_ESTADO_EXTINTO = 3;
+
+        #region Testes
         //----------------------------
         //-------TESTES--------------
         //-------------------------
@@ -67,7 +93,9 @@ namespace FogUM
             existCom.NOME = "Rui Pereira";
             bdf.SubmitChanges();
         }
+        #endregion
 
+        #region Gets
         //----------------------------
         //-------GETS----------------
         //-------------------------
@@ -80,7 +108,7 @@ namespace FogUM
                     from fogs in bdf.FOGOs
                     where fogs.DH_FIM.Date.Equals(dt.Date)
                     select fogs.COD_FOGO;
-            foreach(int i in auxQuery)
+            foreach (int i in auxQuery)
                 r.Add(this.getEFAux(i));
             return r;
         }
@@ -94,18 +122,19 @@ namespace FogUM
                 where fogs.COD_FOGO == codFogo
                 select fogs;
             if (fQuery == null) return r;
-            else{
+            else
+            {
                 var fQ = fQuery.First();
                 r.AreaArdida = (float)fQ.RAIO_FOGO;
                 r.Cmd = fQ.COMANDANTE.NOME;
                 r.DhEnd = fQ.DH_FIM.ToString();
                 r.DhStart = fQ.DH_START.ToString();
                 r.Estado = fQ.ESTADO_FOGO.ESTADO_DESIGN;
-                r.NBaixasB = (int) fQ.BAIXAS_BOMBEIROS;
+                r.NBaixasB = (int)fQ.BAIXAS_BOMBEIROS;
                 r.NCompanhias =
                     (from fCs in bdf.CORPFOGOs
-                    where fCs.COD_FOGO == codFogo
-                    select fCs).Count();
+                     where fCs.COD_FOGO == codFogo
+                     select fCs).Count();
                 r.NHelis =
                     (from fCs in bdf.HELIFOGOs
                      where fCs.COD_FOGO == codFogo
@@ -123,18 +152,18 @@ namespace FogUM
                             where aux.COD_FOGO == codFogo
                             select aux.COD_HELI).Count();
 
-                var fQuery3 = 
+                var fQuery3 =
                     from cs in bdf.CORPORACAOs
                     join aux in bdf.CORPFOGOs on cs.COD_CORPORACAO equals aux.COD_CORPORACAO
                     where aux.COD_FOGO == codFogo
-                    select new { Homens = cs.NUM_HOMENS_DISP, Veiculos=cs.NUM_VEICULOS_DISP };
+                    select new { Homens = cs.NUM_HOMENS_DISP, Veiculos = cs.NUM_VEICULOS_DISP };
 
-                r.NVeiculos=0;
-                r.NHomens=0;
+                r.NVeiculos = 0;
+                r.NHomens = 0;
                 foreach (var aux in fQuery3)
                 {
-                    r.NVeiculos += (int) aux.Veiculos;
-                    r.NHomens += (int) aux.Homens;
+                    r.NVeiculos += (int)aux.Veiculos;
+                    r.NHomens += (int)aux.Homens;
                 }
 
                 return r;
@@ -230,10 +259,13 @@ namespace FogUM
                 where vols.COD_DISTRITO == codDistrito
                 select vols;
 
-            foreach (VOLUNTARIADO vol in volQuery)
+            if (volQuery != null)
             {
-                Voluntario v = new Voluntario(vol);
-                r.Add(v);
+                foreach (VOLUNTARIADO vol in volQuery)
+                {
+                    Voluntario v = new Voluntario(vol);
+                    r.Add(v);
+                }
             }
 
             return r;
@@ -251,18 +283,20 @@ namespace FogUM
 
             var volQuery =
                 from vols in bdf.VOLUNTARIADOs
-                where vols.DISTRITO.ToString().ToLower() == distrito.ToLower() 
+                where vols.DISTRITO.ToString().ToLower() == distrito.ToLower()
                 select vols;
 
-            foreach (VOLUNTARIADO vol in volQuery)
+            if (volQuery != null)
             {
-                Voluntario v = new Voluntario(vol);
-                r.Add(v);
+                foreach (VOLUNTARIADO vol in volQuery)
+                {
+                    Voluntario v = new Voluntario(vol);
+                    r.Add(v);
+                }
             }
-
             return r;
         }
-        
+
         /// <summary>
         /// Devolver a password dum utilizador. Utilizado para autenticar
         /// </summary>
@@ -295,8 +329,11 @@ namespace FogUM
                 from estados in bdf.ESTADO_FOGOs
                 select estados.ESTADO_DESIGN;
 
-            foreach (string s in listQuery)
-                r.Add(s);
+            if (listQuery != null)
+            {
+                foreach (string s in listQuery)
+                    r.Add(s);
+            }
             return r;
         }
 
@@ -312,13 +349,14 @@ namespace FogUM
             var relQuery =
                 from rels in bdf.RELATORIOs
                 select rels;
-
-            foreach (RELATORIO rel1 in relQuery)
+            if (relQuery != null)
             {
-                Relatorio rel2 = new Relatorio(rel1.COD_RELATORIO, rel1.COMENTARIO);
-                r.Add(rel2);
+                foreach (RELATORIO rel1 in relQuery)
+                {
+                    Relatorio rel2 = new Relatorio(rel1.COD_RELATORIO, rel1.COMENTARIO);
+                    r.Add(rel2);
+                }
             }
-
             return r;
         }
 
@@ -338,12 +376,14 @@ namespace FogUM
                 where aux.COD_RELATORIO == null && aux.COMANDANTE.USERNAME == cmdUsername
                 select aux.COD_FOGO;
 
-            foreach (int cf in relQuery)
+            if (relQuery != null)
             {
-                Relatorio r1 = new Relatorio(cf, "Ainda não preenchido");
-                r.Add(r1);
+                foreach (int cf in relQuery)
+                {
+                    Relatorio r1 = new Relatorio(cf, "Ainda não preenchido");
+                    r.Add(r1);
+                }
             }
-        
             return r;
         }
 
@@ -379,10 +419,13 @@ namespace FogUM
                 from dep in bdf.DEPOSITOs
                 select dep;
 
-            foreach (DEPOSITO d1 in depQuery)
+            if (depQuery != null)
             {
-                Deposito d2 = new Deposito(d1);
-                r.Add(d2);
+                foreach (DEPOSITO d1 in depQuery)
+                {
+                    Deposito d2 = new Deposito(d1);
+                    r.Add(d2);
+                }
             }
             return r;
         }
@@ -400,10 +443,13 @@ namespace FogUM
                 from corp in bdf.CORPORACAOs
                 select corp;
 
-            foreach (CORPORACAO c1 in corpQuery)
+            if (corpQuery != null)
             {
-                Corporacao c2 = new Corporacao(c1);
-                r.Add(c2);
+                foreach (CORPORACAO c1 in corpQuery)
+                {
+                    Corporacao c2 = new Corporacao(c1);
+                    r.Add(c2);
+                }
             }
             return r;
         }
@@ -423,11 +469,14 @@ namespace FogUM
                 where fog.ESTADO_FOGO.ESTADO_DESIGN != "Extinto"
                 select fog;
 
-            // Run Query
-            foreach (FOGO f in fireQuery)
+            if (fireQuery != null)
             {
-                Fogo f2 = new Fogo(f);
-                r.Add(f2.Codigo, f2);
+                // Run Query
+                foreach (FOGO f in fireQuery)
+                {
+                    Fogo f2 = new Fogo(f);
+                    r.Add(f2.Codigo, f2);
+                }
             }
             return r;
         }
@@ -446,11 +495,15 @@ namespace FogUM
                 from corp in bdf.CORPORACAOs
                 where corp.DISPONIBILIDADE_CORP == true
                 select corp;
-            // Run Query
-            foreach (CORPORACAO c1 in corpQuery)
+
+            if (corpQuery != null)
             {
-                Corporacao c2 = new Corporacao(c1);
-                r.Add(c2.Cod, c2);
+                // Run Query
+                foreach (CORPORACAO c1 in corpQuery)
+                {
+                    Corporacao c2 = new Corporacao(c1);
+                    r.Add(c2.Cod, c2);
+                }
             }
             // HELI
             // Make Select Query
@@ -458,11 +511,14 @@ namespace FogUM
                 from heli in bdf.HELIs
                 where heli.HELI_DISPONIBILIDADE == true
                 select heli;
-            // Run Query
-            foreach (HELI h1 in heliQuery)
+            if (heliQuery != null)
             {
-                Heli h2 = new Heli(h1);
-                r.Add(h2.Cod, h2);
+                // Run Query
+                foreach (HELI h1 in heliQuery)
+                {
+                    Heli h2 = new Heli(h1);
+                    r.Add(h2.Cod, h2);
+                }
             }
             return r;
         }
@@ -473,7 +529,7 @@ namespace FogUM
         /// <returns>Dicionário de pares (código, Corp) </returns>
         public Dictionary<int, Corporacao> getCorpsDisponiveis()
         {
-            Dictionary<int, Corporacao> r = new Dictionary<int,Corporacao>();
+            Dictionary<int, Corporacao> r = new Dictionary<int, Corporacao>();
             DBLinqDataContext bdf = new DBLinqDataContext();
 
             var corpQuery =
@@ -481,12 +537,14 @@ namespace FogUM
                 where corp.DISPONIBILIDADE_CORP == true
                 select corp;
 
-            foreach (CORPORACAO c1 in corpQuery)
+            if (corpQuery != null)
             {
-                Corporacao c2 = new Corporacao(c1);
-                r.Add(c2.Cod, c2);
+                foreach (CORPORACAO c1 in corpQuery)
+                {
+                    Corporacao c2 = new Corporacao(c1);
+                    r.Add(c2.Cod, c2);
+                }
             }
-
             return r;
         }
 
@@ -503,13 +561,15 @@ namespace FogUM
                 from heli in bdf.HELIs
                 where heli.HELI_DISPONIBILIDADE == true
                 select heli;
-  
-            foreach (HELI h1 in heliQuery)
-            {
-                Heli h2 = new Heli(h1);
-                r.Add(h2.Cod, h2);
-            }
 
+            if (heliQuery != null)
+            {
+                foreach (HELI h1 in heliQuery)
+                {
+                    Heli h2 = new Heli(h1);
+                    r.Add(h2.Cod, h2);
+                }
+            }
             return r;
         }
 
@@ -529,12 +589,14 @@ namespace FogUM
                 where aux.COD_FOGO == fogoP.Codigo
                 select corp;
 
-            foreach (CORPORACAO c1 in corpQuery)
+            if (corpQuery != null)
             {
-                Corporacao c2 = new Corporacao(c1);
-                r.Add(c2.Cod, c2);
+                foreach (CORPORACAO c1 in corpQuery)
+                {
+                    Corporacao c2 = new Corporacao(c1);
+                    r.Add(c2.Cod, c2);
+                }
             }
-
             return r;
         }
 
@@ -554,12 +616,14 @@ namespace FogUM
                 where aux2.COD_FOGO == fogoP.Codigo
                 select heli;
 
-            foreach (HELI h1 in heliQuery)
+            if (heliQuery != null)
             {
-                Heli h2 = new Heli(h1);
-                r.Add(h2.Cod, h2);
+                foreach (HELI h1 in heliQuery)
+                {
+                    Heli h2 = new Heli(h1);
+                    r.Add(h2.Cod, h2);
+                }
             }
-
             return r;
         }
 
@@ -575,18 +639,21 @@ namespace FogUM
 
             //CORP
             // Make Select Query
-            var corpQuery = 
+            var corpQuery =
                 from corp in bdf.CORPORACAOs
                 join aux in bdf.CORPFOGOs on corp.COD_CORPORACAO equals aux.COD_CORPORACAO
-                where aux.COD_FOGO==fogoP.Codigo
+                where aux.COD_FOGO == fogoP.Codigo
                 select corp;
             // Run Query
-            foreach (CORPORACAO c1 in corpQuery)
-            {
-                Corporacao c2 = new Corporacao(c1);
-                r.Add(c2.Cod, c2);
-            }
 
+            if (corpQuery != null)
+            {
+                foreach (CORPORACAO c1 in corpQuery)
+                {
+                    Corporacao c2 = new Corporacao(c1);
+                    r.Add(c2.Cod, c2);
+                }
+            }
             //HELI
             // Make Select Query
             var heliQuery =
@@ -595,15 +662,21 @@ namespace FogUM
                 where aux2.COD_FOGO == fogoP.Codigo
                 select heli;
             // Run Query
-            foreach (HELI h1 in heliQuery)
-            {
-                Heli h2 = new Heli(h1);
-                r.Add(h2.Cod, h2);
-            }
 
+            if (heliQuery != null)
+            {
+                foreach (HELI h1 in heliQuery)
+                {
+                    Heli h2 = new Heli(h1);
+                    r.Add(h2.Cod, h2);
+                }
+            }
             return r;
         }
 
+        #endregion
+
+        #region Inserts
         //----------------------------
         //-------INSERTS-------------
         //-------------------------
@@ -615,6 +688,7 @@ namespace FogUM
         public void insereDeposito(Deposito d)
         {
             DEPOSITO dep = new DEPOSITO();
+            dep.COD_DEPO = this.nextCodDepo();
             dep.COD_TIPO = d.CodTipo;
             dep.LATITUDE = d.Latitude;
             dep.LONGITUDE = d.Longitude;
@@ -632,6 +706,7 @@ namespace FogUM
         public void setNovoRel(Relatorio nRel)
         {
             RELATORIO rel = new RELATORIO();
+            rel.COD_RELATORIO = this.nextCodRel();
             rel.COD_FOGO = nRel.Codigo;
             rel.COMENTARIO = nRel.Comentario;
 
@@ -647,6 +722,7 @@ namespace FogUM
         public void setVoluntario(Voluntario v)
         {
             VOLUNTARIADO vol = new VOLUNTARIADO();
+            vol.COD_VOLUNTARIO = this.nextCodVol();
             vol.COD_DISTRITO = v.CodDist;
             vol.DISPONIBILIDADE = v.Disp;
             vol.EMAIL = v.Email;
@@ -663,11 +739,12 @@ namespace FogUM
         /// Adicionar NOVO fogo à BD.
         /// </summary>
         /// <param name="nFogo">Fogo a Inserir</param>
-        public void setNovoFogo(Fogo nFogo, Comandante cmd)
+        public int setNovoFogo(Fogo nFogo, Comandante cmd)
         {
             DBLinqDataContext bdf = new DBLinqDataContext();
-
+            int ncFogo = this.nextCodFogo();
             FOGO newFog = new FOGO();
+            newFog.COD_FOGO = ncFogo;
             newFog.BAIXAS_BOMBEIROS = nFogo.Baixas_bombeiros;
             newFog.BAIXAS_CIVIS = nFogo.Baixas_civis;
             newFog.COD_COMANDANTE = cmd.Cod;
@@ -689,6 +766,7 @@ namespace FogUM
             bdf.FOGOs.InsertOnSubmit(newFog);
             //  bdf.RELATORIOs.InsertOnSubmit(newRel);
             bdf.SubmitChanges();
+            return ncFogo;
         }
 
         /// <summary>
@@ -699,6 +777,7 @@ namespace FogUM
         public void submitRel(Relatorio rel, Fogo f)
         {
             RELATORIO newRel = new RELATORIO();
+            newRel.COD_RELATORIO = this.nextCodRel();
             newRel.COD_FOGO = f.Codigo;
             newRel.COD_RELATORIO = rel.Codigo;
             newRel.COMENTARIO = rel.Comentario;
@@ -707,7 +786,9 @@ namespace FogUM
             bdf.RELATORIOs.InsertOnSubmit(newRel);
             bdf.SubmitChanges();
         }
+        #endregion
 
+        #region Updates
         //----------------------------
         //-------UPDATES-------------
         //-------------------------
@@ -726,7 +807,7 @@ namespace FogUM
                 select cf;
             if (currFogo != null)
             {
-                currFogo.First().COD_ESTADO=codEstado;
+                currFogo.First().COD_ESTADO = codEstado;
                 bdf.SubmitChanges();
             }
         }
@@ -750,10 +831,10 @@ namespace FogUM
             // Insert new CORPs
             foreach (Corporacao ic in corps)
             {
-                    CORPFOGO icf = new CORPFOGO();
-                    icf.COD_CORPORACAO = ic.Cod;
-                    icf.COD_FOGO = codFogo;
-                    bdf.CORPFOGOs.InsertOnSubmit(icf);
+                CORPFOGO icf = new CORPFOGO();
+                icf.COD_CORPORACAO = ic.Cod;
+                icf.COD_FOGO = codFogo;
+                bdf.CORPFOGOs.InsertOnSubmit(icf);
             }
 
             // Submit changes
@@ -775,7 +856,7 @@ namespace FogUM
                  where h.COD_FOGO == codFogo
                  select h;
             bdf.HELIFOGOs.DeleteAllOnSubmit(currHFs);
-          
+
             // Insert new HELIs
             foreach (Heli ih in helis)
             {
@@ -797,26 +878,26 @@ namespace FogUM
         public void setUnidades(List<Unidade> units, Fogo f)
         {
             int codFogo = f.Codigo;
-                        // Select and remove existing HELIs
+            // Select and remove existing HELIs
             DBLinqDataContext bdf = new DBLinqDataContext();
             var currHFs =
                  from h in bdf.HELIFOGOs
                  where h.COD_FOGO == codFogo
                  select h;
             bdf.HELIFOGOs.DeleteAllOnSubmit(currHFs);
-                     // Select and remove existing CORPs
+            // Select and remove existing CORPs
             var currCorps =
                 from c in bdf.CORPFOGOs
                 where c.COD_FOGO == codFogo
                 select c;
             bdf.CORPFOGOs.DeleteAllOnSubmit(currCorps);
 
-                // Insert new HELIs/CORPs
+            // Insert new HELIs/CORPs
             foreach (Unidade u in units)
             {
                 if (u.GetType().Name == "Corporacao")
                 {
-                    Corporacao ic = (Corporacao) u;
+                    Corporacao ic = (Corporacao)u;
                     CORPFOGO icf = new CORPFOGO();
                     icf.COD_CORPORACAO = ic.Cod;
                     icf.COD_FOGO = codFogo;
@@ -924,33 +1005,159 @@ namespace FogUM
             }
         }
 
+        #endregion
+
+        #region Aux
+
         //----------------------------
         //-------AUXILIARES----------
         //-------------------------
 
-        private int getNextRelCod()
+        private int nextCodCmd()
         {
             DBLinqDataContext bdf = new DBLinqDataContext();
             var auxQuery =
-                (from rel in bdf.RELATORIOs
-                 orderby rel.COD_RELATORIO descending
-                 select rel.COD_RELATORIO);
-            if (auxQuery == null)
-                return 0;
-            return (int) auxQuery.First() + 1;
-        }
-
-        private int getNextFogCod()
-        {
-            DBLinqDataContext bdf = new DBLinqDataContext();
-            var auxQuery =
-                (from fog in bdf.FOGOs
-                 orderby fog.COD_FOGO descending
-                 select fog.COD_FOGO);
+                (from aux in bdf.COMANDANTEs
+                 orderby aux.COD_COMANDANTE descending
+                 select aux.COD_COMANDANTE);
             if (auxQuery == null)
                 return 0;
             return (int)auxQuery.First() + 1;
         }
-            
+
+        private int nextCodConcelho()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                (from aux in bdf.CONCELHOs
+                 orderby aux.COD_CONCELHO descending
+                 select aux.COD_CONCELHO);
+            if (auxQuery == null)
+                return 0;
+            return (int)auxQuery.First() + 1;
+        }
+
+        private int nextCodCorp()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                (from aux in bdf.CORPORACAOs
+                 orderby aux.COD_CORPORACAO descending
+                 select aux.COD_CORPORACAO);
+            if (auxQuery == null)
+                return 0;
+            return (int)auxQuery.First() + 1;
+        }
+
+        private int nextCodDepo()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                (from aux in bdf.DEPOSITOs
+                 orderby aux.COD_DEPO descending
+                 select aux.COD_DEPO);
+            if (auxQuery == null)
+                return 0;
+            return (int)auxQuery.First() + 1;
+        }
+
+        private int nextCodEStado()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                (from aux in bdf.ESTADO_FOGOs
+                 orderby aux.COD_ESTADO descending
+                 select aux.COD_ESTADO);
+            if (auxQuery == null)
+                return 0;
+            return (int)auxQuery.First() + 1;
+        }
+
+        private int nextCodFogo()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                (from aux in bdf.FOGOs
+                 orderby aux.COD_FOGO descending
+                 select aux.COD_FOGO);
+            if (auxQuery == null)
+                return 0;
+            return (int)auxQuery.First() + 1;
+        }
+
+        private int nextCodHeli()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                (from aux in bdf.HELIs
+                 orderby aux.COD_HELI descending
+                 select aux.COD_HELI);
+            if (auxQuery == null)
+                return 0;
+            return (int)auxQuery.First() + 1;
+        }
+
+        private int nextCodRel()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                (from aux in bdf.RELATORIOs
+                 orderby aux.COD_RELATORIO descending
+                 select aux.COD_RELATORIO);
+            if (auxQuery == null)
+                return 0;
+            return (int)auxQuery.First() + 1;
+        }
+
+        private int nextCodTipo()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                (from aux in bdf.TIPOS_DEPOs
+                 orderby aux.COD_TIPO descending
+                 select aux.COD_TIPO);
+            if (auxQuery == null)
+                return 0;
+            return (int)auxQuery.First() + 1;
+        }
+
+        private int nextCodVol()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                (from aux in bdf.VOLUNTARIADOs
+                 orderby aux.COD_VOLUNTARIO descending
+                 select aux.COD_VOLUNTARIO);
+            if (auxQuery == null)
+                return 0;
+            return (int)auxQuery.First() + 1;
+        }
+
+        //private int getNextRelCod()
+        //{
+        //    DBLinqDataContext bdf = new DBLinqDataContext();
+        //    var auxQuery =
+        //        (from rel in bdf.RELATORIOs
+        //         orderby rel.COD_RELATORIO descending
+        //         select rel.COD_RELATORIO);
+        //    if (auxQuery == null)
+        //        return 0;
+        //    return (int) auxQuery.First() + 1;
+        //}
+
+        //private int getNextFogCod()
+        //{
+        //    DBLinqDataContext bdf = new DBLinqDataContext();
+        //    var auxQuery =
+        //        (from fog in bdf.FOGOs
+        //         orderby fog.COD_FOGO descending
+        //         select fog.COD_FOGO);
+        //    if (auxQuery == null)
+        //        return 0;
+        //    return (int)auxQuery.First() + 1;
+        //}
+
+        #endregion
+
     }
 }
