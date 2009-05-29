@@ -18,7 +18,7 @@ namespace FogUM
     public class Proc_Civil
     {
         private Voluntario volunt;
-        private BD_FogUM bd;
+        private BD_FogUM bd=new BD_FogUM();
         private Deposito deposito_regist;
         private Dictionary<int,Fogo> fogosPais;
 
