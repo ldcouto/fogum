@@ -95,7 +95,6 @@
     <None Include="bd\DBLinq.dbml.layout">
       <DependentUpon>DBLinq.dbml</DependentUpon>
     </None>
-    <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

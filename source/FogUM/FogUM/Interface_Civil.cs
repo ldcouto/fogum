@@ -14,7 +14,7 @@ namespace FogUM
 {
     public class Interface_Civil
     {
-        Proc_Civil pc;
+        //Proc_Civil pc;
 
         //public void Bui()
         //{

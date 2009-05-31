@@ -15,7 +15,9 @@ using FogUM;
     /// <summary>
     /// WebServices da Plataforma FogUM
     /// </summary>
-    [WebService(Name="FogUM WS", Description="Web Services Plataforma FogUM", Namespace = "http://tempuri.org/")]
+    // Definir e identificar os Web Services
+    [WebService(Name="FogUM WS", Description="Web Services Plataforma FogUM", Namespace = "FogUM")]
+    // Adicionar uma especificação
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -30,8 +32,10 @@ using FogUM;
             return "Hello World";
         }
 
+        // Marcar um método como WebMethod para o tornar acessível como Web Service
         [System.Web.Services.WebMethod(Description="Obter lista de voluntários para o seu distrito")]
-        public List<Vol_WS> listVols(int codigoDistrito)
+        // Codificar e implementar o método normalmente
+        public List<Vol_WS> listarVoluntarios(int codigoDistrito)
         {
             List<Vol_WS> r = new List<Vol_WS>();
             List<Voluntario> aux = new List<Voluntario>();
@@ -60,13 +64,15 @@ using FogUM;
         public List<EstFogo> estataticasUltimos7Dias()
         {
             List<EstFogo> r = new List<EstFogo>();
-            DateTime dt = new DateTime();
-            dt = DateTime.Now;
-            int i;
+            DateTime now = DateTime.Now;
+            DateTime aux;
+            float i;
             for (i = 0; i < 7; i++)
             {
-                dt.AddDays(-i);
-                r.AddRange(bdf.getEstFogos(dt));
+               // TimeSpan ts = new TimeSpan(i, 0, 0, 0);
+                aux = now.AddDays(-i);
+                //dt.AddDays(-i);
+                r.AddRange(bdf.getEstFogos(aux));
             }
             return r;
         }

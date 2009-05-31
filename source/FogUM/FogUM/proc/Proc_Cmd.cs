@@ -81,7 +81,7 @@ namespace FogUM
             this.cmd = cmd;
             this.depositosDisp = new List<Deposito>();
             this.bd = new BD_FogUM();
-            this.relatorios = bd.getRelsPendentes(cmd.User); //Falta funcionar na base de dados
+            this.relatorios = bd.getRelsPendentesCFogos(cmd.User); //Falta funcionar na base de dados
             this.corporacoes = new Dictionary<int, Corporacao>();
             this.helis = new Dictionary<int, Heli>();
         }

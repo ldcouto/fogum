@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
     <siteMapNode url="" title=""  description="">
-        <siteMapNode url="~/Default.aspx" title="Home"  description="Home page" />
-        <siteMapNode url="~/About.aspx" title="About"  description="Who I am" />
-		<siteMapNode url="~/Publications.aspx" title="Publications"  description="What I wrote" />
-		<siteMapNode url="~/Contact.aspx" title="Contact"  description="Contact me" />		
+        <siteMapNode url="~/Civil.aspx" title="Home"  description="Home page FogUM" />
+        <siteMapNode url="~/DepForm.aspx" title="Depósitos"  description="Registar um Depósito de Água" />
+		    <siteMapNode url="~/VoluntForm.aspx" title="Voluntários"  description="Registar-se como Voluntário" />
+	    	<siteMapNode url="~/Painel_Cmd.aspx" title="Comandantes"  description="Aba para Comandantes de Bombeiros" />		
     </siteMapNode>
 </siteMap>

@@ -14,6 +14,6 @@ namespace FogUM
 {
     public class Interface_Cmd
     {
-        Proc_Cmd p_cmd;
+        //Proc_Cmd p_cmd;
     }
 }
