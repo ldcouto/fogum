@@ -43,13 +43,12 @@
                     <div id="header">
                         <div id="headertop">
                             <div id="ownername">
-                                <strong>Your Name</strong><br />
-                                Your slogan</div>
+                                <strong>FogUM</strong><br />
+                                ...</div>
                             <div id="ownerinfo">
                                 <address>
-                                    Your address here<br />
-                                    some street, zip, some city
-                                </address>
+                                    Departamento de Informática<br />
+                                    Universidade do Minho, Braga</address>
                             </div>
                         </div>
                         <div id="mainmenu">
@@ -121,7 +120,7 @@
                             </div>
                         </div>
                         <div id="footer">
-                            &copy; 2005 your name, all rights reserved.
+                            &copy; 2009 FogUM, all rights reserved.
                             <div id="sidebarfooter"><%-- Leave blank. --%></div>
                         </div>
                     </div>
