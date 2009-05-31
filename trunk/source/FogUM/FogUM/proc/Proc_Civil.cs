@@ -18,7 +18,7 @@ namespace FogUM
     public class Proc_Civil
     {
         private Voluntario volunt;
-        private BD_FogUM bd=new BD_FogUM();
+        private BD_FogUM bd = new BD_FogUM();
         private Deposito deposito_regist;
         private Dictionary<int,Fogo> fogosPais;
 
@@ -56,6 +56,7 @@ namespace FogUM
             bd.insereDeposito(d);
         }
 
+
         public float calcularVol(float altura, float largura,float comprimento)
         {
             float res=0;
@@ -63,12 +64,10 @@ namespace FogUM
             return res;
         }
 
-        //metodo que seleciona os incendios activos num dado dia,       e circunscritos axo que fazia sentido???
+        //metodo que seleciona os incendios activos num dado dia, 
         public Dictionary<int, Fogo> selectMapaIncendios()
         {
-            return bd.getFogos_Activos();//s calhar e perferivel devolver um treemap com todos os fogos e escolher 
-                                        //os activos aqui nos procedimentos?? ou vem logo da BD direito??
-        }
+            return bd.getFogos_Activos();       }
 
         public void submeterVoluntario(Voluntario v)
         {

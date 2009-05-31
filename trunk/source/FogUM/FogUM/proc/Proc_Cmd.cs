@@ -22,7 +22,8 @@ namespace FogUM
         private Fogo fogoCombate;
         private List<Deposito> depositosDisp;
         private BD_FogUM bd;
-        private List<Relatorio> relatorios ;
+        //private List<Relatorio> relatorios ;
+        private Dictionary<Fogo,Relatorio> relatorios;
         private Dictionary<int, Corporacao> corporacoes;
         private Dictionary<int, Heli> helis;
 
@@ -49,11 +50,18 @@ namespace FogUM
             get { return bd; }
             set { bd = value; }
         }
-        public List<Relatorio> Relatorio
+
+        public Dictionary<Fogo, Relatorio> Relatorio
         {
             get { return relatorios; }
             set { relatorios = value; }
         }
+
+        //public List<Relatorio> Relatorio
+        //{
+        //    get { return relatorios; }
+        //    set { relatorios = value; }
+        //}
 
         public Dictionary<int, Corporacao> Corperacoes
         {
@@ -73,7 +81,7 @@ namespace FogUM
             this.cmd = cmd;
             this.depositosDisp = new List<Deposito>();
             this.bd = new BD_FogUM();
-         //   this.relatorios = bd.getRelsPendentes(cmd.User); Falta funcionar na base de dados
+            this.relatorios = bd.getRelsPendentes(cmd.User); //Falta funcionar na base de dados
             this.corporacoes = new Dictionary<int, Corporacao>();
             this.helis = new Dictionary<int, Heli>();
         }
@@ -205,7 +213,7 @@ namespace FogUM
         
         public Relatorio getRelatorio(int codRel)
         {
-            foreach (Relatorio r in this.relatorios)
+            foreach (Relatorio r in this.relatorios.Values)
             {
                 if (r.Codigo == codRel)
                     return r;
@@ -216,7 +224,7 @@ namespace FogUM
         
          public Boolean submitRel(Relatorio rel, Fogo f)
         {
-            relatorios.Add(rel);
+            relatorios.Add(f,rel);
              //adiciona a base de dados, penso que é preciso
             bd.submitRel(rel, f);
             return true;
