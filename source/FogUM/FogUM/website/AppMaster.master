@@ -59,8 +59,8 @@
                     </div>
                     <div id="contentwrapper">
                         <div id="sidebar">
-                            <blockquote id="quote">
-                                &ldquo;Aliquam erat volutpat. Curabitur mauris. Fusce faucibus leo.&rdquo;</blockquote>
+                        <blockquote id="quote">
+                                &ldquo;FOGUM:<br />No Auxilio da Populaçao.&rdquo;</blockquote>
                             <div id="sidebarcontent">
                                 <asp:ContentPlaceHolder runat="server" ID="phSidebar">
                                     <%-- Sidebar placeholder. Sample text follows. 
@@ -112,11 +112,7 @@
                                 <div id="headerimg"><%-- Leave blank. --%></div>
                             </div>
                             <div id="themepicker">
-                                Select a theme:
-                                <br />
-                                <asp:ImageButton ID="ibTheme1" runat="server" AlternateText="Green Theme" SkinID="themethumb" ImageUrl="~/Assets/Images/green_theme_thumb.jpg" CommandName="green" CausesValidation="false" OnCommand="Themepicker_Command" ToolTip="Green theme" TabIndex="20" />&nbsp;
-                                <asp:ImageButton runat="server" ID="ibTheme2" SkinID="themethumb" AlternateText="Brown Theme" ImageUrl="~/Assets/Images/brown_theme_thumb.jpg" CommandName="brown" CausesValidation="false" OnCommand="Themepicker_Command" ToolTip="Brown theme" TabIndex="21" />&nbsp;
-                                <asp:ImageButton ID="ibTheme3" runat="server" AlternateText="Red Theme" SkinID="themethumb" ImageUrl="~/Assets/Images/red_theme_thumb.jpg" CommandName="red" CausesValidation="false" OnCommand="Themepicker_Command" ToolTip="Red theme" TabIndex="22" />
+                                
                             </div>
                             <div id="copy">
                                 <asp:ContentPlaceHolder ID="phMain" runat="server">
