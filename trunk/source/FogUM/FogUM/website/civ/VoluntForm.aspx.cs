@@ -16,7 +16,7 @@ using FogUM;
 
 public partial class VoluntForm : PageBase
 {
-
+    Proc_Civil pc = new Proc_Civil();
 
 
     protected void Page_Load(object sender, EventArgs e)
@@ -39,8 +39,8 @@ public partial class VoluntForm : PageBase
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        VOLUNTARIADO vol = new VOLUNTARIADO();
-        DBLinqDataContext bdf = new DBLinqDataContext();
+        Voluntario vol = new Voluntario();
+      // DBLinqDataContext bdf = new DBLinqDataContext();
 
         int fnome = 0, fmail = 0, ftelef = 0, fmorada = 0, disp = 0, distr = 0;
 
@@ -49,7 +49,7 @@ public partial class VoluntForm : PageBase
                Label17.Visible = true;
            else
            {
-               vol.NOME_VOLUNTARIO = nome.Text.ToString();
+               
                fnome = 1;
                Label17.Visible = false;
            }
@@ -58,7 +58,7 @@ public partial class VoluntForm : PageBase
                Label21.Visible = true;
            else
            {
-               vol.EMAIL = email.Text.ToString();
+               
                fmail = 1;
                Label21.Visible = false;
            }
@@ -67,7 +67,7 @@ public partial class VoluntForm : PageBase
                Label20.Visible = true;
            else
            {
-               vol.NUM_TELEFONE = telefone.Text.ToString();
+               
                ftelef = 1;
                Label20.Visible = false;
            }
@@ -93,19 +93,19 @@ public partial class VoluntForm : PageBase
 
            if (DropDownList2.Text.ToString().Equals("3 Meses"))
            {
-               vol.DISPONIBILIDADE = disp;
+               
                Label22.Visible = false;
                disp = 3;
            }
            if (DropDownList2.Text.ToString().Equals("6 Meses"))
            {
-               vol.DISPONIBILIDADE = disp;
+             
                Label22.Visible = false;
                disp = 6;
            }
            if (DropDownList2.Text.ToString().Equals("12 Meses"))
            {
-               vol.DISPONIBILIDADE = disp;
+               
                Label22.Visible = false;
                disp = 12;
            }
@@ -114,16 +114,15 @@ public partial class VoluntForm : PageBase
                WebMsgBox.Show("FORMULÁRIO INVÁLIDO");
            else
            {
-               //vol.COD_DISTRITO = convertDistCod(DropDownList1.Text.ToString());
-               //vol.COD_VOLUNTARIO = 1;
-               //vol.COD_DISTRITO = 2;
-               //vol.EMAIL = email.Text.ToString();
-               //vol.NOME_VOLUNTARIO = nome.Text.ToString();
-               //vol.NUM_TELEFONE = telefone.Text.ToString();
-               //vol.DISPONIBILIDADE = disp;
-               //bdf.VOLUNTARIADOs.InsertOnSubmit(vol);
-               //bdf.SubmitChanges();
-               vol.EMAIL = DropDownList1.Text.ToString();
+               vol.CodDist = pc.testaCodDistr(DropDownList1.Text.ToString());
+               vol.Cod = 1;
+               vol.Email = email.Text.ToString();
+               vol.Nome = nome.Text.ToString();
+               vol.Telefone = telefone.Text.ToString();
+               vol.Disp = disp;
+
+               pc.submeterVoluntario(vol);
+             
                WebMsgBox.Show("OBRIGADO PELA SUA COLABORAÇÃO");
                nome.Text = "";
                morada.Text = "";

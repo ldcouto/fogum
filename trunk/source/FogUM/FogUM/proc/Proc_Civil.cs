@@ -103,7 +103,16 @@ namespace FogUM
             return bd.getTotVols();
         }
 
+       public int testaCodDistr(string d)
+       {
+           return bd.testaCodDistr(d);
+       }
 
 
+       public int testaCod(string p)
+       {
+           return bd.testaCod(p);
+           
+       }
     }
 }

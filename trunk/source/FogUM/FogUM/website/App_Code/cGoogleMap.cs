@@ -907,13 +907,15 @@ public class cCommon
 
     public static double GetNumericValue(object pNumValue)
     {
+        System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.InvariantCulture;
+
         if ((pNumValue == null))
         {
             return 0;
         }
         if (IsNumeric(pNumValue))
         {
-            return double.Parse((pNumValue.ToString()));
+            return double.Parse(pNumValue.ToString(),ci);
         }
         else
         {

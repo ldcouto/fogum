@@ -82,5 +82,7 @@ namespace FogUM
             this.nome = bdVol.NOME_VOLUNTARIO;
             this.telefone = bdVol.NUM_TELEFONE;
         }
+
+        public Voluntario() { }
     }
 }

@@ -15,6 +15,8 @@ using FogUM;
 
 public partial class DepForm : PageBase
 {
+    Proc_Civil pc = new Proc_Civil();
+    GooglePoint gp = new GooglePoint();
     
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -34,22 +36,42 @@ public partial class DepForm : PageBase
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        DEPOSITO dep = new DEPOSITO();
+        Deposito dep = new Deposito();
         DBLinqDataContext bdf = new DBLinqDataContext();
 
-        double comp = 0, alt = 0, larg = 0, mor = 0, tipo = 0;
+        double comp = 0, alt = 0, larg = 0, mor = 0, tipo = 0, distr=0;
         double lat=0, lng=0;
 
+        int flag = 0;
 
-        if (moradaD.Text.ToString().Equals(""))
-            Label2.Visible = true;
-        else
+        string morada = moradaD.Text.ToString()+","+DropDownList2.Text.ToString()+","+"Portugal";
+
+        gp.Address = morada;
+        bool b1 = moradaD.Text.ToString().Equals("");
+        bool b2 = gp.GeocodeAddress("ABQIAAAARjBz8x6IK17on8A12juLMhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSAGQSOkASydSDhHVgCsbb99KH0PQ");
+
+        if (b2 == false)
         {
-            Label2.Visible = false;
-            mor = 1;
-            //lat =fazer metodo para a partir da morada dar latitude e longitude
-            //lng = ...
+            flag = 1;
+            // WebMsgBox.Show("IMPOSSIVEL LOCALIZAR ENDEREÇO");
+            Label2.Text = "*Impossivel Localizar Endereço";           
+            Label2.Font.Italic = true;
+            Label2.Visible = true;
         }
+
+        if (flag == 0)
+        {
+            if (b1 || b2 == false)
+                Label2.Visible = true;
+            else
+                if (b2 == true)
+                {
+                    Label2.Visible = false;
+                    mor = 1;
+                    lat = gp.Latitude;
+                    lng = gp.Longitude;
+                }
+        } 
 
         if (IsNumeric(compr.Text.ToString()) || (compr.Text.ToString().Equals(""))|| (compr.Text.ToString().Equals("0")))
         {
@@ -89,24 +111,34 @@ public partial class DepForm : PageBase
             Label13.Visible = false;
         }
 
-        if ((comp == 0) || (alt == 0) || (larg == 0) || (mor==0) || (tipo==0))
+        if (DropDownList2.Text.ToString().Equals(""))
+            Label15.Visible = true;
+        else
+        {
+            distr = 1;
+            Label15.Visible = false;
+        }
+
+        if ((comp == 0) || (alt == 0) || (larg == 0) || (mor==0) || (tipo==0) || (distr==0))
             WebMsgBox.Show("FORMULÁRIO INVÁLIDO");
         else
         {
-            //dep.LATITUDE = lat;
-            //dep.LONGITUDE = lng;
-            //dep.COD_DEPO = 0;
-            //dep.COD_TIPO = convDepCod(DropDownList1.Text.ToString());
-            //dep.VOLUME = //funçao para calcular volume a partir de comp, alt, larg
-            //bdf.DEPOSITOs.InsertOnSubmit(dep);
-            //bdf.SubmitChanges();
-            string ola = DropDownList1.Text.ToString();
+            dep.Latitude = lat;
+            dep.Longitude = lng;
+            dep.Cod=  0;
+            dep.CodTipo = pc.testaCod(DropDownList1.Text.ToString());
+            dep.Volume =(float) (comp * alt * larg);
+
+            pc.insereDeposito(dep);
+
             WebMsgBox.Show("OBRIGADO PELA SUA COLABORAÇÃO");
-            compr.Text = "";
-            moradaD.Text = "";
-            altura.Text = "";
-            largura.Text = "";
+           
             DropDownList1.ClearSelection();
+            moradaD.Text = "";
+            DropDownList2.ClearSelection();
+            compr.Text = "";
+            largura.Text = "";
+            altura.Text = "";
         }
     }
 

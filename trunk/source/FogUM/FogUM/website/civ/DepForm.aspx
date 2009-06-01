@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/AppMaster.master" AutoEventWireup="true" CodeFile="DepForm.aspx.cs" Inherits="DepForm" Title="FogUM - Depósitos" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/AppMaster.master" AutoEventWireup="true" CodeFile="DepForm.aspx.cs" Inherits="DepForm" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="phSidebar" Runat="Server">
 
@@ -92,14 +92,30 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="phMain" Runat="Server">
     <div style="height: 22px; border-top-color: #006600; border-bottom-style: solid; color: #006600; font-size: large;">
         FogUM - Registar Depósito Água</div>
-    <div style="height: 269px; width: 355px;">
+    <div style="height: 269px; width: 472px;">
         <br />
         <br />
-        <asp:Label ID="Label1" runat="server" Text="Morada"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Rua"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="moradaD" runat="server"></asp:TextBox>
         <asp:Label ID="Label2" runat="server" Font-Italic="True" ForeColor="Red" 
             Text="* Inválido" Visible="False"></asp:Label>
+        <br />
+        <br />
+        <asp:Label ID="Label14" runat="server" Text="Distrito"></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:DropDownList ID="DropDownList2" runat="server" 
+            DataSourceID="SqlDataSource2" DataTextField="DISTRITO_DESIGN" 
+            DataValueField="DISTRITO_DESIGN" AppendDataBoundItems="true">
+            <asp:ListItem Value=""></asp:ListItem>
+        </asp:DropDownList>
+        <asp:Label ID="Label15" runat="server" Font-Italic="True" ForeColor="Red" 
+            Text="* Inválido" Visible="False"></asp:Label>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:BDFConnectionString %>" 
+            SelectCommand="SELECT [DISTRITO_DESIGN] FROM [DISTRITO]">
+        </asp:SqlDataSource>
+        <br />
         <br />
         <br />
         <div style="color: #006600">Dados do Depósito</div>
@@ -145,7 +161,7 @@
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Button2" runat="server" Text="Submeter" onclick="Button2_Click" />
-        <div style="border-color: #FFFFFF; position: relative; top: -253px; left: 350px; width: 182px; height: 229px;">
+        <div style="border-color: #FFFFFF; position: relative; top: -253px; left: 377px; width: 182px; height: 229px;">
             <img alt="" src="Imagens/gota.jpg" 
                 style="border-color: #FFFFFF; height: 207px; width: 164px" /></div>
                 

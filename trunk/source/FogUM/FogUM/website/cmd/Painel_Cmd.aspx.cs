@@ -24,6 +24,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         procCmd.novoFogo();
+       // procCmd.getFogo(5);
         procCmd.getFogo(5);
         String g;
         //Criar Fogo exemplo
