@@ -94,8 +94,21 @@
 
 
     <br />
-    <h2>Novos Fogos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="novo_fogo" runat="server" Text="Novo Fogo" />
+    <h2>Fogos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </h2>
+                                        <h2>
+                                            <p style="margin-left: 120px">
+                                                <asp:ListBox ID="ListBox_fogos" runat="server" Width="199px"></asp:ListBox>
+                                            </p>
+                                        </h2>
+                                        <h2>
+                                            <p style="margin-left: 200px">
+&nbsp;&nbsp;
+                                                <asp:Button ID="btn_reiniciar_fogo" runat="server" Height="30px" 
+                                                    Text="Reeniciar Fogo" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btn_novo_fogo" runat="server" Text="Novo Fogo" Height="30px" />
+                                            </p>
                                         </h2>
     
     <div style="height: 88px">
@@ -104,7 +117,7 @@
         <h2>Relatórios</h2>
                                             <div>
                                                 <p style="margin-left: 120px">
-                                                    <asp:ListBox ID="ListBox1" runat="server" Width="200px"></asp:ListBox>
+                                                    <asp:ListBox ID="ListBox_rels" runat="server" Width="200px"></asp:ListBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <asp:Button ID="Button2" runat="server" onclick="Button2_Click" 
                                                         style="width: 33px" Text="OK" Width="122px" />
@@ -120,40 +133,45 @@
     <div style="width: 564px">
         &nbsp;&nbsp; Código Fogo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Código Relatório:<br />
-        <asp:TextBox ID="txt_cod_fog" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txt_cod_fog" runat="server" ReadOnly="True"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txt_cod_rel" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txt_cod_rel" runat="server" ReadOnly="True" Width="128px"></asp:TextBox>
         <br />
         <br />
 &nbsp;&nbsp;
         Concelho:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         Data de Inicio:<br />
-        <asp:TextBox ID="txt_concelho" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txt_concelho" runat="server" ReadOnly="True"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txt_data_ini" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txt_data_ini" runat="server" ReadOnly="True"></asp:TextBox>
         <br />
         <br />
 &nbsp;&nbsp;
         Baixas Bombeiros:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         Data Circunscrito:<br />
         <asp:TextBox ID="txt_baixas_bomb" runat="server"></asp:TextBox>
+        <asp:Label runat="server" Text="*Inválido" ID="l_b_bomb" 
+            ForeColor="Red" Font-Italic="True" Visible="False"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txt_data_cir" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txt_data_cir" runat="server" ReadOnly="True"></asp:TextBox>
         <br />
         <br />
 &nbsp;&nbsp;
         Baixas Cívis:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         Data Fim:<br />
         <asp:TextBox ID="txt_baixas_civis" runat="server"></asp:TextBox>
+        <asp:Label ID="l_b_civ" runat="server" Text="*Inválido" ForeColor="Red" 
+            Font-Italic="True" Visible="False"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txt_data_fim" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txt_data_fim" runat="server" ReadOnly="True"></asp:TextBox>
         &nbsp;&nbsp;
     </div>
     <br />
                                         <br />
    <div>
         Comentario:
-        <asp:TextBox ID="TextBox5" runat="server" Height="115px" Width="551px"></asp:TextBox>
+        <asp:TextBox ID="txt_comentario" runat="server" Height="115px" Width="551px" 
+            MaxLength="8000" TextMode="MultiLine"></asp:TextBox>
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

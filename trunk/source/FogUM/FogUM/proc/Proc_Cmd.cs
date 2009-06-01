@@ -14,6 +14,7 @@ using System.Collections.Generic;
 
 
 
+
 namespace FogUM
 {
     public class Proc_Cmd
@@ -258,6 +259,7 @@ namespace FogUM
 
         public Relatorio getRelatorio(int codRel)
         {
+
             foreach (Relatorio r in this.relatorios.Values)
             {
                 if (r.Codigo == codRel)
@@ -267,12 +269,12 @@ namespace FogUM
         }
 
 
-        public Boolean submitRel(Relatorio rel, Fogo f)
+        
+        public void submitRel(Relatorio rel, Fogo f)
         {
-            relatorios.Add(f,rel);
             //adiciona a base de dados, penso que é preciso
             bd.submitRel(rel, f);
-            return true;
+            
         }
 
         public void constDepDisp(float dis)
