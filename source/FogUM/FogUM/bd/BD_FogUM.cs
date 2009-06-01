@@ -797,7 +797,7 @@ namespace FogUM
         /// Inserir um novo relatório na BD
         /// </summary>
         /// <param name="nRel">Relatório a inserir. O código é destarcado e gerado um novo pela BD</param>
-        public void setNovoRel(Relatorio nRel)
+        private void setNovoRel(Relatorio nRel)
         {
             RELATORIO rel = new RELATORIO();
             rel.COD_RELATORIO = this.nextCodRel();
@@ -870,13 +870,24 @@ namespace FogUM
         /// <param name="f">Fogo ao qual o relatório se refere</param>
         public void submitRel(Relatorio rel, Fogo f)
         {
+            int nextCodRel = this.nextCodRel();
             RELATORIO bdrel = new RELATORIO();
-            bdrel.COD_RELATORIO = this.nextCodRel();
+            bdrel.COD_RELATORIO = nextCodRel;
             bdrel.COD_FOGO = f.Codigo;
             bdrel.COMENTARIO = rel.Comentario;
 
             DBLinqDataContext bdf = new DBLinqDataContext();
-            bdf.RELATORIOs.InsertOnSubmit(rel);
+            bdf.RELATORIOs.InsertOnSubmit(bdrel);
+
+            var currFogo =
+            from cf in bdf.FOGOs
+            where cf.COD_FOGO == f.Codigo
+            select cf;
+
+            if (currFogo.Count() != 0)
+                  currFogo.First().COD_RELATORIO = nextCodRel;
+                bdf.SubmitChanges();
+
             bdf.SubmitChanges();
         }
         #endregion
