@@ -172,6 +172,19 @@ namespace FogUM
         }
         #endregion
 
+        public int testaCod(string dep)
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                from bDep in bdf.TIPOS_DEPOs
+                where bDep.TIPO_DESIGN == dep
+                select bDep.COD_TIPO;
+
+            if (auxQuery.Count() == 0)
+                return -11;
+            return auxQuery.First();
+        }
+
         /// <summary>
         /// Devolver uma corporacao dando o codigo
         /// </summary>
@@ -886,7 +899,6 @@ namespace FogUM
 
             if (currFogo.Count() != 0)
                   currFogo.First().COD_RELATORIO = nextCodRel;
-                bdf.SubmitChanges();
 
             bdf.SubmitChanges();
         }
