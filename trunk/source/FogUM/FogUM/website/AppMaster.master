@@ -43,8 +43,7 @@
                     <div id="header">
                         <div id="headertop">
                             <div id="ownername">
-                                <strong>FogUM</strong><br />
-                                ...</div>
+                                <strong>FogUM</strong><br/>Combater fogo com software</div>
                             <div id="ownerinfo">
                                 <address>
                                     Departamento de Informática<br />
@@ -70,66 +69,39 @@
                                         <p>Your content</p>
                                     </div>
                                     --%>
-    <h3>
-        Meteorologia</h3>
-    <div class="sbcontentcontainer">  
-    
-        <%--<p>
-            <div style='width: 160px; height: 600px; background-image: url( http://vortex.accuweather.com/adcbin/netweather_v2/backgrounds/green_160x600_bg.jpg ); background-repeat: no-repeat; background-color: #336633;' ><div style='height: 585px;' ><script src='http://netweather.accuweather.com/adcbin/netweather_v2/netweatherV2.asp?partner=netweather&tStyle=whteYell&logo=0&zipcode=EUR|PT|PO004|BRAGA|&lang=eng&size=15&theme=green&metric=1&target=_self'></script></div><div style='text-align: center; font-family: arial, helvetica, verdana, sans-serif; font-size: 10px; line-height: 15px; color: #FFFFFF;' ><a style='color: #FFFFFF' href='http://www.accuweather.com/world-index-forecast.asp?partner=netweather&locCode=EUR|PT|PO004|BRAGA|&metric=1' >Weather Forecast</a> | <a style='color: #FFFFFF' href='http://www.accuweather.com/maps-satellite.asp' >Weather Maps</a></div></div>
-        </p>--%>
-    </div>
-    
-        <p><embed id="favloc" src="http://vortex.accuweather.com/includes/flash/favoritelocations/fav.swf" name="favloc" wmode="transparent" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" allowscriptaccess="always" width="230" height="200"></p>
-        
-<h3>
-        Links Úteis</h3>
-    <div class="sbcontentcontainer">
-        <ul>
-            <li><a href="http://www.bombeiros.pt/" target=_blank >Bombeiros de Portugal</a></li>
-            <li><a href="http://www.apbv.org/" target=_blank >Bombeiros Voluntários</a></li> 
-            <li><a href="http://www.proteccaocivil.pt/" target=_blank >Protecção Civil</a></li>
-            <li><a href="http://www.inem.pt/" target=_blank >Inem</a></li>  
-            <li><a href="http://www.florestabemcuidada.com/" target=_blank >Floresta Bem Cuidada</a></li>
-            <li><a href="hhttp://www.florestaunida.com/" target=_blank >Floresta Unida</a></li>
-            <li><a href="http://www.lpn.pt/" target=_blank >Protecção da Natureza</a></li> 
-            <li><a href="http://www.afn.min-agricultura.pt/portal" target=_blank >Ministério da Agricultura</a></li> 
-            <li><a href="http://www.maotdr.gov.pt/" target=_blank >Ministério do Ambiente</a></li>             
-            <li><a href="http://www.meteo.pt/pt/" target=_blank >Instituto Meteorologia</a></li>                   
-        </ul>
-    </div>
-    
-        <h3>
-        Contactos</h3>
-    <div class="sbcontentcontainer">
-        
-        <p>Protecção Civil</p>
-                <p style="margin-left: 20px">
-                &nbsp;Braga:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;253 201 350</p>
-                <p style="margin-left: 20px">
-                &nbsp;Vila Real:&nbsp;259 301 000</p>
-                <p style="margin-left: 20px">
-                &nbsp;Porto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;226 197 650</p>
-                <p style="margin-left: 20px">
-                &nbsp;Lisboa:&nbsp;&nbsp;&nbsp;&nbsp;218 820 960</p>
-                <p style="margin-left: 20px">
-                &nbsp;Beja:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;284 313 050</p>
-                <p style="margin-left: 20px">
-                &nbsp;Faro:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;289 887 510</p>
-         <p>Emergencia:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;112</p>
-         <p>Protecção da Floresta:&nbsp;&nbsp;117</p>
-    </div>
-    
-     
-        
-    <h3>
-        Estatisticas</h3>
-    <div class="sbcontentcontainer">
-        <p>
-            Por numero de COORP estatisticas varias</p>
-        <p>
-            Sed dapibus, .</p>
-    </div>
-    
+                                    <h3>
+                                        News</h3>
+                                    <div class="sbcontentcontainer">
+                                        <p>
+                                            Integer purus. Nulla laoreet, felis et tristique laoreet, felis elit sollicitudin
+                                            magna, id tincidunt dui ligula vitae arcu. Nulla ac felis. Donec quis augue id ligula
+                                            faucibus pharetra. In gravida pharetra neque.</p>
+                                        <p>
+                                            Integer purus. Nulla laoreet, felis et tristique laoreet, felis elit sollicitudin
+                                            magna.</p>
+                                    </div>
+                                    <h3>
+                                        Links</h3>
+                                    <div class="sbcontentcontainer">
+                                        <ul>
+                                            <li><a href="javascript:;" title="Lorem ipsum">Lorem ipsum</a></li>
+                                            <li><a href="javascript:;" title="Felis et tristique">Felis et tristique</a></li>
+                                            <li><a href="javascript:;" title="Sollicitudin magna">Sollicitudin magna</a></li>
+                                            <li><a href="javascript:;" title="Fusce lorem">Fusce lorem</a></li>
+                                            <li><a href="javascript:;" title="Faucibus pharetra">Faucibus pharetra</a></li>
+                                        </ul>
+                                    </div>
+                                    <h3>
+                                        Something else</h3>
+                                    <div class="sbcontentcontainer">
+                                        <p>
+                                            Integer purus. Nulla laoreet, felis et tristique laoreet, felis elit sollicitudin
+                                            magna, id tincidunt dui ligula vitae arcu. Nulla ac felis. Donec quis augue id ligula
+                                            faucibus pharetra. In gravida pharetra neque.</p>
+                                        <p>
+                                            Sed dapibus, nisl at aliquam dapibus, augue lorem varius lorem, nec egestas turpis
+                                            urna in metus.</p>
+                                    </div>
                                 </asp:ContentPlaceHolder>
                             </div>
                         </div>
@@ -147,7 +119,7 @@
                             </div>
                         </div>
                         <div id="footer">
-                            &copy; 2009 FogUM, all rights reserved.
+                            &copy; 2009 FogUM, todos os direitos reservados.
                             <div id="sidebarfooter"><%-- Leave blank. --%></div>
                         </div>
                     </div>
