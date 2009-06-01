@@ -178,7 +178,7 @@ namespace FogUM
             DBLinqDataContext bdf = new DBLinqDataContext();
             var auxQuery =
                 from bDep in bdf.DISTRITOs
-                where bDep.DISTRITO_DESIGN == dep
+                where bDep.DISTRITO_DESIGN == distr
                 select bDep.COD_DISTRITO;
 
             if (auxQuery.Count() == 0)

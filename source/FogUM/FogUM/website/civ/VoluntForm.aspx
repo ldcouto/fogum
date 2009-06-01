@@ -108,7 +108,7 @@
     style="width: 465px; height: 198px; margin-right: 0px; top: 1px; left: 2px;" align="left" 
     dir="ltr">
     <asp:Label ID="Lnome" runat="server" Text="Nome"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="nome" 
         runat="server" Width="200px"></asp:TextBox>
         &nbsp;<asp:Label ID="Label17" runat="server" Font-Italic="True" ForeColor="#FF3300" 
@@ -117,7 +117,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <br />
     <asp:Label ID="Lmorada" runat="server" Text="Email"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="email" 
         runat="server" Width="200px"></asp:TextBox>
     <asp:Label ID="Label21" runat="server" Font-Italic="True" ForeColor="#FF3300" 
@@ -126,13 +126,13 @@
     <br />
     <br />
     <asp:Label ID="Ldistrito" runat="server" Text="Morada"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <asp:TextBox 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox 
         ID="morada" runat="server" Width="200px"></asp:TextBox>
     <asp:Label ID="Label19" runat="server" Font-Italic="True" ForeColor="#FF3300" 
         Text="* Inválido" Visible="False"></asp:Label>
     <br />
     <br />
-    <asp:Label ID="Ltelef" runat="server" Text="Distrito"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:DropDownList 
+    <asp:Label ID="Ltelef" runat="server" Text="Distrito"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <asp:DropDownList 
             ID="DropDownList1" runat="server" 
         DataSourceID="SqlDataSource1" DataTextField="DISTRITO_DESIGN" 
         DataValueField="DISTRITO_DESIGN" Height="20px" Width="205px" 
@@ -144,7 +144,7 @@
     <br />
     <br />
     <asp:Label ID="Lmail" runat="server" Text="Disponibilidade"></asp:Label>
-        &nbsp;&nbsp; <asp:DropDownList ID="DropDownList2" runat="server" Height="20px" 
+        &nbsp;<asp:DropDownList ID="DropDownList2" runat="server" Height="20px" 
             Width="205px">
             <asp:ListItem></asp:ListItem>
         <asp:ListItem>3 Meses</asp:ListItem>
@@ -156,8 +156,7 @@
     <br />
     <br />
     <asp:Label ID="Label16" runat="server" Text="Telefone"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-    <asp:TextBox ID="telefone" runat="server" MaxLength="9" Width="200px"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="telefone" runat="server" MaxLength="9" Width="200px"></asp:TextBox>
     <asp:Label ID="Label20" runat="server" Font-Italic="True" ForeColor="#FF3300" 
         Text="* Inválido" Visible="False"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
