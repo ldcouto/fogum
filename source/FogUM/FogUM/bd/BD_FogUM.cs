@@ -105,8 +105,8 @@ namespace FogUM
         {
             DBLinqDataContext bdf = new DBLinqDataContext();
             var auxQuery =
-                from auxs in bdf.COMANDANTEs
-                select auxs.COD_COMANDANTE;
+                from auxs in bdf.CORPORACAOs
+                select auxs.COD_CORPORACAO;
 
             if (auxQuery == null)
                 return 0;
@@ -171,6 +171,47 @@ namespace FogUM
             return auxQuery.Count();
         }
         #endregion
+
+        /// <summary>
+        /// Devolver uma corporacao dando o codigo
+        /// </summary>
+        /// <param name="fogop">codigo corporacao</param>
+        /// <returns>Corporacao</returns>
+        public Corporacao getCorp(int codCorp)
+        {
+
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var corpQuery =
+               from corp in bdf.CORPORACAOs
+               where corp.COD_CORPORACAO == codCorp
+               select corp;
+
+            if (corpQuery == null) return null;
+            return new Corporacao(corpQuery.First());
+
+        }
+
+        /// <summary>
+        /// Devolver um heli dando o codigo
+        /// </summary>
+        /// <param name="fogop">codigo heli</param>
+        /// <returns>Heli</returns>
+        public Heli getHeli(int codHeli)
+        {
+
+            DBLinqDataContext bdf = new DBLinqDataContext();
+
+            var heliQuery =
+               from heli in bdf.HELIs
+               where heli.COD_HELI == codHeli
+               select heli;
+
+            if (heliQuery == null) return null;
+            return new Heli(heliQuery.First());
+
+        }
+
+
 
         /// <summary>
         /// Devolver estatísticas de Fogos para um dia.
@@ -454,7 +495,8 @@ namespace FogUM
                 where fog.COD_FOGO == codFogo
                 select fog;
 
-            if (fireQuery == null) return null;
+            if (fireQuery.Count() == 0) 
+                return null;
             return new Fogo(fireQuery.First());
         }
 
@@ -828,14 +870,13 @@ namespace FogUM
         /// <param name="f">Fogo ao qual o relatório se refere</param>
         public void submitRel(Relatorio rel, Fogo f)
         {
-            RELATORIO newRel = new RELATORIO();
-            newRel.COD_RELATORIO = this.nextCodRel();
-            newRel.COD_FOGO = f.Codigo;
-            newRel.COD_RELATORIO = rel.Codigo;
-            newRel.COMENTARIO = rel.Comentario;
+            RELATORIO bdrel = new RELATORIO();
+            bdrel.COD_RELATORIO = this.nextCodRel();
+            bdrel.COD_FOGO = f.Codigo;
+            bdrel.COMENTARIO = rel.Comentario;
 
             DBLinqDataContext bdf = new DBLinqDataContext();
-            bdf.RELATORIOs.InsertOnSubmit(newRel);
+            bdf.RELATORIOs.InsertOnSubmit(rel);
             bdf.SubmitChanges();
         }
         #endregion
