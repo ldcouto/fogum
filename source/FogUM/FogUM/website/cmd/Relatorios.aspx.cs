@@ -13,15 +13,18 @@ using System.Xml.Linq;
 using System.Collections.Generic;
 using System.IO;
 using FogUM;
+using System.Text.RegularExpressions;
 
 public partial class Relatorios : PageBase
 {
-    Proc_Cmd proc = new Proc_Cmd(new Comandante(3, "Marco da Costa", "MCosta", "cmd02"));
-
+    Proc_Cmd proc = new Proc_Cmd(new Comandante(6, "Marco da Costa", "teste", "teste0!"));
+    Proc_Civil proc_civ = new Proc_Civil();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        getRelsPendentes(proc.Cmd.User);
+        getFogos_ACtivos();
+        if (!IsPostBack)
+            getRelsPendentes(proc.Cmd.User);
     }
 
     protected void getRelsPendentes(string cmdUsername)
@@ -30,7 +33,7 @@ public partial class Relatorios : PageBase
         foreach (KeyValuePair<Fogo, Relatorio> fr in rels)
         {
             string[] aux = fr.Key.Dh_extinto.ToString().Split(' ');
-            ListBox1.Items.Add(fr.Value.Codigo + " - " + fr.Key.Concelho + " - " + aux[0]);
+            ListBox_rels.Items.Add(fr.Value.Codigo + " - " + fr.Key.Concelho + " - " + aux[0]);
         }
 
 
@@ -39,13 +42,16 @@ public partial class Relatorios : PageBase
 
     protected void TextBox1_TextChanged(object sender, EventArgs e)
     {
-        TextBox1.Text = "";
+
+
     }
 
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        String drop = ListBox1.Text;
+        String drop = ListBox_rels.Text;
+        l_b_civ.Visible = false;
+        l_b_bomb.Visible = false;
 
 
         if (drop != "")
@@ -66,15 +72,76 @@ public partial class Relatorios : PageBase
                     txt_baixas_bomb.Text = fr.Key.Baixas_bombeiros.ToString();
                 }
         }
-        ListBox1.Items.Clear();
-        getRelsPendentes(proc.Cmd.User);
 
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        bool flag = true;
+        l_b_bomb.Visible = false;
+        l_b_civ.Visible = false;
+
+        if (IsNumeric(txt_baixas_bomb.Text)) 
+        {
+            l_b_bomb.Visible = true;
+            flag = false;
+        }
+        if (IsNumeric(txt_baixas_civis.Text)) 
+        {
+            l_b_civ.Visible = true;
+            flag = false;
+        }
+        if (flag)
+        {
+            int cod = Convert.ToInt32(txt_cod_rel.Text);
+            Dictionary<Fogo, Relatorio> rels = proc.Relatorio;
+            foreach (KeyValuePair<Fogo, Relatorio> fr in rels)
+                if (fr.Value.Codigo == cod)
+                {
+                    fr.Value.Comentario = txt_comentario.Text;
+                    proc.submitRel(fr.Value,fr.Key);
+                }
+            txt_baixas_bomb.Text = "";
+            txt_baixas_civis.Text = "";
+            txt_cod_fog.Text = "";
+            txt_cod_rel.Text = "";
+            txt_comentario.Text = "";
+            txt_concelho.Text = "";
+            txt_data_cir.Text = "";
+            txt_data_fim.Text = "";
+            txt_data_ini.Text = "";
+           
+        }
+        //foreach (string x in ListBox1.Text)
+        //    if (x.Contains(txt_cod_rel.Text))
+        //        ListBox1.Items.Remove(x);
+
+        ListBox_rels.Items.Remove(ListBox_rels.SelectedItem.Text);
 
 
     }
-    protected void Button3_Click(object sender, EventArgs e)
+
+    private void getFogos_ACtivos()
     {
-        
+        Dictionary<int, Fogo> fogos = proc_civ.selectMapaIncendios();
+
+        foreach (Fogo f in fogos.Values)
+        {
+            string[] aux = f.Dh_comeco.ToString().Split(' ');
+            ListBox_fogos.Items.Add(f.Codigo+" - "+f.Concelho+"-"+aux[0]);
+            
+        }
+
+    }
+
+    public bool IsNumeric(string s)
+    {
+        foreach (char c in s)
+        {
+            if (!char.IsNumber(c))
+                return true;
+        }
+        return false;
     }
 }
  
