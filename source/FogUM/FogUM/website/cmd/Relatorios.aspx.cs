@@ -30,10 +30,13 @@ public partial class Relatorios : PageBase
     protected void getRelsPendentes(string cmdUsername)
     {
         Dictionary<Fogo, Relatorio> rels = proc.Relatorio;
-        foreach (KeyValuePair<Fogo, Relatorio> fr in rels)
+        if (rels!=null)
         {
-            string[] aux = fr.Key.Dh_extinto.ToString().Split(' ');
-            ListBox_rels.Items.Add(fr.Value.Codigo + " - " + fr.Key.Concelho + " - " + aux[0]);
+            foreach (KeyValuePair<Fogo, Relatorio> fr in rels)
+            {
+                string[] aux = fr.Key.Dh_extinto.ToString().Split(' ');
+                ListBox_rels.Items.Add(fr.Value.Codigo + " - " + fr.Key.Concelho + " - " + aux[0]);
+            }
         }
 
 
