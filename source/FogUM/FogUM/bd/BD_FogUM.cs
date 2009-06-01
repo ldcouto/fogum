@@ -100,6 +100,83 @@ namespace FogUM
         //-------GETS----------------
         //-------------------------
 
+        #region GETS-ESTATISCAS
+        public int getTotCorps()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                from auxs in bdf.COMANDANTEs
+                select auxs.COD_COMANDANTE;
+
+            if (auxQuery == null)
+                return 0;
+            return auxQuery.Count();
+        }
+
+        public int getTotCmds()
+        {    
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                from auxs in bdf.COMANDANTEs
+                select auxs.COD_COMANDANTE;
+
+            if (auxQuery == null)
+                return 0;
+            return auxQuery.Count();
+        }
+
+        public int getTotHelis()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                from auxs in bdf.HELIs
+                select auxs.COD_HELI;
+
+            if (auxQuery == null)
+                return 0;
+            return auxQuery.Count();
+        }
+        public int getTotFogs()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                from auxs in bdf.FOGOs
+                select auxs.COD_FOGO;
+
+            if (auxQuery == null)
+                return 0;
+            return auxQuery.Count();
+        }
+        public int getTotVols()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                from auxs in bdf.VOLUNTARIADOs
+                select auxs.COD_VOLUNTARIO;
+
+            if (auxQuery == null)
+                return 0;
+            return auxQuery.Count();
+        }
+
+        public int getTotDepos()
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                from auxs in bdf.DEPOSITOs
+                select auxs.COD_DEPO;
+
+            if (auxQuery == null)
+                return 0;
+            return auxQuery.Count();
+        }
+        #endregion
+
+        /// <summary>
+        /// Devolver estatísticas de Fogos para um dia.
+        /// </summary>
+        /// <param name="dt">DateTime com o dia desejado</param>
+        /// <returns>List de packs de estatísticas</returns>
         public List<EstFogo> getEstFogos(DateTime dt)
         {
             DBLinqDataContext bdf = new DBLinqDataContext();
@@ -113,62 +190,7 @@ namespace FogUM
             return r;
         }
 
-        private EstFogo getEFAux(int codFogo)
-        {
-            EstFogo r = new EstFogo();
-            DBLinqDataContext bdf = new DBLinqDataContext();
-            var fQuery =
-                from fogs in bdf.FOGOs
-                where fogs.COD_FOGO == codFogo
-                select fogs;
-            if (fQuery == null) return r;
-            else
-            {
-                var fQ = fQuery.First();
-                r.AreaArdida = (float)fQ.RAIO_FOGO;
-                r.Cmd = fQ.COMANDANTE.NOME;
-                r.DhEnd = fQ.DH_FIM.ToString();
-                r.DhStart = fQ.DH_START.ToString();
-                r.Estado = fQ.ESTADO_FOGO.ESTADO_DESIGN;
-                r.NBaixasB = (int)fQ.BAIXAS_BOMBEIROS;
-                r.NCompanhias =
-                    (from fCs in bdf.CORPFOGOs
-                     where fCs.COD_FOGO == codFogo
-                     select fCs).Count();
-                r.NHelis =
-                    (from fCs in bdf.HELIFOGOs
-                     where fCs.COD_FOGO == codFogo
-                     select fCs).Count();
-                r.Zona = fQ.CONCELHO.CONCELHO_DESIGN;
-
-                var corpQuery =
-                    from corp in bdf.CORPORACAOs
-                    join aux in bdf.CORPFOGOs on corp.COD_CORPORACAO equals aux.COD_CORPORACAO
-                    where aux.COD_FOGO == codFogo
-                    select corp;
-
-                r.NHelis = (from hs in bdf.HELIs
-                            join aux in bdf.HELIFOGOs on hs.COD_HELI equals aux.COD_HELI
-                            where aux.COD_FOGO == codFogo
-                            select aux.COD_HELI).Count();
-
-                var fQuery3 =
-                    from cs in bdf.CORPORACAOs
-                    join aux in bdf.CORPFOGOs on cs.COD_CORPORACAO equals aux.COD_CORPORACAO
-                    where aux.COD_FOGO == codFogo
-                    select new { Homens = cs.NUM_HOMENS_DISP, Veiculos = cs.NUM_VEICULOS_DISP };
-
-                r.NVeiculos = 0;
-                r.NHomens = 0;
-                foreach (var aux in fQuery3)
-                {
-                    r.NVeiculos += (int)aux.Veiculos;
-                    r.NHomens += (int)aux.Homens;
-                }
-
-                return r;
-            }
-        }
+      
 
         /// <summary>
         /// Devolver o total de fogos ocorridos num ano
@@ -1042,6 +1064,63 @@ namespace FogUM
         //----------------------------
         //-------AUXILIARES----------
         //-------------------------
+
+        private EstFogo getEFAux(int codFogo)
+        {
+            EstFogo r = new EstFogo();
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var fQuery =
+                from fogs in bdf.FOGOs
+                where fogs.COD_FOGO == codFogo
+                select fogs;
+            if (fQuery == null) return r;
+            else
+            {
+                var fQ = fQuery.First();
+                r.AreaArdida = (float)fQ.RAIO_FOGO;
+                r.Cmd = fQ.COMANDANTE.NOME;
+                r.DhEnd = fQ.DH_FIM.ToString();
+                r.DhStart = fQ.DH_START.ToString();
+                r.Estado = fQ.ESTADO_FOGO.ESTADO_DESIGN;
+                r.NBaixasB = (int)fQ.BAIXAS_BOMBEIROS;
+                r.NCompanhias =
+                    (from fCs in bdf.CORPFOGOs
+                     where fCs.COD_FOGO == codFogo
+                     select fCs).Count();
+                r.NHelis =
+                    (from fCs in bdf.HELIFOGOs
+                     where fCs.COD_FOGO == codFogo
+                     select fCs).Count();
+                r.Zona = fQ.CONCELHO.CONCELHO_DESIGN;
+
+                var corpQuery =
+                    from corp in bdf.CORPORACAOs
+                    join aux in bdf.CORPFOGOs on corp.COD_CORPORACAO equals aux.COD_CORPORACAO
+                    where aux.COD_FOGO == codFogo
+                    select corp;
+
+                r.NHelis = (from hs in bdf.HELIs
+                            join aux in bdf.HELIFOGOs on hs.COD_HELI equals aux.COD_HELI
+                            where aux.COD_FOGO == codFogo
+                            select aux.COD_HELI).Count();
+
+                var fQuery3 =
+                    from cs in bdf.CORPORACAOs
+                    join aux in bdf.CORPFOGOs on cs.COD_CORPORACAO equals aux.COD_CORPORACAO
+                    where aux.COD_FOGO == codFogo
+                    select new { Homens = cs.NUM_HOMENS_DISP, Veiculos = cs.NUM_VEICULOS_DISP };
+
+                r.NVeiculos = 0;
+                r.NHomens = 0;
+                foreach (var aux in fQuery3)
+                {
+                    r.NVeiculos += (int)aux.Veiculos;
+                    r.NHomens += (int)aux.Homens;
+                }
+
+                return r;
+            }
+        }
 
         private int nextCodCmd()
         {

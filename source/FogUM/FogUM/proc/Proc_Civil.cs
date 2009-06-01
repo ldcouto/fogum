@@ -74,5 +74,36 @@ namespace FogUM
             bd.setVoluntario(v);
         }
 
+        // GETS PARA ESTATISTICAS
+
+        public int getTotCorps(){
+            return bd.getTotCorps();
+        }
+
+        public int getTotCmds(){
+            return bd.getTotCmds();
+        }
+
+
+        public int getTotDepos(){
+            return bd.getTotDepos();
+        }
+
+
+        public int getTotFogs(){
+            return bd.getTotFogs();
+        }
+
+
+        public int getTotHelis(){
+            return bd.getTotHelis();
+        }
+
+       public int getTotVols(){
+            return bd.getTotVols();
+        }
+
+
+
     }
 }

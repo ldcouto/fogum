@@ -5,12 +5,12 @@
 /*==============================================================*/
 /* Test data for table "Comandantes".                 */
 /*==============================================================*/
-insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (1, 'cmd1', 'cmd1', 'João da Silva')
-insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (2, 'cmd2', 'cmd2', 'Marco Costa')
-insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (3, 'cmd3', 'cmd3', 'Rui Pereira')
-insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (4, 'cmd4', 'cmd4', 'José Castro')
-insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (5, 'cmd5', 'cmd5', 'Fernando Vaz')
-insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (6, 'teste', 'teste', 'Dummy CMD for Tests')
+insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (1, 'cmd1', 'comnd1!', 'João da Silva')
+insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (2, 'cmd2', 'comnd2!', 'Marco Costa')
+insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (3, 'cmd3', 'comnd3!', 'Rui Pereira')
+insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (4, 'cmd4', 'comnd4!', 'José Castro')
+insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (5, 'cmd5', 'comnd5!', 'Fernando Vaz')
+insert into COMANDANTE (COD_COMANDANTE, USERNAME, PASSWORD, NOME) values (6, 'teste', 'teste0!', 'Dummy CMD for Tests')
 
 /*==============================================================*/
 /* Test data for table "Concelho".                 */
