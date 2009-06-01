@@ -172,6 +172,19 @@ namespace FogUM
         }
         #endregion
 
+
+        public int testaCodDistr(string distr)
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                from bDep in bdf.DISTRITOs
+                where bDep.DISTRITO_DESIGN == dep
+                select bDep.COD_DISTRITO;
+
+            if (auxQuery.Count() == 0)
+                return -1;
+            return auxQuery.First();
+        }
         public int testaCod(string dep)
         {
             DBLinqDataContext bdf = new DBLinqDataContext();
@@ -181,7 +194,7 @@ namespace FogUM
                 select bDep.COD_TIPO;
 
             if (auxQuery.Count() == 0)
-                return -11;
+                return -1;
             return auxQuery.First();
         }
 
