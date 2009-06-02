@@ -20,7 +20,13 @@ public partial class DepForm : PageBase
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        // BUILD STATS LIST
+        BListStats.Items.Add("Corporações: " + pc.getTotCorps().ToString());
+        BListStats.Items.Add("Comandantes: " + pc.getTotCmds().ToString());
+        BListStats.Items.Add("Helicópetros: " + pc.getTotHelis().ToString());
+        BListStats.Items.Add("Fogos: " + pc.getTotFogs().ToString());
+        BListStats.Items.Add("Voluntários: " + pc.getTotVols().ToString());
+        BListStats.Items.Add("Depósitos: " + pc.getTotDepos().ToString());
     }
 
     public bool IsNumeric(string s)

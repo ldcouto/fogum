@@ -173,7 +173,7 @@ namespace FogUM
         #endregion
 
 
-        public int testaCodDistr(string distr)
+        public int getCodDistrByName(string distr)
         {
             DBLinqDataContext bdf = new DBLinqDataContext();
             var auxQuery =
@@ -185,7 +185,7 @@ namespace FogUM
                 return -1;
             return auxQuery.First();
         }
-        public int testaCod(string dep)
+        public int getCodTipDepByName(string dep)
         {
             DBLinqDataContext bdf = new DBLinqDataContext();
             var auxQuery =
@@ -493,7 +493,7 @@ namespace FogUM
                 where aux.COD_RELATORIO == null && aux.COMANDANTE.USERNAME == cmdUsername
                 select aux;
 
-            if (relQuery != null)
+            if (relQuery.Count()>0)
             {
                 foreach (FOGO cf in relQuery)
                 {

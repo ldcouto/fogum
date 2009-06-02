@@ -105,13 +105,13 @@ namespace FogUM
 
        public int testaCodDistr(string d)
        {
-           return bd.testaCodDistr(d);
+           return bd.getCodDistrByName(d);
        }
 
 
        public int testaCod(string p)
        {
-           return bd.testaCod(p);
+           return bd.getCodTipDepByName(p);
            
        }
     }

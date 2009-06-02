@@ -50,13 +50,13 @@ namespace FogUM
             get { return bd; }
             set { bd = value; }
         }
-        public Dictionary<Fogo,Relatorio> Relatorio
+        public Dictionary<Fogo,Relatorio> Relatorios
         {
             get { return relatorios; }
             set { relatorios = value; }
         }
 
-        public List<Corporacao> Corperacoes
+        public List<Corporacao> Corporacoes
         {
             get { return corporacoes; }
             set { corporacoes = value; }
@@ -74,7 +74,7 @@ namespace FogUM
             this.cmd = cmd;
             this.depositosDisp = new List<Deposito>();
             this.bd = new BD_FogUM();
-            //   this.relatorios = bd.getRelsPendentes(cmd.User); Falta funcionar na base de dados
+            this.relatorios = bd.getRelsPendentesCFogos(cmd.User);
             this.corporacoes = new List<Corporacao>();
             this.helis = new List<Heli>();
         }

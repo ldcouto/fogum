@@ -21,7 +21,7 @@ public partial class Civil : PageBase
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        Proc_Civil pci = new Proc_Civil();
+        //Proc_Civil pci = new Proc_Civil();
         
         GoogleMapForASPNet1.GoogleMapObject.AutomaticBoundaryAndZoom = false;
         //You must specify Google Map API Key for this component. You can obtain this key from http://code.google.com/apis/maps/signup.html
@@ -46,7 +46,7 @@ public partial class Civil : PageBase
         BListStats.Items.Add("Helicópetros: " + proc.getTotHelis().ToString());
         BListStats.Items.Add("Fogos: " + proc.getTotFogs().ToString());
         BListStats.Items.Add("Voluntários: " + proc.getTotVols().ToString());
-        BListStats.Items.Add("Depósitos: " + pci.getTotDepos().ToString());
+        BListStats.Items.Add("Depósitos: " + proc.getTotDepos().ToString());
 
         MostraFogos();
 

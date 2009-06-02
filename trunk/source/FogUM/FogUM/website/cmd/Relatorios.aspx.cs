@@ -29,9 +29,10 @@ public partial class Relatorios : PageBase
 
     protected void getRelsPendentes(string cmdUsername)
     {
-        Dictionary<Fogo, Relatorio> rels = proc.Relatorio;
+        Dictionary<Fogo, Relatorio> rels = proc.Relatorios;
         if (rels!=null)
         {
+            ListBox_rels.Items.Clear();
             foreach (KeyValuePair<Fogo, Relatorio> fr in rels)
             {
                 string[] aux = fr.Key.Dh_extinto.ToString().Split(' ');
@@ -61,7 +62,7 @@ public partial class Relatorios : PageBase
         {
             string[] aux = drop.Split('-');
             int cod = Convert.ToInt32(aux[0]);
-            Dictionary<Fogo, Relatorio> rels = proc.Relatorio;
+            Dictionary<Fogo, Relatorio> rels = proc.Relatorios;
             foreach (KeyValuePair<Fogo, Relatorio> fr in rels)
                 if (fr.Value.Codigo == cod)
                 {
@@ -97,7 +98,7 @@ public partial class Relatorios : PageBase
         if (flag)
         {
             int cod = Convert.ToInt32(txt_cod_rel.Text);
-            Dictionary<Fogo, Relatorio> rels = proc.Relatorio;
+            Dictionary<Fogo, Relatorio> rels = proc.Relatorios;
             foreach (KeyValuePair<Fogo, Relatorio> fr in rels)
                 if (fr.Value.Codigo == cod)
                 {
@@ -127,7 +128,8 @@ public partial class Relatorios : PageBase
     private void getFogos_ACtivos()
     {
         Dictionary<int, Fogo> fogos = proc_civ.selectMapaIncendios();
-
+        //TODO ISTO NÃO TÁ direito! Está a mostrar fogos activos com relatórios já preenchidos.
+        // Tem de se iterar sobre o conjunto de fogos devolvido pelo rels pendentes
         foreach (Fogo f in fogos.Values)
         {
             string[] aux = f.Dh_comeco.ToString().Split(' ');
