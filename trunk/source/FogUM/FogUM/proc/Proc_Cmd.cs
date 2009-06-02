@@ -114,6 +114,11 @@ namespace FogUM
 
         }
 
+        public int getCodConcelhoByName(string concelho)
+        {
+            return bd.getCodConsByName(concelho);
+        }
+
         public Dictionary<int, Corporacao> getCoorpDestacadas()
         {
             // Dictionary<int, Corporacao> corpdes = new Dictionary<int, Corporacao>();
@@ -204,6 +209,13 @@ namespace FogUM
         public void novoFogo()
         {
             this.fogoCombate = new Fogo();
+            //FIX contra chaves estrangeiras
+            fogoCombate.CodConcelho = 1;
+            fogoCombate.Dh_circunscrito = DateTime.Now;
+            fogoCombate.Dh_comeco = DateTime.Now;
+            fogoCombate.Dh_extinto = DateTime.Now;
+            fogoCombate.Codigo = bd.setNovoFogo(fogoCombate, Cmd);
+            
         }
 
 
@@ -349,12 +361,23 @@ namespace FogUM
                 return "EXTINTO";
         }
 
+        public Comandante getCmdbyuser(String user)
+        {
+            return bd.getComandante(user);
+        }
+
         public void setComentario(string coment)
         {
             this.fogoCombate.Comentario = coment;
             bd.updateFogo(this.fogoCombate);
         }
 
+
+
+        public void updateFogo()
+        {
+            bd.updateFogo(fogoCombate);
+        }
 
     }
 }

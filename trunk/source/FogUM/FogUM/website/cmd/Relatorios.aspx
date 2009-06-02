@@ -98,18 +98,66 @@
                                         </h2>
                                         <h2>
                                             <p style="margin-left: 120px">
-                                                <asp:ListBox ID="ListBox_fogos" runat="server" Width="199px"></asp:ListBox>
+                                                <asp:ListBox ID="ListBox_fogos" runat="server" Width="230px"></asp:ListBox>
                                             </p>
                                         </h2>
                                         <h2>
                                             <p style="margin-left: 200px">
 &nbsp;&nbsp;
                                                 <asp:Button ID="btn_reiniciar_fogo" runat="server" Height="30px" 
-                                                    Text="Reeniciar Fogo" />
+                                                    Text="Visualizar Fogo"  PostBackUrl="~/cmd/Painel_Cmd.aspx" 
+                                                    onclick="btn_reiniciar_fogo_Click"/>
 &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btn_novo_fogo" runat="server" Text="Novo Fogo" Height="30px" />
+            <asp:Button ID="btn_novo_fogo" runat="server" Text="Novo Fogo" Height="30px"  
+                                                    Width="101px" onclick="btn_novo_fogo_Click" />
                                             </p>
                                         </h2>
+    <div>
+        <p style="margin-left: 20px">
+        <asp:Table ID="Table2" runat="server" >
+        <asp:TableRow ID="TableRow2" runat="server">
+        <asp:TableCell Width="250">
+        
+            <asp:Label ID="l_morada" runat="server" Text="Morada:" style="margin-left: 40px" 
+                    Enabled="False"></asp:Label><br />            
+            <asp:TextBox ID="txt_morada" runat="server" style="margin-left: 40px" 
+                    Enabled="False"></asp:TextBox><br />
+            <asp:Label ID="l_concelho" runat="server" Text="Concelho:" 
+                    style="margin-left: 40px" Enabled="False"></asp:Label><br />
+            <asp:DropDownList ID="DropDown_concelhos" runat="server" style="margin-left: 40px" Width="128px"
+                    DataSourceID="SqlDataSource1" DataTextField="CONCELHO_DESIGN" 
+                    DataValueField="CONCELHO_DESIGN" AppendDataBoundItems="true" Enabled="False">
+                    <asp:ListItem Value=""></asp:ListItem>
+                <asp:ListItem></asp:ListItem>
+            </asp:DropDownList>
+            
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:BDFConnectionString %>" 
+                SelectCommand="SELECT [CONCELHO_DESIGN] FROM [CONCELHO]">
+            </asp:SqlDataSource>
+        </asp:TableCell>
+    
+        <asp:TableCell>
+            <asp:Label ID="l_lat" runat="server" Text="Latitude:" Enabled="False" style="margin-left: 40px"></asp:Label><br />
+            <asp:TextBox id="txt_lat" runat="server" Enabled="false" style="margin-left: 40px"></asp:TextBox><br />
+            <asp:Label ID="l_long" runat="server" Text="Longitude:" Enabled="false" style="margin-left: 40px"></asp:Label><br />
+            <asp:TextBox ID="txt_long" runat="server" Enabled="false" style="margin-left: 40px"></asp:TextBox> <br /><br />
+             
+             
+        </asp:TableCell>    
+        </asp:TableRow> 
+        <asp:TableRow ID="TableRow3" runat="server">
+        <asp:TableCell Width="250">
+        </asp:TableCell>  
+        <asp:TableCell>
+        <asp:Button ID="btn_inic_Fogo" runat="server" Height="30px" Text="Iniciar Fogo" 
+                    OnClick="btn_inic_Fogo_Click" style="margin-left: 80px" Width="101px" Visible="False"/>            
+        </asp:TableCell>
+        </asp:TableRow> 
+        </asp:Table>
+        
+        </p>
+    </div>
     
     <div style="height: 88px">
         <br />
@@ -117,7 +165,7 @@
         <h2>Relatórios</h2>
                                             <div>
                                                 <p style="margin-left: 120px">
-                                                    <asp:ListBox ID="ListBox_rels" runat="server" Width="200px"></asp:ListBox>
+                                                    <asp:ListBox ID="ListBox_rels" runat="server" Width="230px"></asp:ListBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <asp:Button ID="Button2" runat="server" onclick="Button2_Click" 
                                                         style="width: 33px" Text="OK" Width="122px" />
@@ -130,45 +178,42 @@
                                         <br />
                                         <br />
                                         <br />
-    <div style="width: 564px">
-        &nbsp;&nbsp; Código Fogo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Código Relatório:<br />
-        <asp:TextBox ID="txt_cod_fog" runat="server" ReadOnly="True"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txt_cod_rel" runat="server" ReadOnly="True" Width="128px"></asp:TextBox>
-        <br />
-        <br />
-&nbsp;&nbsp;
-        Concelho:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        Data de Inicio:<br />
-        <asp:TextBox ID="txt_concelho" runat="server" ReadOnly="True"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txt_data_ini" runat="server" ReadOnly="True"></asp:TextBox>
-        <br />
-        <br />
-&nbsp;&nbsp;
-        Baixas Bombeiros:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        Data Circunscrito:<br />
-        <asp:TextBox ID="txt_baixas_bomb" runat="server"></asp:TextBox>
-        <asp:Label runat="server" Text="*Inválido" ID="l_b_bomb" 
-            ForeColor="Red" Font-Italic="True" Visible="False"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txt_data_cir" runat="server" ReadOnly="True"></asp:TextBox>
-        <br />
-        <br />
-&nbsp;&nbsp;
-        Baixas Cívis:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        Data Fim:<br />
-        <asp:TextBox ID="txt_baixas_civis" runat="server"></asp:TextBox>
-        <asp:Label ID="l_b_civ" runat="server" Text="*Inválido" ForeColor="Red" 
-            Font-Italic="True" Visible="False"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txt_data_fim" runat="server" ReadOnly="True"></asp:TextBox>
-        &nbsp;&nbsp;
-    </div>
-    <br />
-                                        <br />
-   <div>
+    <asp:Table ID="Table1" runat="server" >
+    <asp:TableRow ID="TableRow1" runat="server">
+    <asp:TableCell Width="250">
+    <asp:Label ID="label1" runat="server" Text="Código Fogo:" style="margin-left: 40px"></asp:Label><br />
+    <asp:TextBox ID="txt_cod_fog" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:Label ID="label3" runat="server" Text="Concelho:" style="margin-left: 40px"></asp:Label><br />
+    <asp:TextBox ID="txt_concelho" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:Label ID="label4" runat="server" Text="Baixas Bombeiros:" style="margin-left: 40px"></asp:Label><br />
+    <asp:TextBox ID="txt_baixas_bomb" runat="server" style="margin-left: 40px"></asp:TextBox>
+    <asp:Label runat="server" Text="*Inválido" ID="l_b_bomb" style="margin-left: 40px" 
+            ForeColor="Red" Font-Italic="True" Visible="False"></asp:Label><br />
+    <asp:Label ID="label6" runat="server" Text="Baixas Cívis:" style="margin-left: 40px"></asp:Label><br />
+    <asp:TextBox ID="txt_baixas_civis" runat="server" style="margin-left: 40px"></asp:TextBox>
+    <asp:Label ID="l_b_civ" runat="server" Text="*Inválido" ForeColor="Red" style="margin-left: 40px"
+            Font-Italic="True" Visible="False"></asp:Label><br />
+    </asp:TableCell>
+    
+    <asp:TableCell>
+    <asp:Label ID="label2" runat="server" Text="Código Relatório:" style="margin-left: 40px"></asp:Label><br />
+    <asp:TextBox ID="txt_cod_rel" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:Label ID="label7" runat="server" Text="Data de Inicio:" style="margin-left: 40px"></asp:Label><br />
+    <asp:TextBox ID="txt_data_ini" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:Label ID="label8" runat="server" Text="Data de Circunscrito:" style="margin-left: 40px"></asp:Label><br />
+    <asp:TextBox ID="txt_data_cir" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:Label ID="label9" runat="server" Text="Data de Fim:" style="margin-left: 40px"></asp:Label><br />
+    <asp:TextBox ID="txt_data_fim" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+   
+    
+    </asp:TableCell>    
+    </asp:TableRow> 
+    </asp:Table>
+    
+    
+    
+    <br /><br />
+    <div>
         Comentario:
         <asp:TextBox ID="txt_comentario" runat="server" Height="115px" Width="551px" 
             MaxLength="8000" TextMode="MultiLine"></asp:TextBox>
