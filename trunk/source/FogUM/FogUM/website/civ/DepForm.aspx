@@ -129,7 +129,7 @@
         <br />
         <asp:Label ID="Label1" runat="server" Text="Rua"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="moradaD" runat="server"></asp:TextBox>
+        <asp:TextBox ID="moradaD" runat="server" Width="200px"></asp:TextBox>
         <asp:Label ID="Label2" runat="server" Font-Italic="True" ForeColor="Red" 
             Text="* Inválido" Visible="False"></asp:Label>
         <br />
@@ -138,7 +138,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="DropDownList2" runat="server" 
             DataSourceID="SqlDataSource2" DataTextField="DISTRITO_DESIGN" 
-            DataValueField="DISTRITO_DESIGN" AppendDataBoundItems="true">
+            DataValueField="DISTRITO_DESIGN" AppendDataBoundItems="true" Height="22px" 
+            Width="200px">
             <asp:ListItem Value=""></asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="Label15" runat="server" Font-Italic="True" ForeColor="Red" 
@@ -156,7 +157,8 @@
 &nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="DropDownList1" runat="server" 
             DataSourceID="SqlDataSource1" DataTextField="TIPO_DESIGN" 
-            DataValueField="TIPO_DESIGN" AppendDataBoundItems="true">
+            DataValueField="TIPO_DESIGN" AppendDataBoundItems="true" Height="22px" 
+            Width="145px">
             <asp:ListItem Value=""></asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="Label13" runat="server" Font-Italic="True" ForeColor="Red" 

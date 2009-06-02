@@ -12,6 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using FogUM;
 using System.Collections.Generic;
+using System.Net.Mail;
 
 
 public partial class Civil : PageBase
@@ -88,8 +89,20 @@ public partial class Civil : PageBase
     }
 
 
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    protected void Button1_Click(object sender, EventArgs e)
     {
-        TextBox1.Text = "";
+     
+        MailMessage mail = new MailMessage();
+        mail.To.Add(TextBox1.Text.ToString());
+        mail.Subject = "NewsLetterFogUM";
+        mail.From = new MailAddress("FogUM@gmail.com");
+
+
+     //   mail.Body = "<a href=\"http://localhost:1414/website/ConfMailForm.aspx/\"</a>Confirme o seu email";
+        mail.Body = "FOGUM";
+        mail.IsBodyHtml = true;
+        System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
+        smtp.Send(mail);
+    
     }
 }

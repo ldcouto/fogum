@@ -19,16 +19,36 @@
         Links Úteis</h3>
     <div class="sbcontentcontainer">
         <ul>
-            <li><a href="http://www.bombeiros.pt/" target=_blank >Bombeiros de Portugal</a></li>
-            <li><a href="http://www.apbv.org/" target=_blank >Bombeiros Voluntários</a></li>     
-            <li><a href="http://www.florestabemcuidada.com/" target=_blank >Floresta Bem Cuidada</a></li>
-            <li><a href="hhttp://www.florestaunida.com/" target=_blank >Floresta Unida</a></li>
-            <li><a href="http://www.inem.pt/" target=_blank >INEM</a></li>  
-            <li><a href="http://www.meteo.pt/pt/" target=_blank >Instituto Meteorologia</a></li>     
-            <li><a href="http://www.afn.min-agricultura.pt/portal" target=_blank >Ministério da Agricultura</a></li> 
-            <li><a href="http://www.maotdr.gov.pt/" target=_blank >Ministério do Ambiente</a></li>  
-            <li><a href="http://www.lpn.pt/" target=_blank >Protecção da Natureza</a></li> 
-            <li><a href="http://www.proteccaocivil.pt/" target=_blank >Protecção Civil</a></li>
+            <li>&nbsp;<asp:Image ID="Image1" runat="server" />
+                <a href="http://www.bombeiros.pt/" target=_blank >Bombeiros de Portugal</a></li>
+            <li>
+                <asp:Image ID="Image2" runat="server" />
+                <a href="http://www.apbv.org/" target=_blank >Bombeiros Voluntários</a></li>     
+            <li>
+                <asp:Image ID="Image3" runat="server" />
+                <a href="http://www.florestabemcuidada.com/" target=_blank >Floresta Bem Cuidada</a></li>
+            <li>
+                <asp:Image ID="Image4" runat="server" />
+                <a href="hhttp://www.florestaunida.com/" target=_blank >Floresta Unida</a></li>
+            <li>
+                <asp:Image ID="Image5" runat="server" Height="16px" 
+                    ImageUrl="~/civ/Imagens/logo_inem.jpeg" Width="16px" />
+                <a href="http://www.inem.pt/" target=_blank >INEM</a></li>  
+            <li>
+                <asp:Image ID="Image6" runat="server" />
+                <a href="http://www.meteo.pt/pt/" target=_blank >Instituto Meteorologia</a></li>     
+            <li>
+                <asp:Image ID="Image7" runat="server" />
+                <a href="http://www.afn.min-agricultura.pt/portal" target=_blank >Ministério da Agricultura</a></li> 
+            <li>
+                <asp:Image ID="Image8" runat="server" />
+                <a href="http://www.maotdr.gov.pt/" target=_blank >Ministério do Ambiente</a></li>  
+            <li>
+                <asp:Image ID="Image9" runat="server" />
+                <a href="http://www.lpn.pt/" target=_blank >Protecção da Natureza</a></li> 
+            <li>
+                <asp:Image ID="Image10" runat="server" />
+                <a href="http://www.proteccaocivil.pt/" target=_blank >Protecção Civil</a></li>
 
               
         </ul>
@@ -70,9 +90,8 @@
         <ContentTemplate>
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>
-            <asp:TextBox ID="TextBox1" runat="server" ontextchanged="TextBox1_TextChanged" 
->Insira o seu email</asp:TextBox>
-            <asp:Button ID="Button1" runat="server" Text="OK" />
+            <asp:TextBox ID="TextBox1" runat="server">Insira o seu email</asp:TextBox>
+            <asp:Button ID="Button1" runat="server" Text="OK" onclick="Button1_Click" />
         </ContentTemplate>
     </asp:UpdatePanel>
     <p>

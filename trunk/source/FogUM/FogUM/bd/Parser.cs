@@ -46,13 +46,6 @@ namespace FogUM
                 sb.Append("\t\t\t<baixasBomb>" + f.BAIXAS_BOMBEIROS + "</baixasBomb>\n");
                 sb.Append("\t\t\t<baixasCivis>" + f.BAIXAS_CIVIS + "</baixasCivis>\n");
                 sb.Append("\t\t\t<codRelatorio>" + f.COD_RELATORIO + "</codRelatorio>\n");
-               // sb.Append("\t\t\t<relatorio> " + f.RELATORIO + " </relatorio> \n");
-                // sb.Append("\t\t<comandante> " + f.COMANDANTE + " </comandante> \n");
-                // sb.Append("\t\t<concelho> " + f.CONCELHO + " </concelho> \n");
-                // sb.Append("\t\t<corpFogos> " + f.CORPFOGOs + " </corpFogos> \n");                
-                // sb.Append("\t\t<estado> " + f.ESTADO_FOGO + " </estado> \n");
-                // sb.Append("\t\t<helis> " + f.HELIFOGOs + " </helis> \n");
-                // sb.Append("\t\t<relatorios> " + f.RELATORIOs + " </relatorios> \n");
                 sb.Append("\t\t</FOGO>\n");
             }
             sb.Append("\t</TAB_FOGO>\n");
@@ -75,7 +68,6 @@ namespace FogUM
                 sb.Append("\t\t<COMANDANTE>\n");
                 sb.Append("\t\t\t<nome>" + c.NOME + "</nome> \n");
                 sb.Append("\t\t\t<codComandante>" + c.COD_COMANDANTE + "</codComandante>\n");
-                //   sb.Append("\t\t<fogos> " + c.FOGOs + " </fogos> \n"); 
                 sb.Append("\t\t\t<username>" + c.USERNAME + "</username>\n");
                 sb.Append("\t\t\t<password>" + c.PASSWORD + "</password>\n");
                 sb.Append("\t\t</COMANDANTE>\n");
@@ -100,7 +92,6 @@ namespace FogUM
                 sb.Append("\t\t<CONCELHO>\n");
                 sb.Append("\t\t\t<codConcelho>" + c.COD_CONCELHO + "</codConcelho>\n");
                 sb.Append("\t\t\t<concDesignacao>" + c.CONCELHO_DESIGN + "</concDesignacao>\n");
-                //  sb.Append("\t\t<fogos> " + c.FOGOs + " </fogos> \n");
                 sb.Append("\t\t</CONCELHO>\n");
             }
             sb.Append("\t</TAB_CONCELHO>\n");
@@ -123,8 +114,6 @@ namespace FogUM
                 sb.Append("\t\t<CORP_FOGO>\n");
                 sb.Append("\t\t\t<codCorporacao>" + cp.COD_CORPORACAO + "</codCorporacao>\n");
                 sb.Append("\t\t\t<codFogo>" + cp.COD_FOGO + "</codFogo>\n");
-                //  sb.Append("\t\t<corporacao> " + cp.CORPORACAO + " </corporacao> \n");
-                //  sb.Append("\t\t<fogo> " + cp.FOGO + " </fogo> \n");
                 sb.Append("\t\t\t<numHomens>" + cp.NUM_HOMENS + "</numHomens>\n");
                 sb.Append("\t\t\t<numVeiculos>" + cp.NUM_VEICULOS + "</numVeiculos>\n");
                 sb.Append("\t\t</CORP_FOGO>\n");
@@ -148,7 +137,6 @@ namespace FogUM
             {
                 sb.Append("\t\t<CORPORACAO>\n");
                 sb.Append("\t\t\t<codCorporacao> " + cp.COD_CORPORACAO + "</codCorporacao>\n");
-                // sb.Append("\t\t<codFogo> " + cp.CORPFOGOs + " </codFogo> \n");
                 sb.Append("\t\t\t<designCorporacao>" + cp.CORPORACAO_DESIGN + "</designCorporacao>\n");
                 sb.Append("\t\t\t<latitude>" + cp.LATITUDE_CORP + "</latitude>\n");
                 sb.Append("\t\t\t<longitude>" + cp.LONGITUDE_CORP + "</longitude>\n");
@@ -181,7 +169,6 @@ namespace FogUM
                 sb.Append("\t\t\t<volume>" + dep.VOLUME + "</volume>\n");
                 sb.Append("\t\t\t<latitude>" + dep.LATITUDE + "</latitude>\n");
                 sb.Append("\t\t\t<longitude>" + dep.LONGITUDE + "</longitude>\n");
-                // sb.Append("\t\t<tiposDeposito> " + dep.TIPOS_DEPO + " </tiposDeposito> \n");
                 sb.Append("\t\t</DEPOSITO>\n");
             }
             sb.Append("\t</TAB_DEPOSITO>\n");
@@ -351,25 +338,32 @@ namespace FogUM
 
         public void criarXML()
         {
-            TextWriter path = new StreamWriter(DateTime.Now.ToShortDateString().ToString()+".xml");
-            path.WriteLine("<?xml version=\"1.0\"?>");
-            path.WriteLine("<FogUM>");
-            path.Write(this.parseConselho());
-            path.Write(this.parseDistritos());
-            path.Write(this.parseEstadoFogo());
-            path.Write(this.parseCorporacao());
-            path.Write(this.parseTiposDepos());
-            path.Write(this.parseHeli());
-            path.Write(this.parseVoluntariado());
+            //Boolean flag = true;
+            string aux = "FogUM/website/bda/xmls/" + "DumpFogUM-" + DateTime.Now.ToShortDateString().ToString() + ".xml";
             
-            path.Write(this.parseCorpFogo());
-            path.Write(this.parseDepositos());
-            path.Write(this.parseHeliFogo());
-            path.Write(this.parseComandante());
-            path.Write(this.parseFogo());
-            path.Write(this.parseRelatorio());
-            path.WriteLine("</FogUM>");
-            path.Close();
+            TextWriter path = new StreamWriter(aux);
+           
+
+
+
+                path.WriteLine("<?xml version=\"1.0\"?>");
+                path.WriteLine("<FogUM>");
+                path.Write(this.parseComandante());
+                path.Write(this.parseConselho());
+                path.Write(this.parseTiposDepos());
+                path.Write(this.parseDistritos());
+                path.Write(this.parseVoluntariado());
+                path.Write(this.parseCorporacao());
+                path.Write(this.parseHeli());
+                path.Write(this.parseEstadoFogo());
+                path.Write(this.parseDepositos());
+                path.Write(this.parseFogo());
+                path.Write(this.parseRelatorio());
+                path.Write(this.parseHeliFogo());
+                path.Write(this.parseCorpFogo());
+                path.WriteLine("</FogUM>");
+                path.Close();
+            
         }
 
 

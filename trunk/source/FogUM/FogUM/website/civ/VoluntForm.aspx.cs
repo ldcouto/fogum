@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using System.Text;
 using FogUM.bd;
 using FogUM;
+using System.IO;
 
 public partial class VoluntForm : PageBase
 {
@@ -21,14 +22,26 @@ public partial class VoluntForm : PageBase
 
     protected void Page_Load(object sender, EventArgs e)
     {
+       
+        //bool flag = true;
 
-        // BUILD STATS LIST
-        BListStats.Items.Add("Corporações: " + pc.getTotCorps().ToString());
-        BListStats.Items.Add("Comandantes: " + pc.getTotCmds().ToString());
-        BListStats.Items.Add("Helicópetros: " + pc.getTotHelis().ToString());
-        BListStats.Items.Add("Fogos: " + pc.getTotFogs().ToString());
-        BListStats.Items.Add("Voluntários: " + pc.getTotVols().ToString());
-        BListStats.Items.Add("Depósitos: " + pc.getTotDepos().ToString());
+        //try
+        //{
+        //    FileStream f = new FileStream("FogUM/website/bda/xmls/" + "DumpFogUM-" + DateTime.Now.ToShortDateString().ToString() + ".xml", FileMode.Open);
+        //}
+        //catch (Exception exc)
+        //{
+        //    flag = false;
+        //}
+
+        //if (flag==false)
+        //{
+        //    Parser ps = new Parser();
+        //    ps.criarXML();
+        //}
+
+
+      
     }
 
     public bool IsNumeric(string s)
@@ -46,7 +59,7 @@ public partial class VoluntForm : PageBase
     protected void Button2_Click(object sender, EventArgs e)
     {
         Voluntario vol = new Voluntario();
-      // DBLinqDataContext bdf = new DBLinqDataContext();
+     
 
         int fnome = 0, fmail = 0, ftelef = 0, fmorada = 0, disp = 0, distr = 0;
 
