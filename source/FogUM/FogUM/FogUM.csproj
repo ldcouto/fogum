@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="bd\BD_FogUM.cs" />
     <Compile Include="bd\EstFogo.cs" />
+    <Compile Include="bd\Parser_xml.cs" />
     <Compile Include="classesDados\Comandante.cs" />
     <Compile Include="classesDados\Corporacao.cs" />
     <Compile Include="bd\DBLinq.designer.cs">

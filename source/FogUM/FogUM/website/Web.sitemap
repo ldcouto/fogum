@@ -4,6 +4,6 @@
         <siteMapNode url="~/civ/Civil.aspx" title="Home"  description="Home page FogUM" />
         <siteMapNode url="~/civ/DepForm.aspx" title="Depósitos"  description="Registar um Depósito de Água" />
 		    <siteMapNode url="~/civ/VoluntForm.aspx" title="Voluntários"  description="Registar-se como Voluntário" />
-	    	<siteMapNode url="~/cmd/Painel_Cmd.aspx" title="Comandantes"  description="Aba para Comandantes de Bombeiros" />		
+	    	<siteMapNode url="~/cmd/Relatorios.aspx" title="Comandantes"  description="Aba para Comandantes de Bombeiros" />		
     </siteMapNode>
 </siteMap>
