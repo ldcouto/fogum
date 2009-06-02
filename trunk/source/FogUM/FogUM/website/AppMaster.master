@@ -31,6 +31,10 @@
         #expander {height:0;}   
         #contactForm {height:1%} 
         #mainmenu {margin-top:-1px;}    
+	    #quote
+        {
+            height: 163px;
+        }
 	</style>
 	<![endif]-->
 </head>
@@ -57,8 +61,13 @@
                     </div>
                     <div id="contentwrapper">
                         <div id="sidebar">
-                        <blockquote id="quote">
-                                &ldquo;FOGUM:<br />No Auxílio da Populaçao.&rdquo;</blockquote>
+                        <blockquote id="quote" style="background-image: none"  >
+                                <div style="height: 151px">
+                                    <asp:Image ID="Image1" runat="server" Height="134px" 
+                                        ImageUrl="~/civ/Imagens/planeta ver.jpg" Width="201px" 
+                                        BorderStyle="None" />
+                                </div>
+                            </blockquote>
                             <div id="sidebarcontent">
                                 <asp:ContentPlaceHolder runat="server" ID="phSidebar">
                                     <%-- Sidebar placeholder. Sample text follows. 
@@ -120,7 +129,7 @@
                         </div>
                         <div id="footer">
                             &copy; 2009 FogUM, todos os direitos reservados.
-                            <div id="sidebarfooter"><%-- Leave blank. --%></div>
+                                        <div id="sidebarfooter"><%-- Leave blank. --%></div>
                         </div>
                     </div>
                 </div>

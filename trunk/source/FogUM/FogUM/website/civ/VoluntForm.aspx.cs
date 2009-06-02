@@ -165,4 +165,8 @@ public partial class VoluntForm : PageBase
         TextBox1.Text = "";
     }
 
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
 }

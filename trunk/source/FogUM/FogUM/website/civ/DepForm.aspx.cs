@@ -152,4 +152,8 @@ public partial class DepForm : PageBase
     {
         TextBox1.Text = "";
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
 }

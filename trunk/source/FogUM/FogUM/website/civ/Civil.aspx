@@ -17,57 +17,106 @@
 
     <h3>
         Links Úteis</h3>
-    <div class="sbcontentcontainer">
-        <ul>
-            <li>&nbsp;<asp:Image ID="Image1" runat="server" />
-                <a href="http://www.bombeiros.pt/" target=_blank >Bombeiros de Portugal</a></li>
-            <li>
-                <asp:Image ID="Image2" runat="server" />
-                <a href="http://www.apbv.org/" target=_blank >Bombeiros Voluntários</a></li>     
-            <li>
-                <asp:Image ID="Image3" runat="server" />
-                <a href="http://www.florestabemcuidada.com/" target=_blank >Floresta Bem Cuidada</a></li>
-            <li>
-                <asp:Image ID="Image4" runat="server" />
-                <a href="hhttp://www.florestaunida.com/" target=_blank >Floresta Unida</a></li>
-            <li>
-                <asp:Image ID="Image5" runat="server" Height="16px" 
-                    ImageUrl="~/civ/Imagens/logo_inem.jpeg" Width="16px" />
-                <a href="http://www.inem.pt/" target=_blank >INEM</a></li>  
-            <li>
-                <asp:Image ID="Image6" runat="server" />
-                <a href="http://www.meteo.pt/pt/" target=_blank >Instituto Meteorologia</a></li>     
-            <li>
-                <asp:Image ID="Image7" runat="server" />
-                <a href="http://www.afn.min-agricultura.pt/portal" target=_blank >Ministério da Agricultura</a></li> 
-            <li>
-                <asp:Image ID="Image8" runat="server" />
-                <a href="http://www.maotdr.gov.pt/" target=_blank >Ministério do Ambiente</a></li>  
-            <li>
-                <asp:Image ID="Image9" runat="server" />
-                <a href="http://www.lpn.pt/" target=_blank >Protecção da Natureza</a></li> 
-            <li>
-                <asp:Image ID="Image10" runat="server" />
-                <a href="http://www.proteccaocivil.pt/" target=_blank >Protecção Civil</a></li>
-
-              
-        </ul>
-    </div>
+                                        <div style="height: 394px">
+                                            <p>
+                                                &nbsp;
+                                                <asp:Image ID="Image1" runat="server" Height="21px" 
+                                                    ImageUrl="~/civ/Imagens/bombeiros_portugal.jpg" Width="22px" 
+                                                    ImageAlign="AbsMiddle" />
+                                                <a href="http://www.bombeiros.pt/" target=_blank >Bombeiros de Portugal</a></p>
+                                            <p>
+                                                &nbsp;
+                                                <asp:Image ID="Image2" runat="server" Height="21px" 
+                                                    ImageUrl="~/civ/Imagens/bombVolunt.jpg" Width="22px" 
+                                                    ImageAlign="AbsMiddle" />
+                                                <a href="http://www.apbv.org/" target=_blank >Bombeiros Voluntários</a></p>
+                                            <p style="height: 32px">
+                                                &nbsp;
+                                                <asp:Image ID="Image3" runat="server" Height="21px" 
+                                                    ImageUrl="~/civ/Imagens/florestabemcuidada.png" Width="22px" 
+                                                    ImageAlign="AbsMiddle" />
+                                                <a href="http://www.florestabemcuidada.com/" target=_blank >Floresta Bem Cuidada</a></p>
+                                            <p>
+                                                &nbsp;
+                                                <asp:Image ID="Image4" runat="server" Height="21px" 
+                                                    ImageUrl="~/civ/Imagens/floresta unida.jpg" Width="22px" 
+                                                    ImageAlign="AbsMiddle" />
+                                                <a href="hhttp://www.florestaunida.com/" target=_blank >Floresta Unida</a></p>
+                                            <p>
+                                                &nbsp;
+                                                <asp:Image ID="Image5" runat="server" Height="21px" 
+                    ImageUrl="~/civ/Imagens/logo_inem.jpeg" Width="22px" ImageAlign="AbsMiddle" />
+                                                <a href="http://www.inem.pt/" target=_blank >INEM</a></p>
+                                            <p>
+                                                &nbsp;
+                                                <asp:Image ID="Image6" runat="server" Height="21px" 
+                                                    ImageUrl="~/civ/Imagens/meteorologia.JPG" Width="22px" 
+                                                    ImageAlign="AbsMiddle" />
+                                                <a href="http://www.meteo.pt/pt/" target=_blank >Instituto Meteorologia</a></p>
+                                            <p>
+                                                &nbsp;
+                                                <asp:Image ID="Image7" runat="server" Height="21px" 
+                                                    ImageUrl="~/civ/Imagens/min_agricultura.JPG" Width="22px" 
+                                                    ImageAlign="AbsMiddle" />
+                                                <a href="http://www.afn.min-agricultura.pt/portal" target=_blank >Ministério da Agricultura</a></p>
+                                            <p>
+                                                &nbsp;
+                                                <asp:Image ID="Image8" runat="server" Height="21px" 
+                                                    ImageUrl="~/civ/Imagens/ministAmb.JPG" Width="22px" 
+                                                    ImageAlign="AbsMiddle" />
+                                                <a href="http://www.maotdr.gov.pt/" target=_blank >Ministério do Ambiente</a></p>
+                                            <p>
+                                                &nbsp;
+                                                <asp:Image ID="Image9" runat="server" Height="21px" 
+                                                    ImageUrl="~/civ/Imagens/ligaProtNat.JPG" Width="22px" 
+                                                    ImageAlign="AbsMiddle" />
+                                                <a href="http://www.lpn.pt/" target=_blank >Protecção da Natureza</a></p>
+                                            <p>
+                                                &nbsp;
+                                                <asp:Image ID="Image10" runat="server" Height="21px" 
+                                                    ImageUrl="~/civ/Imagens/protCivil.jpeg" Width="22px" 
+                                                    ImageAlign="AbsMiddle" />
+                                                <a href="http://www.proteccaocivil.pt/" target=_blank >Protecção Civil</a></p>
+                                        </div>
     <h3>Nºs Telefónicos:</h3>
     <div class="sbcontentcontainer">
         <p><b>Protecção Civil</b></p>
         <ul>
-        <li>Braga: 253 201 350</li>
-        <li>Beja: 284 313 050</li>
-        <li>Faro: 289 887 510</li>
-        <li>Lisboa: 218 820 960</li>
-        <li>Porto: 226 197 650</li>
-        <li>Vila Real: 259 301 000</li>
+        <li>
+            <asp:Image ID="Image11" runat="server" Height="20px" ImageAlign="AbsMiddle" 
+                ImageUrl="~/civ/Imagens/telefone.png" Width="20px" />
+            Braga: 253 201 350</li>
+        <li>
+            <asp:Image ID="Image12" runat="server" Height="20px" ImageAlign="AbsMiddle" 
+                ImageUrl="~/civ/Imagens/telefone.png" Width="20px" />
+            Beja: 284 313 050</li>
+        <li>
+            <asp:Image ID="Image13" runat="server" Height="20px" ImageAlign="AbsMiddle" 
+                ImageUrl="~/civ/Imagens/telefone.png" Width="20px" />
+            Faro: 289 887 510</li>
+        <li>
+            <asp:Image ID="Image14" runat="server" Height="20px" ImageAlign="AbsMiddle" 
+                ImageUrl="~/civ/Imagens/telefone.png" Width="20px" />
+            Lisboa: 218 820 960</li>
+        <li>
+            <asp:Image ID="Image15" runat="server" Height="20px" ImageAlign="AbsMiddle" 
+                ImageUrl="~/civ/Imagens/telefone.png" Width="20px" />
+            Porto: 226 197 650</li>
+        <li>
+            <asp:Image ID="Image16" runat="server" Height="20px" ImageAlign="AbsMiddle" 
+                ImageUrl="~/civ/Imagens/telefone.png" Width="20px" />
+            Vila Real: 259 301 000</li>
         </ul>
         <p><b>Outros:</b></p>
         <ul>
-        <li>Emergencia: 112</li>
-        <li>Protecção da Floresta: 117</li>
+        <li>
+            <asp:Image ID="Image17" runat="server" Height="20px" ImageAlign="AbsMiddle" 
+                ImageUrl="~/civ/Imagens/telefone.png" Width="20px" />
+            Emergencia: 112</li>
+        <li dir="ltr" style="width: 739px">
+            <asp:Image ID="Image18" runat="server" Height="20px" ImageAlign="AbsMiddle" 
+                ImageUrl="~/civ/Imagens/telefone.png" Width="20px" />
+            Protecção da Floresta: 117</li>
         </ul>
 <%--                <p style="margin-left: 20px">
                 &nbsp;Braga:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;253 201 350</p>
@@ -94,11 +143,9 @@
             <asp:Button ID="Button1" runat="server" Text="OK" onclick="Button1_Click" />
         </ContentTemplate>
     </asp:UpdatePanel>
-    <p>
-    </p>
         
     <h3>
-        Estatísticas FogUM</h3>
+        Estatísticas</h3>
     <asp:BulletedList ID="BListStats" runat="server" BulletStyle="Square" 
         style="margin-left: 37px">
     </asp:BulletedList>
