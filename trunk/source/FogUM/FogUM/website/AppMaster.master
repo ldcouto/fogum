@@ -58,7 +58,7 @@
                     <div id="contentwrapper">
                         <div id="sidebar">
                         <blockquote id="quote">
-                                &ldquo;FOGUM:<br />No Auxilio da Populaçao.&rdquo;</blockquote>
+                                &ldquo;FOGUM:<br />No Auxílio da Populaçao.&rdquo;</blockquote>
                             <div id="sidebarcontent">
                                 <asp:ContentPlaceHolder runat="server" ID="phSidebar">
                                     <%-- Sidebar placeholder. Sample text follows. 
