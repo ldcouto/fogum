@@ -189,7 +189,7 @@ if (GBrowserIsCompatible())
 {
 
 
-map = new GMap2(document.getElementById("GoogleMap_Div"));
+map = new GMap2(document.getElementById("GoogleMap_Div")); 
 
 var markers = new fMarkers();
 var polylines = new fPolylines();
@@ -255,9 +255,10 @@ function fGetGoogleObject(result, userContext)
     {
         map.addControl(new GLargeMapControl());
     }
-    
-    
+
+
     map.setMapType(eval(result.MapType));
+ 
     
     var i;
     if(markers!=null)
@@ -376,12 +377,15 @@ function DrawGoogleMap()
 
     if (GBrowserIsCompatible())
     {
-    map = new GMap2(document.getElementById("GoogleMap_Div"));
-    geocoder = new GClientGeocoder();
-  
+     map = new GMap2(document.getElementById("GoogleMap_Div"));
+     map.addControl(new GScaleControl());
+     geocoder = new GClientGeocoder();
+
      GService.GetGoogleObject(fGetGoogleObject);
-    } 
-} 
+     //GEvent.addListener(map,"click",MapClickFunction);
+    }
+}
+ 
 
  
 function fGetGoogleObjectOptimized(result, userContext)
@@ -634,19 +638,8 @@ function pageLoad()
         Sys.WebForms.PageRequestManager.getInstance().add_endRequest(endRequestHandler);
 }
 
-GPolygon.prototype.GetPointAtDistance = function(metres) {
-    // some awkward special cases
-    if (metres == 0) return this.getVertex(0);
-    if (metres < 0) return null;
-    var dist = 0;
-    var olddist = 0;
-    for (var i = 1; (i < this.getVertexCount() && dist < metres); i++) {
-        olddist = dist;
-        dist += this.getVertex(i).distanceFrom(this.getVertex(i - 1));
+function MapClickFunction(overlay, latlng) {
+    if (latlng) {
+        alert(latlng.lat() + "," + latlng.lng());
     }
-    if (dist < metres) { return null; }
-    var p1 = this.getVertex(i - 2);
-    var p2 = this.getVertex(i - 1);
-    var m = (metres - olddist) / (dist - olddist);
-    return new GLatLng(p1.lat() + (p2.lat() - p1.lat()) * m, p1.lng() + (p2.lng() - p1.lng()) * m);
 }
