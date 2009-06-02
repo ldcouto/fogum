@@ -201,7 +201,7 @@ public class GoogleObject
 }
 
 
-
+[Serializable()]
 public class GooglePoint
 {
     public GooglePoint()
@@ -529,6 +529,7 @@ public class GooglePoint
     }
 }
 
+[Serializable()]
 public class GooglePoints : CollectionBase
 {
 
@@ -836,6 +837,8 @@ public class cCommon
     {
         string sURL = "http://maps.google.com/maps/geo?q=" + GP.Address + "&output=xml&key=" + GoogleAPIKey;
         WebRequest request = WebRequest.Create(sURL);
+        //System.Net.WebProxy objProxy = new System.Net.WebProxy("http://proxy.uminho.pt:3128");
+        //request.Proxy = objProxy;
         request.Timeout = 10000;
         // Set the Method property of the request to POST.
         request.Method = "POST";
@@ -908,14 +911,13 @@ public class cCommon
     public static double GetNumericValue(object pNumValue)
     {
         System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.InvariantCulture;
-
         if ((pNumValue == null))
         {
             return 0;
         }
         if (IsNumeric(pNumValue))
         {
-            return double.Parse(pNumValue.ToString(),ci);
+            return double.Parse(pNumValue.ToString(), ci);
         }
         else
         {
