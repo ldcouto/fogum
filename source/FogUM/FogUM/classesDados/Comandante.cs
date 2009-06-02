@@ -45,6 +45,14 @@ namespace FogUM
         }
 
         //CONTRUCTORES
+        public Comandante()
+        {
+            this.codigo = 0;
+            this.nome = "";
+            this.user = "";
+            this.pass = "";
+        }
+
         public Comandante(int cod,string nome, string user, string pass)
         {
             this.codigo = cod;

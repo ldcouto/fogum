@@ -128,7 +128,7 @@
         <br />
         <br />
         <asp:Label ID="Label1" runat="server" Text="Rua"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
         <asp:TextBox ID="moradaD" runat="server" Width="200px"></asp:TextBox>
         <asp:Label ID="Label2" runat="server" Font-Italic="True" ForeColor="Red" 
             Text="* Inválido" Visible="False"></asp:Label>
@@ -177,7 +177,7 @@
         <br />
         <br />
         <asp:Label ID="Label3" runat="server" Text="Altura"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="altura" runat="server" Width="88px"></asp:TextBox>
         <asp:Label ID="Label10" runat="server" Font-Size="Small" Text="(metros)"></asp:Label>
         <asp:Label ID="Label4" runat="server" Font-Italic="True" ForeColor="Red" 

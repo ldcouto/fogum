@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections;
 using System.Configuration;
 using System.Data;
@@ -17,14 +18,19 @@ using System.Text.RegularExpressions;
 
 public partial class Relatorios : PageBase
 {
-    Proc_Cmd proc = new Proc_Cmd(new Comandante(6, "Marco da Costa", "teste", "teste0!"));
+    Proc_Cmd proc = new Proc_Cmd(new Comandante());
     Proc_Civil proc_civ = new Proc_Civil();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        getFogos_ACtivos();
+        
         if (!IsPostBack)
+        {
+            proc.Cmd=proc.getCmdbyuser(User.Identity.Name);
             getRelsPendentes(proc.Cmd.User);
+            getFogos_ACtivos();
+      //      WebMsgBox.Show("Olá " + proc.Cmd.Nome);
+        }
     }
 
     protected void getRelsPendentes(string cmdUsername)
@@ -114,13 +120,14 @@ public partial class Relatorios : PageBase
             txt_data_cir.Text = "";
             txt_data_fim.Text = "";
             txt_data_ini.Text = "";
+            ListBox_rels.Items.Remove(ListBox_rels.SelectedItem.Text);
            
         }
         //foreach (string x in ListBox1.Text)
         //    if (x.Contains(txt_cod_rel.Text))
         //        ListBox1.Items.Remove(x);
 
-        ListBox_rels.Items.Remove(ListBox_rels.SelectedItem.Text);
+        
 
 
     }
@@ -147,6 +154,66 @@ public partial class Relatorios : PageBase
                 return true;
         }
         return false;
+    }
+
+    protected void btn_novo_fogo_Click(object sender, EventArgs e)
+    {
+        txt_morada.Enabled = true;
+        l_morada.Enabled = true;
+        DropDown_concelhos.Enabled = true;
+        l_concelho.Enabled = true;
+        btn_inic_Fogo.Visible= true;
+        txt_lat.Enabled = true;
+        l_lat.Enabled = true;
+        txt_long.Enabled = true;
+        l_long.Enabled = true;
+    }
+    protected void btn_inic_Fogo_Click(object sender, EventArgs e)
+    {
+        Boolean flag = true;
+        //testar se latitude a long invalida
+        if (txt_lat.Text == "" || txt_long.Text == "" || txt_long.Text.Contains('.') || txt_lat.Text.Contains('.'))
+        {
+            WebMsgBox.Show("Latitude ou Longitude inválida ex: 41,1111");
+            flag = false;            
+        }
+
+        if (txt_morada.Text == "" || DropDown_concelhos.Text == "")
+        {
+            WebMsgBox.Show("Não inseriu a Morada ou não selecionaou o Distrito");
+            flag = false;
+        }
+        if (flag)
+        {
+
+            proc.novoFogo();
+            proc.FogoCombate.Concelho = DropDown_concelhos.Text.ToString();
+            proc.FogoCombate.CodConcelho = proc.getCodConcelhoByName(txt_morada.Text);
+            proc.FogoCombate.Estado = 1;
+            proc.FogoCombate.Raio_fogo = 0.1f;
+            proc.FogoCombate.Raio_seg = 0.5f;
+            proc.FogoCombate.Latitude = Convert.ToDouble(txt_lat.Text);
+            proc.FogoCombate.Longitude = Convert.ToDouble(txt_long.Text);
+            proc.updateFogo();
+            string[] aux = proc.FogoCombate.Dh_comeco.ToString().Split(' ');
+            ListBox_fogos.Items.Add(proc.FogoCombate.Codigo + " - " + proc.FogoCombate.Concelho + "-" + aux[0]);
+            txt_morada.Text = "";
+            txt_long.Text = "";
+            txt_lat.Text = "";
+            txt_lat.Enabled = false;
+            txt_long.Enabled = false;
+            txt_morada.Enabled = false;
+            btn_inic_Fogo.Enabled = false;
+        }
+    }
+
+    protected void btn_reiniciar_fogo_Click(object sender, EventArgs e)
+    {
+        String drop = ListBox_fogos.Text;
+        string[] aux = drop.Split('-');
+        int cod = Convert.ToInt32(aux[0]);
+        proc.getFogo(cod);
+        ViewState["fogoActivo"] = proc.FogoCombate;
     }
 }
  

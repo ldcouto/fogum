@@ -73,7 +73,7 @@ namespace FogUM
 
         public void le_Conselho(StreamReader st)
         {
-            int i = 0;
+           // int i = 0;
             DBLinqDataContext bdf = new DBLinqDataContext();
             bd.CONCELHO f = new bd.CONCELHO();
             string linha;

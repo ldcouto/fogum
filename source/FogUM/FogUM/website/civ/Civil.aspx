@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/AppMaster.master" AutoEventWireup="true" CodeFile="Civil.aspx.cs" Inherits="Civil" Title="FogUM - Mapa de Incêndios" %>
-<%@ Register Src="~/GoogleMapForASPNet.ascx" TagName="GoogleMapForASPNet" TagPrefix="uc1" %>
+<%@ Register Src="~/civ/GoogleMapForASPNet.ascx" TagName="GoogleMapForASPNet" TagPrefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="phSidebar" Runat="Server">
 

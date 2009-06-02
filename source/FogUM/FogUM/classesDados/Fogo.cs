@@ -5,9 +5,10 @@ using System.Web;
 using System.Data;
 using FogUM.bd;
 
-namespace FogUM
+namespace FogUM 
 {
-    public class Fogo
+    [Serializable()]
+    public class Fogo 
     {
         private int codigo;
 

@@ -185,6 +185,20 @@ namespace FogUM
                 return -1;
             return auxQuery.First();
         }
+
+        public int getCodConsByName(string conc)
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var auxQuery =
+                from bDep in bdf.CONCELHOs
+                where bDep.CONCELHO_DESIGN == conc
+                select bDep.COD_CONCELHO;
+
+            if (auxQuery.Count() == 0)
+                return -1;
+            return auxQuery.First();
+        }
+
         public int getCodTipDepByName(string dep)
         {
             DBLinqDataContext bdf = new DBLinqDataContext();
@@ -295,6 +309,23 @@ namespace FogUM
             return r;
         }
 
+        public Comandante getComandante(String user)
+        {
+            DBLinqDataContext bdf = new DBLinqDataContext();
+            var fQuery =
+                from cmd in bdf.COMANDANTEs
+                where cmd.USERNAME==user
+                select cmd;
+            if (fQuery.Count() != 1)
+                return null;
+            Comandante c = new Comandante();
+            c.Cod = fQuery.First().COD_COMANDANTE;
+            c.Nome  = fQuery.First().NOME;
+            c.Pass = fQuery.First().PASSWORD;
+            c.User = fQuery.First().USERNAME;
+            return c;
+
+        }
         /// <summary>
         /// Devolver o total de baixas nos bombeiros num ano
         /// </summary>
@@ -1111,6 +1142,8 @@ namespace FogUM
                 currFogo.First().DH_START = fogoP.Dh_comeco;
                 currFogo.First().RAIO_FOGO = fogoP.Raio_fogo;
                 currFogo.First().RAIO_SEGURANCA = fogoP.Raio_seg;
+                currFogo.First().LATITUDE_FOGO = fogoP.Latitude;
+                currFogo.First().LONGITUDE_FOGO = fogoP.Longitude;
                 bdf.SubmitChanges();
             }
         }
