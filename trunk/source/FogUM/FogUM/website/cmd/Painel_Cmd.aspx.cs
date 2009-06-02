@@ -22,7 +22,8 @@ public partial class Painel_Cmd : System.Web.UI.Page
 
     public Dictionary<int, Dictionary<int,int> > heliamx;
     public Dictionary<int, GooglePoints> helicm;
-    
+
+    public SortedDictionary<double, int> pontosAgua;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -241,16 +242,23 @@ public partial class Painel_Cmd : System.Web.UI.Page
         helicm = (Dictionary<int, GooglePoints>)ViewState["helicm"];
         if (helicm == null)
             helicm = new Dictionary<int, GooglePoints>();
-        GooglePoints pts = getPontosaDistancia(100, GoogleMapForASPNet1.GoogleMapObject.Points["H"+x.ToString()], GoogleMapForASPNet1.GoogleMapObject.Points["A1"], 0);
+         pontosAgua = (SortedDictionary<double, int>)ViewState["pontosAgua"];
+            if (pontosAgua == null)
+                pontosAgua = new SortedDictionary<double, int>();
+        double agua = pontosAgua.First().Value;
+        pontosAgua.Remove(pontosAgua.First().Key);
+        GooglePoints pts = getPontosaDistancia(100, GoogleMapForASPNet1.GoogleMapObject.Points["H"+x.ToString()], GoogleMapForASPNet1.GoogleMapObject.Points["A"+agua.ToString()], 0);
+        
         Dictionary<int, int> novo = new Dictionary<int, int>();
         novo.Add(0, 0);
         heliamx.Add(x, novo);
         helicm.Add(x, pts);
         ViewState["heliamx"] = heliamx;
         ViewState["helicm"] = helicm;
+        ViewState["pontosAgua"] = pontosAgua;
 
     }
-
+    //Remove helis do fogo
     protected void Button12_Click(object sender, EventArgs e)
     {
         String result = ListBox4.SelectedValue.ToString();
@@ -269,14 +277,23 @@ public partial class Painel_Cmd : System.Web.UI.Page
         helicm = (Dictionary<int, GooglePoints>)ViewState["helicm"];
         if (helicm == null)
             helicm = new Dictionary<int, GooglePoints>();
+        pontosAgua = (SortedDictionary<double, int>)ViewState["pontosAgua"];
+        if (pontosAgua == null)
+            pontosAgua = new SortedDictionary<double, int>();
+       
 
         heliamx.Remove(x);
         helicm.Remove(x);
 
         ViewState["heliamx"] = heliamx;
         ViewState["helicm"] = helicm;
-    }
 
+        ViewState["pontosAgua"]=new SortedDictionary<double,int>();
+        criaAgua(1);
+        
+       
+    }
+    //muda raio normal
     protected void Button13_Click(object sender, EventArgs e)
     {
         float raioFog;
@@ -300,7 +317,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
             
         }
     }
-
+    // Muda raio de seguranca
     protected void Button14_Click(object sender, EventArgs e)
     {
         float raioSeg;
@@ -355,6 +372,17 @@ public partial class Painel_Cmd : System.Web.UI.Page
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP6);
         }
 
+        foreach (KeyValuePair<int, Corporacao> co in procCmd.getCoorpDestacadas())
+        {
+            GooglePoint CO6 = new GooglePoint();
+            CO6.ID = "C" + co.Key;
+            CO6.Latitude = co.Value.Latitude;
+            CO6.Longitude = co.Value.Longitude;
+            CO6.InfoHTML = co.Value.Nome;
+            CO6.IconImage = "icons/FireTruck.png";
+            GoogleMapForASPNet1.GoogleMapObject.Points.Add(CO6);
+        }
+
         foreach (KeyValuePair<int, Heli> h in procCmd.getHeliDisponiveis())
         {
            
@@ -367,6 +395,22 @@ public partial class Painel_Cmd : System.Web.UI.Page
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP4);
         }
 
+        foreach (KeyValuePair<int, Heli> he in procCmd.getHelisDestacados())
+        {
+
+            GooglePoint HE4 = new GooglePoint();
+            HE4.ID = "H" + he.Key;
+            HE4.Latitude = 41.71887132733453;
+            HE4.Longitude = -8.167364001274109;
+            HE4.InfoHTML = he.Value.Desig;
+            HE4.IconImage = "icons/helicopter2.png";
+            GoogleMapForASPNet1.GoogleMapObject.Points.Add(HE4);
+        }
+        criaAgua(0);
+       
+    }
+    public void criaAgua(int x)
+    {
         procCmd.constDepDisp(200);
         foreach (Deposito d in procCmd.DepositosDisp)
         {
@@ -377,10 +421,18 @@ public partial class Painel_Cmd : System.Web.UI.Page
             GP9.Longitude = d.Longitude;
             GP9.InfoHTML = d.Volume.ToString();
             GP9.IconImage = "icons/watertrans.png";
-            GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP9);
+            if (x == 0)
+                GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP9);
+
+            pontosAgua = (SortedDictionary<double, int>)ViewState["pontosAgua"];
+            if (pontosAgua == null)
+                pontosAgua = new SortedDictionary<double, int>();
+
+            pontosAgua.Add(Distance(GP9, GoogleMapForASPNet1.GoogleMapObject.Points["fogo"]), d.Cod);
+
+            ViewState["pontosAgua"] = pontosAgua;
         }
     }
-
     protected void Button15_Click(object sender, EventArgs e)
     {
         criaFogoExemplo();

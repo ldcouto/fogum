@@ -98,7 +98,7 @@
         <div>
             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                 <ContentTemplate>
-                    <asp:Timer ID="Timer1" runat="server" Enabled="False" Interval="500" 
+                    <asp:Timer ID="Timer1" runat="server" Enabled="False" Interval="100" 
                         ontick="Timer1_Tick">
                     </asp:Timer>
                     <asp:ImageButton ID="ImageButton1" runat="server" Height="20px" 
