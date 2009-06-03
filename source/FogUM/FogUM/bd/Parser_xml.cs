@@ -811,7 +811,7 @@ namespace FogUM
         
         
         
-        public void le_xml(string data)
+        public void le_xml(string path)
         {
 
 
@@ -832,9 +832,7 @@ namespace FogUM
             Regex expTipoDep = new Regex("<TIPO_DEPO>");
             Regex expVol = new Regex("<VOLUNTARIO>");
 
-            string aux = "FogUM/website/bda/xmls/"+data;
-
-            FileStream file = new FileStream(aux, FileMode.Open);
+            FileStream file = new FileStream(path, FileMode.Open);
             StreamReader st = new StreamReader(file);
             string linha;
             linha = st.ReadLine();

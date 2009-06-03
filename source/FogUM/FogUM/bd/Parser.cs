@@ -336,12 +336,18 @@ namespace FogUM
         }
 
 
-        public void criarXML()
+        public void criarXML(string cPath)
         {
             //Boolean flag = true;
-            string aux = "FogUM/website/bda/xmls/" + "DumpFogUM-" + DateTime.Now.ToShortDateString().ToString() + ".xml";
+            StringBuilder aux = new StringBuilder();
+            aux.Append(cPath);
+            aux.Append("/bda/xmls/");
+            aux.Append("DumpFogUM-");
+            aux.Append(DateTime.Now.ToShortDateString());
+            aux.Append(".xml");
+         //   string aux =  "/bda/xmls/" + "DumpFogUM-" + DateTime.Now.ToShortDateString().ToString() + ".xml";
             
-            TextWriter path = new StreamWriter(aux);
+            TextWriter path = new StreamWriter(aux.ToString());
            
 
 
