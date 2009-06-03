@@ -11,7 +11,7 @@ namespace FogUM
         private int codigo;
         private double latitude;
         private double longitude;
-        private float volume;
+        private double volume;
         private String descricao;
         private int codTipo; // Dá jeito estar isto aqui. - LC
 
@@ -33,7 +33,7 @@ namespace FogUM
             set { longitude = value; }
         }
 
-        public float Volume
+        public double Volume
         {
             get { return volume; }
             set { volume = value; }
@@ -67,6 +67,7 @@ namespace FogUM
             this.codigo = bdD.COD_DEPO;
             this.latitude = bdD.LATITUDE;
             this.longitude = bdD.LONGITUDE;
+            this.Volume = bdD.VOLUME;
 
             DBLinqDataContext bdf = new DBLinqDataContext();
             var auxQuery =
