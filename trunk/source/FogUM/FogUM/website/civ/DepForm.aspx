@@ -271,6 +271,8 @@
 
 <br />
         
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
         <asp:Button ID="Button2" runat="server" Text="Submeter" onclick="Button2_Click" />
         <div style="border-color: #FFFFFF; position: relative; top: -263px; left: 424px; width: 174px; height: 218px;">
             <img alt="" src="Imagens/gota.jpg" 
