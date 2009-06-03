@@ -16,7 +16,7 @@ using System.Collections.Generic;
 public partial class Painel_Cmd : System.Web.UI.Page
 {
 
-    Proc_Cmd procCmd = new Proc_Cmd(new Comandante(6, "Dummy CMD for Tests", "teste", "teste0!"));
+    Proc_Cmd procCmd = new Proc_Cmd(new Comandante());
     public Dictionary<int,int> amx;
     public Dictionary<int, GooglePoints> cm;
 
@@ -27,9 +27,10 @@ public partial class Painel_Cmd : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        procCmd.novoFogo();
-        procCmd.getFogo(10);
-        
+        procCmd.Cmd = procCmd.getCmdbyuser(User.Identity.Name);
+        int cod = (int)Session["fogoActivo"];
+        procCmd.getFogo(cod);
+
         GoogleMapForASPNet1.GoogleMapObject.AutomaticBoundaryAndZoom = false;
         //You must specify Google Map API Key for this component. You can obtain this key from http://code.google.com/apis/maps/signup.html
         //For samples to run properly, set GoogleAPIKey in Web.Config file.
@@ -40,12 +41,13 @@ public partial class Painel_Cmd : System.Web.UI.Page
         GoogleMapForASPNet1.GoogleMapObject.Height = "500px";
 
         //Specify initial Zoom level.
-        GoogleMapForASPNet1.GoogleMapObject.ZoomLevel = 15;
+
+        GoogleMapForASPNet1.GoogleMapObject.ZoomLevel = 14;
 
         GoogleMapForASPNet1.GoogleMapObject.CenterPoint = new GooglePoint("1", procCmd.FogoCombate.Latitude, procCmd.FogoCombate.Longitude);
        
         //Specify Center Point for map. Map will be centered on this point.
-       
+
     }
     
 
@@ -485,7 +487,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
     public void criaAgua(int x)
     {
         procCmd.constDepDisp(200);
-        foreach (Deposito d in procCmd.DepositosDisp)
+        foreach (Deposito d in procCmd.get_List_Deposito())
         {
 
             GooglePoint GP9 = new GooglePoint();

@@ -23,7 +23,7 @@
             <li><a href="http://www.proteccaocivil.pt/" target=_blank >Protecção Civil</a></li>
             <li><a href="http://www.inem.pt/" target=_blank >Inem</a></li>  
             <li><a href="http://www.florestabemcuidada.com/" target=_blank >Floresta Bem Cuidada</a></li>
-            <li><a href="hhttp://www.florestaunida.com/" target=_blank >Floresta Unida</a></li>
+            <li><a href="http://www.florestaunida.com/" target=_blank >Floresta Unida</a></li>
             <li><a href="http://www.lpn.pt/" target=_blank >Protecção da Natureza</a></li> 
             <li><a href="http://www.afn.min-agricultura.pt/portal" target=_blank >Ministério da Agricultura</a></li> 
             <li><a href="http://www.maotdr.gov.pt/" target=_blank >Ministério do Ambiente</a></li>             
@@ -105,8 +105,9 @@
                                             <p style="margin-left: 200px">
 &nbsp;&nbsp;
                                                 <asp:Button ID="btn_reiniciar_fogo" runat="server" Height="30px" 
-                                                    Text="Visualizar Fogo"  PostBackUrl="~/cmd/Painel_Cmd.aspx" 
-                                                    onclick="btn_reiniciar_fogo_Click"/>
+                                                    Text="Visualizar Fogo" 
+                                                    onclick="btn_reiniciar_fogo_Click"
+                                                    />
 &nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btn_novo_fogo" runat="server" Text="Novo Fogo" Height="30px"  
                                                     Width="101px" onclick="btn_novo_fogo_Click" />
@@ -146,15 +147,10 @@
              
         </asp:TableCell>    
         </asp:TableRow> 
-        <asp:TableRow ID="TableRow3" runat="server">
-        <asp:TableCell Width="250">
-        </asp:TableCell>  
-        <asp:TableCell>
-        <asp:Button ID="btn_inic_Fogo" runat="server" Height="30px" Text="Iniciar Fogo" 
-                    OnClick="btn_inic_Fogo_Click" style="margin-left: 80px" Width="101px" Visible="False"/>            
-        </asp:TableCell>
-        </asp:TableRow> 
         </asp:Table>
+        
+        <asp:Button ID="btn_inic_Fogo" runat="server" Height="30px" Text="Iniciar Fogo" 
+                    OnClick="btn_inic_Fogo_Click" style="margin-left: 250px" Width="101px" Visible="False"/> 
         
         </p>
     </div>
@@ -167,8 +163,8 @@
                                                 <p style="margin-left: 120px">
                                                     <asp:ListBox ID="ListBox_rels" runat="server" Width="230px"></asp:ListBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <asp:Button ID="Button2" runat="server" onclick="Button2_Click" 
-                                                        style="width: 33px" Text="OK" Width="122px" />
+                                                 <asp:Button ID="btn_sel_rel" runat="server" onclick="Button2_Click" 
+                                                        style="width: 33px" Text="OK" Width="122px" Height="26px" />
             </p>
         </div>
     </div>
@@ -182,9 +178,9 @@
     <asp:TableRow ID="TableRow1" runat="server">
     <asp:TableCell Width="250">
     <asp:Label ID="label1" runat="server" Text="Código Fogo:" style="margin-left: 40px"></asp:Label><br />
-    <asp:TextBox ID="txt_cod_fog" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:TextBox ID="txt_cod_fog" runat="server" ReadOnly="True" style="margin-left: 40px" Enabled="False"></asp:TextBox><br />
     <asp:Label ID="label3" runat="server" Text="Concelho:" style="margin-left: 40px"></asp:Label><br />
-    <asp:TextBox ID="txt_concelho" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:TextBox ID="txt_concelho" runat="server" ReadOnly="True" style="margin-left: 40px" Enabled="False"></asp:TextBox><br />
     <asp:Label ID="label4" runat="server" Text="Baixas Bombeiros:" style="margin-left: 40px"></asp:Label><br />
     <asp:TextBox ID="txt_baixas_bomb" runat="server" style="margin-left: 40px"></asp:TextBox>
     <asp:Image ID="Image20" runat="server" Visible="false" 
@@ -201,13 +197,13 @@
     
     <asp:TableCell>
     <asp:Label ID="label2" runat="server" Text="Código Relatório:" style="margin-left: 40px"></asp:Label><br />
-    <asp:TextBox ID="txt_cod_rel" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:TextBox ID="txt_cod_rel" runat="server" ReadOnly="True" style="margin-left: 40px" Enabled="False"></asp:TextBox><br />
     <asp:Label ID="label7" runat="server" Text="Data de Inicio:" style="margin-left: 40px"></asp:Label><br />
-    <asp:TextBox ID="txt_data_ini" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:TextBox ID="txt_data_ini" runat="server" ReadOnly="True" style="margin-left: 40px" Enabled="False"></asp:TextBox><br />
     <asp:Label ID="label8" runat="server" Text="Data de Circunscrito:" style="margin-left: 40px"></asp:Label><br />
-    <asp:TextBox ID="txt_data_cir" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:TextBox ID="txt_data_cir" runat="server" ReadOnly="True" style="margin-left: 40px" Enabled="False"></asp:TextBox><br />
     <asp:Label ID="label9" runat="server" Text="Data de Fim:" style="margin-left: 40px"></asp:Label><br />
-    <asp:TextBox ID="txt_data_fim" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
+    <asp:TextBox ID="txt_data_fim" runat="server" ReadOnly="True" style="margin-left: 40px" Enabled="False"></asp:TextBox><br />
    
     
     </asp:TableCell>    
@@ -224,8 +220,8 @@
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button3" runat="server" onclick="Button3_Click" 
-            Text="Submeter" />
+        <asp:Button ID="btn_sub_rel" runat="server" onclick="Button3_Click" 
+            Text="Submeter" Enabled="False" />
     </div>
     <br />
     <br />

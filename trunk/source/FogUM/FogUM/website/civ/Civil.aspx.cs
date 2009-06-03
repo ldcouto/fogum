@@ -81,7 +81,9 @@ public partial class Civil : PageBase
                 circunscrito = "Circunscrito: " + f.Dh_circunscrito + "<br />";
             }
 
-            GP1.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes do Fogo</U></font><br /><br />" + "*** " + estado + "***" + "<br />" + "Concelho: " + f.Concelho + "<br />" + "Inicio: " + f.Dh_comeco + "<br />" + circunscrito + "Unidades no terreno: ";
+            GP1.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes do Fogo</U></font><br /><br />" 
+                + "*** " + estado + "***" + "<br />" + "Concelho: " + f.Concelho + "<br />" 
+                + "Inicio: " + f.Dh_comeco + "<br />" + circunscrito + "Unidades no terreno: ";
 
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP1);
         }
