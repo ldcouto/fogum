@@ -40,10 +40,12 @@ public partial class Painel_Cmd : System.Web.UI.Page
         GoogleMapForASPNet1.GoogleMapObject.Height = "500px";
 
         //Specify initial Zoom level.
-        GoogleMapForASPNet1.GoogleMapObject.ZoomLevel = 16;
+        GoogleMapForASPNet1.GoogleMapObject.ZoomLevel = 15;
 
+        GoogleMapForASPNet1.GoogleMapObject.CenterPoint = new GooglePoint("1", procCmd.FogoCombate.Latitude, procCmd.FogoCombate.Longitude);
+       
         //Specify Center Point for map. Map will be centered on this point.
-        GoogleMapForASPNet1.GoogleMapObject.CenterPoint = new GooglePoint("1", 41.71931177723655, -8.16007375717163);
+       
     }
     
 
@@ -132,57 +134,71 @@ public partial class Painel_Cmd : System.Web.UI.Page
         return (Math.PI / 180) * val;
     }
 
+    //adiciona corporacao ao mapa
     protected void Button8_Click(object sender, EventArgs e)
     {
-        String result = ListBox1.SelectedValue.ToString();
-        String[] n = result.Split('|');
-        
-        int x = Convert.ToInt32((n[0]));
-        
-        procCmd.adicionaCorp(procCmd.getCorp(x));
-        actListBox();
-        //para mexer
-        
-        amx = (Dictionary<int, int>)ViewState["amx"];
-        if (amx == null)
-            amx = new Dictionary<int, int>();
+        if (ListBox1.Text != "")
+        {
+            String result = ListBox1.SelectedValue.ToString();
+            String[] n = result.Split('|');
 
-        cm = (Dictionary<int, GooglePoints>)ViewState["cm"];
-        if (cm == null)
-            cm = new Dictionary<int, GooglePoints>();
-        GooglePoints pts = getPontosaDistancia(50, GoogleMapForASPNet1.GoogleMapObject.Points["C"+x.ToString()], GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], 1);
-        amx.Add(x, 0);
-        cm.Add(x, pts);
-        ViewState["amx"] = amx;
-        ViewState["cm"] = cm;
+            int x = Convert.ToInt32((n[0]));
+
+            procCmd.adicionaCorp(procCmd.getCorp(x));
+            actListBox();
+            //para mexer
+
+            amx = (Dictionary<int, int>)ViewState["amx"];
+            if (amx == null)
+                amx = new Dictionary<int, int>();
+
+            cm = (Dictionary<int, GooglePoints>)ViewState["cm"];
+            if (cm == null)
+                cm = new Dictionary<int, GooglePoints>();
+            GooglePoints pts = getPontosaDistancia(50, GoogleMapForASPNet1.GoogleMapObject.Points["C" + x.ToString()], GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], 1);
+            amx.Add(x, 0);
+            cm.Add(x, pts);
+            ViewState["amx"] = amx;
+            ViewState["cm"] = cm;
+        }
+        else
+        {
+            WebMsgBox.Show("ola");
+        }
     }
+
+    //remove corporacao do mapa
     protected void Button9_Click(object sender, EventArgs e)
     {
-        String result = ListBox2.SelectedValue.ToString();
-        String[] n = result.Split('|');
-        int x = Convert.ToInt32(n[0]);
-        procCmd.remCorp(procCmd.getCorp(x));
-        actListBox();
+        if (ListBox2.Text != "")
+        {
+            String result = ListBox2.SelectedValue.ToString();
+            String[] n = result.Split('|');
+            int x = Convert.ToInt32(n[0]);
+            procCmd.remCorp(procCmd.getCorp(x));
+            actListBox();
 
 
-        amx = (Dictionary<int, int>)ViewState["amx"];
-        if (amx == null)
-            amx = new Dictionary<int, int>();
+            amx = (Dictionary<int, int>)ViewState["amx"];
+            if (amx == null)
+                amx = new Dictionary<int, int>();
 
-        cm = (Dictionary<int, GooglePoints>)ViewState["cm"];
-        if (cm == null)
-            cm = new Dictionary<int, GooglePoints>();
+            cm = (Dictionary<int, GooglePoints>)ViewState["cm"];
+            if (cm == null)
+                cm = new Dictionary<int, GooglePoints>();
 
-        if (amx.ContainsKey(x))
-            amx.Remove(x);
-        if (cm.ContainsKey(x))
-            cm.Remove(x);
+            if (amx.ContainsKey(x))
+                amx.Remove(x);
+            if (cm.ContainsKey(x))
+                cm.Remove(x);
 
-        GoogleMapForASPNet1.GoogleMapObject.Points["C" + x.ToString()].Latitude = procCmd.getCorp(x).Latitude;
+            GoogleMapForASPNet1.GoogleMapObject.Points["C" + x.ToString()].Latitude = procCmd.getCorp(x).Latitude;
 
-        GoogleMapForASPNet1.GoogleMapObject.Points["C" + x.ToString()].Longitude = procCmd.getCorp(x).Longitude;
-        ViewState["amx"] = amx;
-        ViewState["cm"] = cm;
+            GoogleMapForASPNet1.GoogleMapObject.Points["C" + x.ToString()].Longitude = procCmd.getCorp(x).Longitude;
+            ViewState["amx"] = amx;
+            ViewState["cm"] = cm;
+        }
+        else WebMsgBox.Show("ola");
     }
 
     public void actListBox()
@@ -220,96 +236,97 @@ public partial class Painel_Cmd : System.Web.UI.Page
 
         RaioFogo.Text = procCmd.FogoCombate.Raio_fogo.ToString();
         RaioSeguranca.Text = procCmd.FogoCombate.Raio_seg.ToString();
-
-        preencheEstados();
     }
 
     protected void Button11_Click(object sender, EventArgs e)
     {
+        if (ListBox3.Text != "")
+        {
+            String result = ListBox3.SelectedValue.ToString();
+            String[] n = result.Split('|');
 
-        String result = ListBox3.SelectedValue.ToString();
-        String[] n = result.Split('|');
+            int x = Convert.ToInt32((n[0]));
+            procCmd.adicionaHeli(procCmd.getHeli(x));
+            actListBox();
 
-        int x = Convert.ToInt32((n[0]));
-        procCmd.adicionaHeli(procCmd.getHeli(x));
-        actListBox();
+            //move no google maps
+            heliamx = (Dictionary<int, Dictionary<int, int>>)ViewState["heliamx"];
+            if (heliamx == null)
+                heliamx = new Dictionary<int, Dictionary<int, int>>();
 
-        //move no google maps
-        heliamx = (Dictionary<int, Dictionary<int, int>>)ViewState["heliamx"];
-        if (heliamx == null)
-            heliamx = new Dictionary<int, Dictionary<int, int>>();
-
-        helicm = (Dictionary<int, GooglePoints>)ViewState["helicm"];
-        if (helicm == null)
-            helicm = new Dictionary<int, GooglePoints>();
-         pontosAgua = (SortedDictionary<double, int>)ViewState["pontosAgua"];
+            helicm = (Dictionary<int, GooglePoints>)ViewState["helicm"];
+            if (helicm == null)
+                helicm = new Dictionary<int, GooglePoints>();
+            pontosAgua = (SortedDictionary<double, int>)ViewState["pontosAgua"];
             if (pontosAgua == null)
                 pontosAgua = new SortedDictionary<double, int>();
-        double agua = pontosAgua.First().Value;
-        pontosAgua.Remove(pontosAgua.First().Key);
-        GooglePoints pts = getPontosaDistancia(100, GoogleMapForASPNet1.GoogleMapObject.Points["H"+x.ToString()], GoogleMapForASPNet1.GoogleMapObject.Points["A"+agua.ToString()], 0);
-        
-        Dictionary<int, int> novo = new Dictionary<int, int>();
-        novo.Add(0, 0);
-        heliamx.Add(x, novo);
-        helicm.Add(x, pts);
-        ViewState["heliamx"] = heliamx;
-        ViewState["helicm"] = helicm;
-        ViewState["pontosAgua"] = pontosAgua;
+            double agua = pontosAgua.First().Value;
+            pontosAgua.Remove(pontosAgua.First().Key);
+            GooglePoints pts = getPontosaDistancia(100, GoogleMapForASPNet1.GoogleMapObject.Points["H" + x.ToString()], GoogleMapForASPNet1.GoogleMapObject.Points["A" + agua.ToString()], 0);
 
+            Dictionary<int, int> novo = new Dictionary<int, int>();
+            novo.Add(0, 0);
+            heliamx.Add(x, novo);
+            helicm.Add(x, pts);
+            ViewState["heliamx"] = heliamx;
+            ViewState["helicm"] = helicm;
+            ViewState["pontosAgua"] = pontosAgua;
+        }
+        else WebMsgBox.Show("ola");
     }
+
     //Remove helis do fogo
     protected void Button12_Click(object sender, EventArgs e)
     {
-        String result = ListBox4.SelectedValue.ToString();
-        String[] n = result.Split('|');
+        if (ListBox3.Text != "")
+        {
+            String result = ListBox4.SelectedValue.ToString();
+            String[] n = result.Split('|');
 
-        int x = Convert.ToInt32((n[0]));
-        procCmd.remHeli(procCmd.getHeli(x));
-        actListBox();
-        GoogleMapForASPNet1.GoogleMapObject.Points["H" + x.ToString()].Latitude = 41.71887132733453;
-        GoogleMapForASPNet1.GoogleMapObject.Points["H" + x.ToString()].Longitude = -8.167364001274109;
+            int x = Convert.ToInt32((n[0]));
+            procCmd.remHeli(procCmd.getHeli(x));
+            actListBox();
+            GoogleMapForASPNet1.GoogleMapObject.Points["H" + x.ToString()].Latitude = 41.71887132733453;
+            GoogleMapForASPNet1.GoogleMapObject.Points["H" + x.ToString()].Longitude = -8.167364001274109;
 
-        heliamx = (Dictionary<int, Dictionary<int, int>>)ViewState["heliamx"];
-        if (heliamx == null)
-            heliamx = new Dictionary<int, Dictionary<int, int>>();
+            heliamx = (Dictionary<int, Dictionary<int, int>>)ViewState["heliamx"];
+            if (heliamx == null)
+                heliamx = new Dictionary<int, Dictionary<int, int>>();
 
-        helicm = (Dictionary<int, GooglePoints>)ViewState["helicm"];
-        if (helicm == null)
-            helicm = new Dictionary<int, GooglePoints>();
-        pontosAgua = (SortedDictionary<double, int>)ViewState["pontosAgua"];
-        if (pontosAgua == null)
-            pontosAgua = new SortedDictionary<double, int>();
-       
+            helicm = (Dictionary<int, GooglePoints>)ViewState["helicm"];
+            if (helicm == null)
+                helicm = new Dictionary<int, GooglePoints>();
+            pontosAgua = (SortedDictionary<double, int>)ViewState["pontosAgua"];
+            if (pontosAgua == null)
+                pontosAgua = new SortedDictionary<double, int>();
 
-        heliamx.Remove(x);
-        helicm.Remove(x);
 
-        ViewState["heliamx"] = heliamx;
-        ViewState["helicm"] = helicm;
+            heliamx.Remove(x);
+            helicm.Remove(x);
 
-        ViewState["pontosAgua"]=new SortedDictionary<double,int>();
-        criaAgua(1);
-        
-       
+            ViewState["heliamx"] = heliamx;
+            ViewState["helicm"] = helicm;
+
+            ViewState["pontosAgua"] = new SortedDictionary<double, int>();
+            criaAgua(1);
+        }
+        else WebMsgBox.Show("ols");
     }
+
     //muda raio normal
     protected void Button13_Click(object sender, EventArgs e)
     {
         float raioFog;
         float.TryParse(RaioFogo.Text.ToString(), out raioFog);
-        if (raioFog == 0)
+        if (raioFog == 0 || RaioFogo.Text.ToString().Contains('.'))
         {
-            RaioSucesso.Visible = false;
-            RaioInvalido.Visible = true;
+            WebMsgBox.Show("Raio Invalido");
             RaioFogo.Text = procCmd.FogoCombate.Raio_fogo.ToString();
         }
         else
         {
             procCmd.setRaio(raioFog);
             actListBox();
-            RaioInvalido.Visible = false;
-            RaioSucesso.Visible = true;
             GoogleMapForASPNet1.GoogleMapObject.Polylines.Clear();
             drawCircle(GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], procCmd.FogoCombate.Raio_fogo, 0);
             drawCircle(GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], procCmd.FogoCombate.Raio_seg, 1);
@@ -322,18 +339,14 @@ public partial class Painel_Cmd : System.Web.UI.Page
     {
         float raioSeg;
         float.TryParse(RaioSeguranca.Text.ToString(), out raioSeg);
-        if (raioSeg == 0 || raioSeg<=procCmd.FogoCombate.Raio_fogo)
+        if (raioSeg == 0 || raioSeg<=procCmd.FogoCombate.Raio_fogo || RaioSeguranca.Text.ToString().Contains('.'))
         {
-            RaioSSucesso.Visible = false;
-            RaioSInvalido.Visible = true;
+            WebMsgBox.Show("Raio Invalido");
             RaioSeguranca.Text = procCmd.FogoCombate.Raio_seg.ToString();
-        
         }
         else
         {
             procCmd.setRaioS(raioSeg);
-            RaioSInvalido.Visible = false;
-            RaioSSucesso.Visible = true;
             GoogleMapForASPNet1.GoogleMapObject.Polylines.Clear();
             drawCircle(GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], procCmd.FogoCombate.Raio_seg, 1);
             drawCircle(GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], procCmd.FogoCombate.Raio_fogo, 0);
@@ -343,7 +356,18 @@ public partial class Painel_Cmd : System.Web.UI.Page
 
     public void criaFogoExemplo()
     {
-        
+        if (procCmd.FogoCombate.Estado == 1)
+        {
+            ButEstAct.BackColor = System.Drawing.Color.Red;
+            ButEstAct.Enabled = false;
+            ButEstExt.Enabled = false;
+        }
+        if (procCmd.FogoCombate.Estado == 2)
+        {
+            ButEstAct.BackColor = System.Drawing.Color.Green;
+            ButEstAct.Enabled = true;
+            ButEstExt.Enabled = true;
+        }
         actListBox();
        
         GoogleMapForASPNet1.GoogleMapObject.CenterPoint = new GooglePoint("1", procCmd.FogoCombate.Latitude, procCmd.FogoCombate.Longitude);
@@ -355,30 +379,51 @@ public partial class Painel_Cmd : System.Web.UI.Page
         GP2.InfoHTML = "Centro do fogo";
         GP2.IconImage = "icons/fire.png";
         GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP2);
-        
 
+        GoogleMapForASPNet1.GoogleMapObject.CenterPoint = new GooglePoint("1", procCmd.FogoCombate.Latitude, procCmd.FogoCombate.Longitude);
         drawCircle(GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], procCmd.FogoCombate.Raio_fogo, 0);
         drawCircle(GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], procCmd.FogoCombate.Raio_seg, 1);
 
         foreach (KeyValuePair<int, Corporacao> c in procCmd.getCoorpDisponiveis())
         {
+              GooglePoint GP7 = new GooglePoint();
+            GP7.ID = "Q" + c.Key;
+            GP7.Latitude = c.Value.Latitude;
+            GP7.Longitude = c.Value.Longitude;
+            GP7.InfoHTML = "Quartel da " + c.Value.Nome;
+            GP7.IconImage = "icons/quartel2.png";
+            GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP7);
+            
             GooglePoint GP6 = new GooglePoint();
             GP6.ID = "C" + c.Key;
             GP6.Latitude = c.Value.Latitude;
             GP6.Longitude = c.Value.Longitude;
             GP6.InfoHTML = c.Value.Nome;
             GP6.IconImage = "icons/FireTruck.png";
+            GP6.Draggable = true;
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP6);
+
+          
         }
 
         foreach (KeyValuePair<int, Corporacao> co in procCmd.getCoorpDestacadas())
         {
+            GooglePoint GP7 = new GooglePoint();
+            GP7.ID = "Q" + co.Key;
+            GP7.Latitude = co.Value.Latitude;
+            GP7.Longitude = co.Value.Longitude;
+            GP7.InfoHTML = "Quartel da " + co.Value.Nome;
+            GP7.IconImage = "icons/quartel2.png";
+            GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP7);
+            
+                      
             GooglePoint CO6 = new GooglePoint();
             CO6.ID = "C" + co.Key;
-            CO6.Latitude = co.Value.Latitude;
-            CO6.Longitude = co.Value.Longitude;
+            CO6.Latitude = procCmd.FogoCombate.Latitude;
+            CO6.Longitude = procCmd.FogoCombate.Longitude;
             CO6.InfoHTML = co.Value.Nome;
             CO6.IconImage = "icons/FireTruck.png";
+            CO6.Draggable = true;
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(CO6);
         }
 
@@ -399,10 +444,11 @@ public partial class Painel_Cmd : System.Web.UI.Page
 
             GooglePoint HE4 = new GooglePoint();
             HE4.ID = "H" + he.Key;
-            HE4.Latitude = 41.71887132733453;
-            HE4.Longitude = -8.167364001274109;
+            HE4.Latitude = procCmd.FogoCombate.Latitude;
+            HE4.Longitude = procCmd.FogoCombate.Longitude;
             HE4.InfoHTML = he.Value.Desig;
             HE4.IconImage = "icons/helicopter2.png";
+            HE4.Draggable = true;
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(HE4);
         }
         criaAgua(0);
@@ -437,46 +483,25 @@ public partial class Painel_Cmd : System.Web.UI.Page
         criaFogoExemplo();
     }
 
-    public void preencheEstados()
-    {
-        LabEstadoFogo.Text = procCmd.getEstadoString();
-        int estF = procCmd.FogoCombate.Estado;
-        if (estF == 1)
-        {
-           LabDataEstado1.Text = procCmd.FogoCombate.Dh_comeco.ToString();
-           ButEstAct.Enabled=false;
-           ButEstCir.Enabled = true;
-           ButEstExt.Enabled = false;
-        }
-        
-        if (estF == 2)
-        {
-            LabDataEstado1.Text = procCmd.FogoCombate.Dh_comeco.ToString();
-            LabDataEstado2.Text = procCmd.FogoCombate.Dh_circunscrito.ToString();
-            ButEstAct.Enabled = true;
-            ButEstCir.Enabled = false;
-            ButEstExt.Enabled = true;
-        }
-        if (estF == 3)
-        {
-            LabDataEstado1.Text = procCmd.FogoCombate.Dh_comeco.ToString();
-            LabDataEstado2.Text = procCmd.FogoCombate.Dh_circunscrito.ToString();
-            LabDataEstado3.Text = procCmd.FogoCombate.Dh_extinto.ToString();
-            ButEstAct.Enabled = true;
-            ButEstCir.Enabled = false;
-            ButEstExt.Enabled = false;
-        }
-    }
-
     protected void Button17_Click(object sender, EventArgs e)
     {
         procCmd.defineEstado(2);
+        ButEstAct.BackColor = System.Drawing.Color.Empty;
+        ButEstAct.Enabled = true;
+        ButEstCir.BackColor = System.Drawing.Color.Green;
+        ButEstCir.Enabled = false;
+        ButEstExt.Enabled = true;
         actListBox();
     }
 
     protected void ButEstAct_Click(object sender, EventArgs e)
     {
         procCmd.defineEstado(1);
+        ButEstAct.BackColor = System.Drawing.Color.Red;
+        ButEstAct.Enabled = false;
+        ButEstCir.BackColor = System.Drawing.Color.Empty;
+        ButEstCir.Enabled = true;
+        ButEstExt.Enabled = false;
         actListBox();
     }
 
