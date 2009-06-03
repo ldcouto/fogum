@@ -1175,7 +1175,7 @@ namespace FogUM
         //-------AUXILIARES----------
         //-------------------------
 
-        private EstFogo getEFAux(int codFogo)
+        public EstFogo getEFAux(int codFogo)
         {
             EstFogo r = new EstFogo();
             DBLinqDataContext bdf = new DBLinqDataContext();

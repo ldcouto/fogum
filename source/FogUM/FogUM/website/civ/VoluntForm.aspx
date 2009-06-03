@@ -218,7 +218,7 @@
     
     <tr>
     <td><asp:Label ID="Ltelef" runat="server" Text="Distrito"></asp:Label></td>
-    <td><asp:DropDownList 
+    <td>&nbsp;&nbsp; <asp:DropDownList 
             ID="DropDownList1" runat="server" 
         DataSourceID="SqlDataSource1" DataTextField="DISTRITO_DESIGN" 
         DataValueField="DISTRITO_DESIGN" Height="22px" Width="200px" 
@@ -237,7 +237,7 @@
   
    <tr>
    <td><asp:Label ID="Lmail" runat="server" Text="Disponibilidade"></asp:Label></td>
-   <td><asp:DropDownList ID="DropDownList2" runat="server" Height="22px" 
+   <td>&nbsp;&nbsp; <asp:DropDownList ID="DropDownList2" runat="server" Height="22px" 
             Width="200px">
             <asp:ListItem></asp:ListItem>
         <asp:ListItem>3 Meses</asp:ListItem>

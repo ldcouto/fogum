@@ -187,7 +187,7 @@
     
     <tr>
     <td><asp:Label ID="Label14" runat="server" Text="Distrito"></asp:Label></td>
-    <td><asp:DropDownList ID="DropDownList2" runat="server" 
+    <td>&nbsp;&nbsp; <asp:DropDownList ID="DropDownList2" runat="server" 
             DataSourceID="SqlDataSource2" DataTextField="DISTRITO_DESIGN" 
             DataValueField="DISTRITO_DESIGN" AppendDataBoundItems="true" Height="22px" 
             Width="200px">
@@ -212,7 +212,7 @@
         <table>
         <tr>
         <td><asp:Label ID="Label12" runat="server" Text="Tipo Depósito"></asp:Label></td>
-        <td><asp:DropDownList ID="DropDownList1" runat="server" 
+        <td>&nbsp;&nbsp; <asp:DropDownList ID="DropDownList1" runat="server" 
             DataSourceID="SqlDataSource1" DataTextField="TIPO_DESIGN" 
             DataValueField="TIPO_DESIGN" AppendDataBoundItems="true" Height="22px" 
             Width="145px">

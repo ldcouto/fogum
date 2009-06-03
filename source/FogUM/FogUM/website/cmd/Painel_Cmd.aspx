@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Painel_Cmd.aspx.cs" Inherits="Painel_Cmd" UICulture="Auto" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Painel_Cmd.aspx.cs" Inherits="Painel_Cmd" UICulture="Auto" StylesheetTheme="Brown"%>
 
 <%@ Register src="GoogleMapForASPNet.ascx" tagname="GoogleMapForASPNet" tagprefix="uc1" %>
 
