@@ -100,8 +100,8 @@
                                             <p style="margin-left: 120px">
                                                 <asp:ListBox ID="ListBox_fogos" runat="server" Width="230px"></asp:ListBox>
                                             </p>
-                                        </h2>
-                                        <h2>
+                                        &nbsp;</h2>
+                                            <asp:Label ID="l_sel_fogo" runat="server" Text="Selecione um Fogo" Visible="false" ForeColor="Red" style="margin-left: 200px"></asp:Label>
                                             <p style="margin-left: 200px">
 &nbsp;&nbsp;
                                                 <asp:Button ID="btn_reiniciar_fogo" runat="server" Height="30px" 
@@ -112,7 +112,7 @@
             <asp:Button ID="btn_novo_fogo" runat="server" Text="Novo Fogo" Height="30px"  
                                                     Width="101px" onclick="btn_novo_fogo_Click" />
                                             </p>
-                                        </h2>
+                                        
     <div>
         <p style="margin-left: 20px">
         <asp:Table ID="Table2" runat="server" >
@@ -183,15 +183,15 @@
     <asp:TextBox ID="txt_concelho" runat="server" ReadOnly="True" style="margin-left: 40px" Enabled="False"></asp:TextBox><br />
     <asp:Label ID="label4" runat="server" Text="Baixas Bombeiros:" style="margin-left: 40px"></asp:Label><br />
     <asp:TextBox ID="txt_baixas_bomb" runat="server" style="margin-left: 40px"></asp:TextBox>
-    <asp:Image ID="Image20" runat="server" Visible="false" 
+    <asp:Image ID="img_bx_bomb_KO" runat="server" Visible="false" 
             ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" />
-        <asp:Image ID="Image30" runat="server" Visible="false" Height="16px" 
+        <asp:Image ID="img_bx_bomb_ok" runat="server" Visible="false" Height="16px" 
             ImageUrl="~/civ/icons/ok.png" Width="18px" />
     <asp:Label ID="label6" runat="server" Text="Baixas Cívis:" style="margin-left: 40px"></asp:Label><br />
     <asp:TextBox ID="txt_baixas_civis" runat="server" style="margin-left: 40px"></asp:TextBox>
-    <asp:Image ID="Image1" runat="server" Visible="false" 
+    <asp:Image ID="img_bx_civ_KO" runat="server" Visible="false" 
             ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" />
-        <asp:Image ID="Image2" runat="server" Visible="false" Height="16px" 
+        <asp:Image ID="img_bx_civ_ok" runat="server" Visible="false" Height="16px" 
             ImageUrl="~/civ/icons/ok.png" Width="18px" />
     </asp:TableCell>
     

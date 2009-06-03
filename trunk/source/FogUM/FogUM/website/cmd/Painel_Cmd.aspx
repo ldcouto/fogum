@@ -112,5 +112,6 @@
                     
                     </div>    
     </form>
+    <MARQUEE BEHAVIOR=SCROLL DIRECTION="RIGHT" BGCOLOR="YELLOW"WIDTH=50%>SIMULAÇÃO EM EXECUÇ</MARQUEE>
 </body>
 </html>

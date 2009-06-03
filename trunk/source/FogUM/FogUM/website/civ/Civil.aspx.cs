@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using FogUM;
+using FogUM.bd;
 using System.Collections.Generic;
 using System.Net.Mail;
 
@@ -81,9 +82,13 @@ public partial class Civil : PageBase
                 circunscrito = "Circunscrito: " + f.Dh_circunscrito + "<br />";
             }
 
+            EstFogo est_Fog = proc.getEFAux(f.Codigo);
+
             GP1.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes do Fogo</U></font><br /><br />" 
-                + "*** " + estado + "***" + "<br />" + "Concelho: " + f.Concelho + "<br />" 
-                + "Inicio: " + f.Dh_comeco + "<br />" + circunscrito + "Unidades no terreno: ";
+                + "*** " + estado + "***" + "<br />" + "Concelho: " + f.Concelho + "<br />"
+                + "Inicio: " + f.Dh_comeco + "<br />" + circunscrito + est_Fog.AreaArdida + "Km<SUP>2</SUP> de Área Ardida<br />"
+                + "<B>Unidades no terreno:<B><br/> " + "  ->" + est_Fog.NCompanhias + " Corporações<br />" + "  ->" + est_Fog.NVeiculos
+                + " Veiculos<br />" + "  ->" + est_Fog.NHelis + " Helicopteros<br />" + "  ->" + est_Fog.NHomens + " Homens";
 
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP1);
         }
