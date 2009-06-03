@@ -22,7 +22,7 @@ public partial class XMLForm : System.Web.UI.Page
         
 
 
-        DirectoryInfo di = new DirectoryInfo("FogUM/website/bda/xmls");
+        DirectoryInfo di = new DirectoryInfo(Server.MapPath("~/")+"/bda/xmls");
         FileInfo[] files =  di.GetFiles("*.xml");
 
 
@@ -47,10 +47,10 @@ public partial class XMLForm : System.Web.UI.Page
     protected void Button2_Click1(object sender, EventArgs e)
     {
         Parser_xml px = new Parser_xml();
-        string path = ListBox1.SelectedValue.ToString();
-        if (path == "") WebMsgBox.Show("SELECCIONE UM FICHEIRO XML");
+        if (ListBox1.SelectedValue.ToString() == "") WebMsgBox.Show("SELECCIONE UM FICHEIRO XML");     
         else
         {
+            string path = Server.MapPath("~/") + "/bda/xmls/" + ListBox1.SelectedValue.ToString();
             px.le_xml(path);
             WebMsgBox.Show("FICHEIRO XML CARREGADO");
         }

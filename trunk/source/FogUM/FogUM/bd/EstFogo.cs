@@ -62,13 +62,6 @@ namespace FogUM.bd
             set { dhEnd = value; }
         }
 
-        int totalHH;
-        public int TotalHH
-        {
-            get { return totalHH; }
-            set { totalHH = value; }
-        }
-
         string estado;
         public string Estado
         {
