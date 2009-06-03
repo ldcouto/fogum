@@ -191,6 +191,12 @@ public partial class VoluntForm : PageBase
                email.Text = "";
                DropDownList2.ClearSelection();
                DropDownList1.ClearSelection();
+               Image25.Visible = false;
+               Image26.Visible = false;
+               Image27.Visible = false;
+               Image28.Visible = false;
+               Image29.Visible = false;
+               Image30.Visible = false;
 
 
            }
