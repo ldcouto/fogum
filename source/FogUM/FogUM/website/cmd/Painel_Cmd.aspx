@@ -7,6 +7,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Painel de Controlo FogUM</title>
+    <style type="text/css">
+        #MARQUEE1
+        {
+            width: 40%;
+        }
+    </style>
 </head>
 <body>
     <a href="Relatorios.aspx">Voltar Atrás</a>

@@ -654,7 +654,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
             ImageButton2.Visible = true;
             Timer1.Enabled = true;
             Label10.Visible = false;
-            Label11.Visible = true;
+            Label11.Visible = true;            
         }
     }
     protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
