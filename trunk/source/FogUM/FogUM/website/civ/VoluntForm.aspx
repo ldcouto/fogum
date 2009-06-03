@@ -172,26 +172,22 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="phMain" Runat="Server">
     <div style="border-color: #006600; height: 29px; font-size: large; color: #339933; border-bottom-style: groove; width: 796px;">
     &nbsp;&nbsp;&nbsp;&nbsp;FogUM - Novo Voluntário<br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    </div>
+        </div>
     <div 
-    style="width: 465px; height: 198px; margin-right: 0px; top: 1px; left: 2px;" align="left" 
+    style="width: 396px; height: 203px; margin-right: 0px; top: 1px; left: 2px;" align="left" 
     dir="ltr">
     <table>
     <tr>
     <td><asp:Label ID="Lnome" runat="server" Text="Nome"></asp:Label></td>
     <td><asp:TextBox ID="nome" 
         runat="server" Width="200px"></asp:TextBox></td>
-    <td><asp:Label ID="Label17" runat="server" Font-Italic="True" ForeColor="#FF3300" 
-        Text="* Inválido" Visible="False"></asp:Label></td>
+    <td><asp:Image ID="Image19" Visible="false" runat="server" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" 
+            ImageAlign="AbsMiddle" />
+        <asp:Image ID="Image25" runat="server" Height="16px" 
+            ImageUrl="~/civ/icons/OK.PNG" Visible="False" Width="17px" 
+            ImageAlign="AbsMiddle" />
+        </td>
     </tr>
         
     <tr>
@@ -199,16 +195,25 @@
     <td><asp:TextBox ID="email" 
         runat="server" Width="200px"></asp:TextBox></td>
      <td>
-    <asp:Label ID="Label21" runat="server" Font-Italic="True" ForeColor="#FF3300" 
-        Text="* Inválido" Visible="False"></asp:Label></td>    
+         <asp:Image ID="Image20" Visible="false" runat="server" 
+             ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" 
+             ImageAlign="AbsMiddle" />
+         <asp:Image ID="Image26" runat="server" Height="16px" ImageAlign="AbsMiddle" 
+             ImageUrl="~/civ/icons/OK.PNG" Visible="False" Width="17px" />
+        </td>    
     </tr>
         
     <tr>        
     <td><asp:Label ID="Ldistrito" runat="server" Text="Morada"></asp:Label></td>
     <td><asp:TextBox 
         ID="morada" runat="server" Width="200px"></asp:TextBox></td>
-    <td><asp:Label ID="Label19" runat="server" Font-Italic="True" ForeColor="#FF3300" 
-        Text="* Inválido" Visible="False"></asp:Label></td>
+    <td>
+        <asp:Image ID="Image21" Visible="false" runat="server" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" 
+            ImageAlign="AbsMiddle" />
+        <asp:Image ID="Image27" runat="server" Height="16px" ImageAlign="AbsMiddle" 
+            ImageUrl="~/civ/icons/OK.PNG" Visible="False" Width="17px" />
+        </td>
     </tr>
     
     <tr>
@@ -221,9 +226,13 @@
             <asp:ListItem Value=""></asp:ListItem>
     </asp:DropDownList>
     </td>
-    <td><asp:Label ID="Label23" runat="server" Font-Italic="True" ForeColor="Red" 
-            Text="* Inválido" Visible="False"></asp:Label>
-    </td>
+    <td>
+        <asp:Image ID="Image22" Visible="false" runat="server" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" 
+            ImageAlign="AbsMiddle" />
+        <asp:Image ID="Image28" runat="server" Height="16px" ImageAlign="AbsMiddle" 
+            ImageUrl="~/civ/icons/OK.PNG" Visible = "false" Width="17px" />
+        </td>
     </tr>
   
    <tr>
@@ -237,25 +246,32 @@
     </asp:DropDownList>
     </td>
     <td>
-        <asp:Label ID="Label22" runat="server" Font-Italic="True" ForeColor="Red" 
-            Text="* Inválido" Visible="False"></asp:Label> 
-    </td> 
+        <asp:Image ID="Image23" Visible="false" runat="server" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" 
+            ImageAlign="AbsMiddle" />
+        <asp:Image ID="Image29" runat="server" Height="16px" ImageAlign="AbsMiddle" 
+            ImageUrl="~/civ/icons/OK.PNG" Visible="False" Width="17px" />
+       </td> 
     </tr>
     <tr>
     <td><asp:Label ID="Label16" runat="server" Text="Telefone"></asp:Label></td>
     <td><asp:TextBox ID="telefone" runat="server" MaxLength="9" Width="200px"></asp:TextBox></td>
-    <td><asp:Label ID="Label20" runat="server" Font-Italic="True" ForeColor="#FF3300" 
-        Text="* Inválido" Visible="False"></asp:Label>
-    </td>
+    <td>
+        <asp:Image ID="Image24" Visible="false" runat="server" 
+            ImageUrl="~/civ/icons/KO.PNG" Height="16px" Width="17px" 
+            ImageAlign="AbsMiddle" />
+        <asp:Image ID="Image30" runat="server" Height="16px" ImageAlign="AbsMiddle" 
+            ImageUrl="~/civ/icons/OK.PNG" Visible="False" Width="17px" />
+        </td>
     </tr>
     </table>
     <br />
     <asp:Button ID="Button2" runat="server" 
         Text="Submeter" onclick="Button2_Click" />
         
-      <div style="border-color: #FFFFFF; position: relative; top: -274px; left: 399px; width: 214px; height: 253px;">
+      <div style="border-color: #FFFFFF; position: relative; top: -195px; left: 419px; width: 181px; height: 209px;">
           <img alt="" src="Imagens/arvore1.jpg" 
-              style="border-color: #FFFFFF; height: 251px; width: 214px" /><asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+              style="border-color: #FFFFFF; height: 208px; width: 179px" /><asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:BDFConnectionString %>" 
         SelectCommand="SELECT [DISTRITO_DESIGN] FROM [DISTRITO]" 
         ProviderName="<%$ ConnectionStrings:BDFConnectionString.ProviderName %>">
