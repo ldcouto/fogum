@@ -182,68 +182,74 @@
         <br />
         <br />
     </div>
-    &nbsp;&nbsp;&nbsp;<div 
+    <div 
     style="width: 465px; height: 198px; margin-right: 0px; top: 1px; left: 2px;" align="left" 
     dir="ltr">
-    <asp:Label ID="Lnome" runat="server" Text="Nome"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="nome" 
-        runat="server" Width="200px"></asp:TextBox>
-        &nbsp;<asp:Label ID="Label17" runat="server" Font-Italic="True" ForeColor="#FF3300" 
-        Text="* Inválido" Visible="False"></asp:Label>
-    <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <br />
-    <asp:Label ID="Lmorada" runat="server" Text="Email"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="email" 
-        runat="server" Width="200px"></asp:TextBox>
+    <table>
+    <tr>
+    <td><asp:Label ID="Lnome" runat="server" Text="Nome"></asp:Label></td>
+    <td><asp:TextBox ID="nome" 
+        runat="server" Width="200px"></asp:TextBox></td>
+    <td><asp:Label ID="Label17" runat="server" Font-Italic="True" ForeColor="#FF3300" 
+        Text="* Inválido" Visible="False"></asp:Label></td>
+    </tr>
+        
+    <tr>
+    <td><asp:Label ID="Lmorada" runat="server" Text="Email"></asp:Label></td>
+    <td><asp:TextBox ID="email" 
+        runat="server" Width="200px"></asp:TextBox></td>
+     <td>
     <asp:Label ID="Label21" runat="server" Font-Italic="True" ForeColor="#FF3300" 
-        Text="* Inválido" Visible="False"></asp:Label>
-      
-    <br />
-    <br />
-    <asp:Label ID="Ldistrito" runat="server" Text="Morada"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox 
-        ID="morada" runat="server" Width="200px"></asp:TextBox>
-    <asp:Label ID="Label19" runat="server" Font-Italic="True" ForeColor="#FF3300" 
-        Text="* Inválido" Visible="False"></asp:Label>
-    <br />
-    <br />
-    <asp:Label ID="Ltelef" runat="server" Text="Distrito"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 
-        <asp:DropDownList 
+        Text="* Inválido" Visible="False"></asp:Label></td>    
+    </tr>
+        
+    <tr>        
+    <td><asp:Label ID="Ldistrito" runat="server" Text="Morada"></asp:Label></td>
+    <td><asp:TextBox 
+        ID="morada" runat="server" Width="200px"></asp:TextBox></td>
+    <td><asp:Label ID="Label19" runat="server" Font-Italic="True" ForeColor="#FF3300" 
+        Text="* Inválido" Visible="False"></asp:Label></td>
+    </tr>
+    
+    <tr>
+    <td><asp:Label ID="Ltelef" runat="server" Text="Distrito"></asp:Label></td>
+    <td><asp:DropDownList 
             ID="DropDownList1" runat="server" 
         DataSourceID="SqlDataSource1" DataTextField="DISTRITO_DESIGN" 
         DataValueField="DISTRITO_DESIGN" Height="22px" Width="200px" 
             AppendDataBoundItems="true">
             <asp:ListItem Value=""></asp:ListItem>
     </asp:DropDownList>
-        <asp:Label ID="Label23" runat="server" Font-Italic="True" ForeColor="Red" 
+    </td>
+    <td><asp:Label ID="Label23" runat="server" Font-Italic="True" ForeColor="Red" 
             Text="* Inválido" Visible="False"></asp:Label>
-    <br />
-    <br />
-    <asp:Label ID="Lmail" runat="server" Text="Disponibilidade"></asp:Label>
-        &nbsp;<asp:DropDownList ID="DropDownList2" runat="server" Height="22px" 
+    </td>
+    </tr>
+  
+   <tr>
+   <td><asp:Label ID="Lmail" runat="server" Text="Disponibilidade"></asp:Label></td>
+   <td><asp:DropDownList ID="DropDownList2" runat="server" Height="22px" 
             Width="200px">
             <asp:ListItem></asp:ListItem>
         <asp:ListItem>3 Meses</asp:ListItem>
         <asp:ListItem>6 Meses</asp:ListItem>
         <asp:ListItem>12 Meses</asp:ListItem>
     </asp:DropDownList>
+    </td>
+    <td>
         <asp:Label ID="Label22" runat="server" Font-Italic="True" ForeColor="Red" 
-            Text="* Inválido" Visible="False"></asp:Label>
-    <br />
-    <br />
-    <asp:Label ID="Label16" runat="server" Text="Telefone"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="telefone" runat="server" MaxLength="9" Width="200px"></asp:TextBox>
-    <asp:Label ID="Label20" runat="server" Font-Italic="True" ForeColor="#FF3300" 
+            Text="* Inválido" Visible="False"></asp:Label> 
+    </td> 
+    </tr>
+    <tr>
+    <td><asp:Label ID="Label16" runat="server" Text="Telefone"></asp:Label></td>
+    <td><asp:TextBox ID="telefone" runat="server" MaxLength="9" Width="200px"></asp:TextBox></td>
+    <td><asp:Label ID="Label20" runat="server" Font-Italic="True" ForeColor="#FF3300" 
         Text="* Inválido" Visible="False"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    </tr>
+    </table>
     <br />
-&nbsp;
-        <br />
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="Button2" runat="server" 
         Text="Submeter" onclick="Button2_Click" />
         
@@ -256,7 +262,5 @@
     </asp:SqlDataSource>
         </div>
 </div>
-<br />
-
     </asp:Content>
 
