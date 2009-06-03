@@ -38,7 +38,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
 
         //Specify width and height for map. You can specify either in pixels or in percentage relative to it's container.
         GoogleMapForASPNet1.GoogleMapObject.Width = "800px"; // You can also specify percentage(e.g. 80%) here
-        GoogleMapForASPNet1.GoogleMapObject.Height = "500px";
+        GoogleMapForASPNet1.GoogleMapObject.Height = "508px";
 
         //Specify initial Zoom level.
 
@@ -405,7 +405,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
             GP6.ID = "C" + c.Key;
             GP6.Latitude = c.Value.Latitude;
             GP6.Longitude = c.Value.Longitude;
-            GP6.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes da Corporacao</U></font><br /><br />" + "*** " + c.Value.Nome + "***" + "<br />" + "Nº Homens: " + c.Value.N_homens + "<br />" + "Nº Veiculos: " + c.Value.N_veiculos;
+            GP6.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes da Corporacao</U></font><br /><br />" + "*** " + c.Value.Nome + "***" + "<br />" + "Nº Homens: " + c.Value.N_homens + "<br />" + "Nº Veiculos: " + c.Value.N_veiculos + "<br />" + "Código do Corp.: " + c.Key;
             GP6.IconImage = "icons/FireTruck.png";
             GP6.Draggable = true;
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP6);
@@ -428,7 +428,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
             CO6.ID = "C" + co.Key;
             CO6.Latitude = procCmd.FogoCombate.Latitude;
             CO6.Longitude = procCmd.FogoCombate.Longitude;
-            CO6.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes da Corporacao</U></font><br /><br />" + "*** " + co.Value.Nome + "***" + "<br />" + "Nº Homens: " + co.Value.N_homens + "<br />" + "Nº Veiculos: " + co.Value.N_veiculos;
+            CO6.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes da Corporacao</U></font><br /><br />" + "*** " + co.Value.Nome + "***" + "<br />" + "Nº Homens: " + co.Value.N_homens + "<br />" + "Nº Veiculos: " + co.Value.N_veiculos + "<br />" + "Código da Corp.: " + co.Key;
             CO6.IconImage = "icons/FireTruck.png";
             CO6.Draggable = true;
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(CO6);
@@ -441,7 +441,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
             GP4.ID = "H" + h.Key;
             GP4.Latitude = 41.723067491050024;
             GP4.Longitude = -8.170298337936401;
-            GP4.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes de Helicoptero</U></font><br /><br />" + "*** " + h.Value.Desig + "***";
+            GP4.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes de Helicoptero</U></font><br /><br />" + "*** " + h.Value.Desig + "***" + "<br />" + "Código do Heli: " + h.Key;
             GP4.IconImage = "icons/helicopter2.png";
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP4);
 
@@ -455,7 +455,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
             HE4.ID = "H" + he.Key;
             HE4.Latitude = procCmd.FogoCombate.Latitude;
             HE4.Longitude = procCmd.FogoCombate.Longitude;
-            HE4.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes de Helicoptero</U></font><br /><br />" + "*** " + he.Value.Desig + "***";
+            HE4.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes de Helicoptero</U></font><br /><br />" + "*** " + he.Value.Desig + "***" + "Código do Heli: " + he.Key;
             HE4.IconImage = "icons/helicopter2.png";
             HE4.Draggable = true;
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(HE4);
@@ -498,7 +498,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
             GP9.ID = "A" + d.Cod;
             GP9.Latitude = d.Latitude;
             GP9.Longitude = d.Longitude;
-            GP9.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes de Depositos</U></font><br /><br />" + "*** " + d.Descricao + "***" + "<br />" + "Codigo Tipo: " + d.CodTipo + "<br />" + "Volume: " + d.Volume;
+            GP9.InfoHTML = "<font color=\"#FF0000\"><U>    Detalhes de Depositos</U></font><br /><br />" + "*** " + d.Descricao + "***" + "<br />" + "Codigo Tipo: " + d.CodTipo + "<br />" + "Volume: " + d.Volume + " m<SUP>3</SUP>";
             GP9.IconImage = "icons/watertrans.png";
             if (x == 0)
                 GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP9);
@@ -543,6 +543,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
     {
         procCmd.selTermComb();
         actListBox();
+        Response.Redirect("~/cmd/Relatorios.aspx");
     }
     
     protected void Timer1_Tick(object sender, EventArgs e)
