@@ -11,10 +11,6 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-
-
-
-
 namespace FogUM
 {
     public class Proc_Cmd
@@ -241,16 +237,16 @@ namespace FogUM
                 c.Disponivel = true;
                 bd.updateCorp(c);
             }
-            bd.setCorps(corpVazia, this.fogoCombate);
-            corporacoes = corpVazia;
+       //     bd.setCorps(corpVazia, this.fogoCombate);
+       //     corporacoes = corpVazia;
 
             foreach (KeyValuePair<int, Heli> h in getHelisDestacados())
             {
                 h.Value.Disp = true;
                 bd.updateHeli(h.Value);
             }
-            bd.setHelis(heliVazia, this.fogoCombate);
-            helis = heliVazia;
+       //     bd.setHelis(heliVazia, this.fogoCombate);
+        //    helis = heliVazia;
             bd.updateFogo(this.fogoCombate);
         }
         public void setRaio(float raioNovo)
