@@ -78,9 +78,9 @@
                                                     ImageAlign="AbsMiddle" />
                                                 <a href="http://www.proteccaocivil.pt/" target=_blank >Protecção Civil</a></p>
                                         </div>
-    <h3>Nºs Telefónicos:</h3>
+    <h3>Contactos</h3>
     <div class="sbcontentcontainer">
-        <p><b>Protecção Civil</b></p>
+        <p><b>Protecção Civil:</b></p>
         <ul>
         <li>
             <asp:Image ID="Image11" runat="server" Height="20px" ImageAlign="AbsMiddle" 

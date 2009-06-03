@@ -31,22 +31,7 @@ public partial class VoluntForm : PageBase
         BListStats.Items.Add("Fogos: " + proc.getTotFogs().ToString());
         BListStats.Items.Add("Voluntários: " + proc.getTotVols().ToString());
         BListStats.Items.Add("Depósitos: " + proc.getTotDepos().ToString());
-        //bool flag = true;
-
-        //try
-        //{
-        //    FileStream f = new FileStream("FogUM/website/bda/xmls/" + "DumpFogUM-" + DateTime.Now.ToShortDateString().ToString() + ".xml", FileMode.Open);
-        //}
-        //catch (Exception exc)
-        //{
-        //    flag = false;
-        //}
-
-        //if (flag==false)
-        //{
-        //    Parser ps = new Parser();
-        //    ps.criarXML();
-        //}
+       
 
 
       
