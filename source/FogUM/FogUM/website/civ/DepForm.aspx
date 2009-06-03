@@ -171,78 +171,108 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="phMain" Runat="Server">
     <div style="height: 22px; border-top-color: #006600; border-bottom-style: solid; color: #006600; font-size: large;">
         FogUM - Registar Depósito Água</div>
-    <div style="height: 269px; width: 472px;">
-        <br />
-        <br />
-        <asp:Label ID="Label1" runat="server" Text="Rua"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-        <asp:TextBox ID="moradaD" runat="server" Width="200px"></asp:TextBox>
-        <asp:Label ID="Label2" runat="server" Font-Italic="True" ForeColor="Red" 
-            Text="* Inválido" Visible="False"></asp:Label>
-        <br />
-        <br />
-        <asp:Label ID="Label14" runat="server" Text="Distrito"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList2" runat="server" 
+    <div style="height: 312px; width: 472px;">
+    <br />  
+    <br />
+    <table>
+    <tr>
+    <td><asp:Label ID="Label1" runat="server" Text="Rua"></asp:Label></td>
+    <td><asp:TextBox ID="moradaD" runat="server" Width="200px"></asp:TextBox></td>
+    <td><asp:Image ID="Image19" runat="server" Visible="false" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" />
+        <asp:Image ID="Image29" runat="server" Visible ="false" Height="16px" 
+            ImageUrl="~/civ/icons/ok.png" Width="17px" />
+    </td>
+    </tr>
+    
+    <tr>
+    <td><asp:Label ID="Label14" runat="server" Text="Distrito"></asp:Label></td>
+    <td><asp:DropDownList ID="DropDownList2" runat="server" 
             DataSourceID="SqlDataSource2" DataTextField="DISTRITO_DESIGN" 
             DataValueField="DISTRITO_DESIGN" AppendDataBoundItems="true" Height="22px" 
             Width="200px">
             <asp:ListItem Value=""></asp:ListItem>
         </asp:DropDownList>
-        <asp:Label ID="Label15" runat="server" Font-Italic="True" ForeColor="Red" 
-            Text="* Inválido" Visible="False"></asp:Label>
+     </td>
+    <td><asp:Image ID="Image20" runat="server" Visible="false" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" />
+        <asp:Image ID="Image30" runat="server" Visible="false" Height="16px" 
+            ImageUrl="~/civ/icons/ok.png" Width="18px" />
+     </td>
+    </tr>    
+    </table>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
             ConnectionString="<%$ ConnectionStrings:BDFConnectionString %>" 
             SelectCommand="SELECT [DISTRITO_DESIGN] FROM [DISTRITO]">
         </asp:SqlDataSource>
         <br />
         <br />
-        <br />
         <div style="color: #006600">Dados do Depósito</div>
         <br />
-        <asp:Label ID="Label12" runat="server" Text="Tipo Depósito"></asp:Label>
-&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList1" runat="server" 
+        <table>
+        <tr>
+        <td><asp:Label ID="Label12" runat="server" Text="Tipo Depósito"></asp:Label></td>
+        <td><asp:DropDownList ID="DropDownList1" runat="server" 
             DataSourceID="SqlDataSource1" DataTextField="TIPO_DESIGN" 
             DataValueField="TIPO_DESIGN" AppendDataBoundItems="true" Height="22px" 
             Width="145px">
             <asp:ListItem Value=""></asp:ListItem>
         </asp:DropDownList>
-        <asp:Label ID="Label13" runat="server" Font-Italic="True" ForeColor="Red" 
-            Text="* Inválido" Visible="False"></asp:Label>
+        </td>
+        <td><asp:Image ID="Image21" runat="server" Visible="false" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" />
+            <asp:Image ID="Image25" runat="server" Visible="false" Height="16px" 
+                Width="17px" ImageUrl="~/civ/icons/ok.png" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td><asp:Label ID="Label5" runat="server" Text="Comprimento"></asp:Label>
+        </td>
+        <td><asp:TextBox ID="compr" runat="server" Width="88px"></asp:TextBox>
+        <asp:Label ID="Label9" runat="server" Font-Size="Small" Text="(metros)"></asp:Label>
+        </td>
+        <td><asp:Image ID="Image22" runat="server" Visible="false" 
+            ImageUrl="~/civ/icons/ko.png" Height="17px" Width="16px" />
+            <asp:Image ID="Image26" runat="server" Visible="false" Height="16px" 
+                Width="17px" ImageUrl="~/civ/icons/ok.png" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td><asp:Label ID="Label3" runat="server" Text="Altura"></asp:Label></td>
+        <td><asp:TextBox ID="altura" runat="server" Width="88px"></asp:TextBox>
+        <asp:Label ID="Label10" runat="server" Font-Size="Small" Text="(metros)"></asp:Label></td>
+        <td><asp:Image ID="Image23" runat="server" Visible="false" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" />
+            <asp:Image ID="Image27" runat="server" Visible="false" Height="16px" 
+                Width="17px" ImageUrl="~/civ/icons/ok.png" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td><asp:Label ID="Label7" runat="server" Text="Largura"></asp:Label></td>
+        <td><asp:TextBox ID="largura" runat="server" Width="88px"></asp:TextBox>
+        <asp:Label ID="Label11" runat="server" Font-Size="Small" Text="(metros)"></asp:Label>
+        </td>
+        <td><asp:Image ID="Image24" runat="server" Visible="false" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px"/>
+            <asp:Image ID="Image28" runat="server" Visible="false" Height="16px" 
+                Width="17px" ImageUrl="~/civ/icons/OK.PNG" />
+        </td>
+        </tr>
+
+        
+        </table>
+        
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:BDFConnectionString %>" 
             SelectCommand="SELECT [TIPO_DESIGN] FROM [TIPOS_DEPOS]"></asp:SqlDataSource>
-        <br />
-        <br />
-        <asp:Label ID="Label5" runat="server" Text="Comprimento"></asp:Label>
-        &nbsp;&nbsp;
-        <asp:TextBox ID="compr" runat="server" Width="88px"></asp:TextBox>
-        <asp:Label ID="Label9" runat="server" Font-Size="Small" Text="(metros)"></asp:Label>
-        <asp:Label ID="Label6" runat="server" Font-Italic="True" ForeColor="Red" 
-            Text="* Inválido" Visible="False"></asp:Label>
-        <br />
-        <br />
-        <asp:Label ID="Label3" runat="server" Text="Altura"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="altura" runat="server" Width="88px"></asp:TextBox>
-        <asp:Label ID="Label10" runat="server" Font-Size="Small" Text="(metros)"></asp:Label>
-        <asp:Label ID="Label4" runat="server" Font-Italic="True" ForeColor="Red" 
-            Text="* Inválido" Visible="False"></asp:Label>
-        <br />
-        <br />
-        <asp:Label ID="Label7" runat="server" Text="Largura"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="largura" runat="server" Width="88px"></asp:TextBox>
-        <asp:Label ID="Label11" runat="server" Font-Size="Small" Text="(metros)"></asp:Label>
-        <asp:Label ID="Label8" runat="server" Font-Italic="True" ForeColor="Red" 
-            Text="* Inválido" Visible="False"></asp:Label>
-        <br />
-        <br />
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<br />
+        
         <asp:Button ID="Button2" runat="server" Text="Submeter" onclick="Button2_Click" />
-        <div style="border-color: #FFFFFF; position: relative; top: -253px; left: 377px; width: 182px; height: 229px;">
+        <div style="border-color: #FFFFFF; position: relative; top: -263px; left: 424px; width: 174px; height: 218px;">
             <img alt="" src="Imagens/gota.jpg" 
                 style="border-color: #FFFFFF; height: 207px; width: 164px" /></div>
                 

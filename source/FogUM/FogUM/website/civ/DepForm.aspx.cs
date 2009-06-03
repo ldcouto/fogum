@@ -60,19 +60,25 @@ public partial class DepForm : PageBase
         {
             flag = 1;
             // WebMsgBox.Show("IMPOSSIVEL LOCALIZAR ENDEREÇO");
-            Label2.Text = "*Impossivel Localizar Endereço";           
-            Label2.Font.Italic = true;
-            Label2.Visible = true;
+            //Image19.Text = "*Impossivel Localizar Endereço";           
+           // Image19.Font.Italic = true;
+            Image29.Visible = false;
+            Image19.Visible = true;
         }
 
         if (flag == 0)
         {
             if (b1 || b2 == false)
-                Label2.Visible = true;
+            {
+
+                Image19.Visible = true;
+                Image29.Visible = false;
+            }
             else
                 if (b2 == true)
                 {
-                    Label2.Visible = false;
+                    Image19.Visible = false;
+                    Image29.Visible = true;
                     mor = 1;
                     lat = gp.Latitude;
                     lng = gp.Longitude;
@@ -81,48 +87,62 @@ public partial class DepForm : PageBase
 
         if (IsNumeric(compr.Text.ToString()) || (compr.Text.ToString().Equals(""))|| (compr.Text.ToString().Equals("0")))
         {
-            Label6.Visible = true;
+            Image22.Visible = true;
+            Image26.Visible = false;
         }
         else
         {
             comp = Convert.ToDouble(compr.Text.ToString());
-            Label6.Visible = false;
+            Image22.Visible = false;
+            Image26.Visible = true;
         }
 
         if (IsNumeric(altura.Text.ToString()) || (altura.Text.ToString().Equals("")) || (altura.Text.ToString().Equals("0")))
         {
-            Label4.Visible = true;
+            Image23.Visible = true;
+            Image27.Visible = false;
         }
         else
         {
             alt = Convert.ToDouble(altura.Text.ToString());
-            Label4.Visible = false;
+            Image23.Visible = false;
+            Image27.Visible = true;
         }
 
         if (IsNumeric(largura.Text.ToString()) || (largura.Text.ToString().Equals("")) || (largura.Text.ToString().Equals("0")))
         {
-            Label8.Visible = true;
+            Image24.Visible = true;
+            Image28.Visible = false;
         }
         else
         {
             larg = Convert.ToDouble(largura.Text.ToString());
-            Label8.Visible = false;
+            Image24.Visible = false;
+            Image28.Visible = true;
         }
 
         if (DropDownList1.Text.ToString().Equals(""))
-            Label13.Visible = true;
+        {
+            Image21.Visible = true;
+            Image25.Visible = false;
+        }
         else
         {
             tipo = 1;
-            Label13.Visible = false;
+            Image21.Visible = false;
+            Image25.Visible = true;
         }
 
         if (DropDownList2.Text.ToString().Equals(""))
-            Label15.Visible = true;
+        {
+            Image20.Visible = true;
+            Image30.Visible = false;
+        }
         else
         {
             distr = 1;
-            Label15.Visible = false;
+            Image20.Visible = false;
+            Image30.Visible = true;
         }
 
         if ((comp == 0) || (alt == 0) || (larg == 0) || (mor==0) || (tipo==0) || (distr==0))

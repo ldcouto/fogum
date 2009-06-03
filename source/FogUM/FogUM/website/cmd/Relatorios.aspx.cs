@@ -60,8 +60,12 @@ public partial class Relatorios : PageBase
     protected void Button2_Click(object sender, EventArgs e)
     {
         String drop = ListBox_rels.Text;
-        l_b_civ.Visible = false;
-        l_b_bomb.Visible = false;
+        Image20.Visible = false; // KO l_b_civ
+                                //l_b_civ.Visible = false;
+                                 //l_b_bomb.Visible = false;
+        Image30.Visible = false;
+        Image1.Visible = false;//ko l_b_bomb
+        Image2.Visible = false;
 
 
         if (drop != "")
@@ -88,17 +92,19 @@ public partial class Relatorios : PageBase
     protected void Button3_Click(object sender, EventArgs e)
     {
         bool flag = true;
-        l_b_bomb.Visible = false;
-        l_b_civ.Visible = false;
+        Image1.Visible = false;
+        Image20.Visible = false;
 
         if (IsNumeric(txt_baixas_bomb.Text)) 
         {
-            l_b_bomb.Visible = true;
+            Image1.Visible = true;
+            Image2.Visible = false;
             flag = false;
         }
         if (IsNumeric(txt_baixas_civis.Text)) 
         {
-            l_b_civ.Visible = true;
+            Image20.Visible = true;
+            Image30.Visible = false;
             flag = false;
         }
         if (flag)

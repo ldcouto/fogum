@@ -64,73 +64,102 @@ public partial class VoluntForm : PageBase
         int fnome = 0, fmail = 0, ftelef = 0, fmorada = 0, disp = 0, distr = 0;
 
 
-           if (!IsNumeric(nome.Text.ToString()) && (nome.Text.ToString().Contains("")))
-               Label17.Visible = true;
-           else
-           {
-               
-               fnome = 1;
-               Label17.Visible = false;
-           }
 
-           if ((!email.Text.ToString().Contains("@")) && (!email.Text.ToString().Contains(".")) && (email.Text.ToString().Contains("")))
-               Label21.Visible = true;
-           else
-           {
-               
-               fmail = 1;
-               Label21.Visible = false;
-           }
+        if (!IsNumeric(nome.Text.ToString()) && (nome.Text.ToString().Contains("")))
+        {
+            Image19.Visible = true;
+            Image25.Visible = false;
+        }
 
-           if ((telefone.Text.ToString().Length != 9) || (IsNumeric(telefone.Text.ToString())))
-               Label20.Visible = true;
-           else
-           {
-               
-               ftelef = 1;
-               Label20.Visible = false;
-           }
+
+        else
+        {
+
+            fnome = 1;
+            Image19.Visible = false;
+            Image25.Visible = true;
+        }
+
+        if ((!email.Text.ToString().Contains("@")) && (!email.Text.ToString().Contains(".")) && (email.Text.ToString().Contains("")))
+        {
+            Image20.Visible = true;
+            Image26.Visible = false;
+        }
+        else
+        {
+
+            fmail = 1;
+            Image20.Visible = false;
+            Image26.Visible = true;
+        }
+
+        if ((telefone.Text.ToString().Length != 9) || (IsNumeric(telefone.Text.ToString())))
+        {
+            Image24.Visible = true;
+            Image30.Visible = false;
+        }
+        else
+        {
+
+            ftelef = 1;
+            Image24.Visible = false;
+            Image29.Visible = false;
+        }
 
            if (morada.Text.ToString().Equals(""))
-               Label19.Visible = true;
+           {
+               Image21.Visible = true;
+               Image27.Visible = false;
+           }
            else
            {
                fmorada = 1;
-               Label19.Visible = false;
+               Image21.Visible = false;
+               Image27.Visible = true;
            }
 
            if (DropDownList1.Text.ToString().Equals(""))
-               Label23.Visible = true;
+           {
+               Image22.Visible = true;
+               Image28.Visible = false;
+           }
            else
            {
-               Label23.Visible = false;
+               Image22.Visible = false;
+               Image28.Visible = true;
                distr = 1;
            }
 
            if (DropDownList2.Text.ToString().Equals(""))
-               Label22.Visible = true;
-
+           {
+               Image23.Visible = true;
+               Image29.Visible = false;
+           }
            if (DropDownList2.Text.ToString().Equals("3 Meses"))
            {
                
-               Label22.Visible = false;
+               Image23.Visible = false;
+               Image29.Visible = true;
                disp = 3;
            }
            if (DropDownList2.Text.ToString().Equals("6 Meses"))
            {
              
-               Label22.Visible = false;
+               Image23.Visible = false;
+               Image29.Visible = true;
                disp = 6;
            }
            if (DropDownList2.Text.ToString().Equals("12 Meses"))
            {
                
-               Label22.Visible = false;
+               Image23.Visible = false;
+               Image29.Visible = true;
                disp = 12;
            }
 
-           if ((fnome == 0) || (fmail == 0) || (ftelef == 0) || (fmorada == 0) || (disp ==0) || (distr==0))
+           if ((fnome == 0) || (fmail == 0) || (ftelef == 0) || (fmorada == 0) || (disp == 0) || (distr == 0))
                WebMsgBox.Show("FORMULÁRIO INVÁLIDO");
+               
            else
            {
                vol.CodDist = pc.testaCodDistr(DropDownList1.Text.ToString());
@@ -141,7 +170,7 @@ public partial class VoluntForm : PageBase
                vol.Disp = disp;
 
                pc.submeterVoluntario(vol);
-             
+
                WebMsgBox.Show("OBRIGADO PELA SUA COLABORAÇÃO");
                nome.Text = "";
                morada.Text = "";
@@ -149,8 +178,8 @@ public partial class VoluntForm : PageBase
                email.Text = "";
                DropDownList2.ClearSelection();
                DropDownList1.ClearSelection();
-               
-              
+
+
            }
 
                      

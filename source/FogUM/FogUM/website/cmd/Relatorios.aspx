@@ -187,12 +187,16 @@
     <asp:TextBox ID="txt_concelho" runat="server" ReadOnly="True" style="margin-left: 40px"></asp:TextBox><br />
     <asp:Label ID="label4" runat="server" Text="Baixas Bombeiros:" style="margin-left: 40px"></asp:Label><br />
     <asp:TextBox ID="txt_baixas_bomb" runat="server" style="margin-left: 40px"></asp:TextBox>
-    <asp:Label runat="server" Text="*Inválido" ID="l_b_bomb" style="margin-left: 40px" 
-            ForeColor="Red" Font-Italic="True" Visible="False"></asp:Label><br />
+    <asp:Image ID="Image20" runat="server" Visible="false" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" />
+        <asp:Image ID="Image30" runat="server" Visible="false" Height="16px" 
+            ImageUrl="~/civ/icons/ok.png" Width="18px" />
     <asp:Label ID="label6" runat="server" Text="Baixas Cívis:" style="margin-left: 40px"></asp:Label><br />
     <asp:TextBox ID="txt_baixas_civis" runat="server" style="margin-left: 40px"></asp:TextBox>
-    <asp:Label ID="l_b_civ" runat="server" Text="*Inválido" ForeColor="Red" style="margin-left: 40px"
-            Font-Italic="True" Visible="False"></asp:Label><br />
+    <asp:Image ID="Image1" runat="server" Visible="false" 
+            ImageUrl="~/civ/icons/ko.png" Height="16px" Width="17px" />
+        <asp:Image ID="Image2" runat="server" Visible="false" Height="16px" 
+            ImageUrl="~/civ/icons/ok.png" Width="18px" />
     </asp:TableCell>
     
     <asp:TableCell>
