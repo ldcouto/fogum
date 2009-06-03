@@ -22,7 +22,15 @@ public partial class VoluntForm : PageBase
 
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+
+        // BUILD STATS LIST
+        Proc_Civil proc = new Proc_Civil();
+        BListStats.Items.Add("Corporações: " + proc.getTotCorps().ToString());
+        BListStats.Items.Add("Comandantes: " + proc.getTotCmds().ToString());
+        BListStats.Items.Add("Helicópetros: " + proc.getTotHelis().ToString());
+        BListStats.Items.Add("Fogos: " + proc.getTotFogs().ToString());
+        BListStats.Items.Add("Voluntários: " + proc.getTotVols().ToString());
+        BListStats.Items.Add("Depósitos: " + proc.getTotDepos().ToString());
         //bool flag = true;
 
         //try
@@ -80,17 +88,22 @@ public partial class VoluntForm : PageBase
             Image25.Visible = true;
         }
 
-        if ((!email.Text.ToString().Contains("@")) && (!email.Text.ToString().Contains(".")) && (email.Text.ToString().Contains("")))
-        {
-            Image20.Visible = true;
-            Image26.Visible = false;
-        }
-        else
-        {
+        bool b1 = email.Text.ToString().Contains("@") ;
+        bool b2 =email.Text.ToString().Contains(".");
+        bool b3 = (!email.Text.ToString().Contains(""));
 
+        if (b1 && b2 || b3)
+        {
+            
             fmail = 1;
             Image20.Visible = false;
             Image26.Visible = true;
+        }
+        else
+        {
+            Image20.Visible = true;
+            Image26.Visible = false;
+            
         }
 
         if ((telefone.Text.ToString().Length != 9) || (IsNumeric(telefone.Text.ToString())))
@@ -103,7 +116,7 @@ public partial class VoluntForm : PageBase
 
             ftelef = 1;
             Image24.Visible = false;
-            Image29.Visible = false;
+            Image29.Visible = true;
         }
 
            if (morada.Text.ToString().Equals(""))
