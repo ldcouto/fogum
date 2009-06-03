@@ -20,10 +20,12 @@
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <asp:Button ID="Button15" runat="server" BackColor="#0033CC" onclick="Button15_Click" Text="Inicializar Teste" Width="430px" />
-                            <br />
+                            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label3" runat="server" Text="Destacamento de Corporações" Width="205px" Font-Bold="True" BorderStyle="Inset"></asp:Label><br />
                             <asp:Table ID="Table2" runat="server" BorderStyle="Groove">
                                 <asp:TableRow ID="TableRow1" runat="server">
                                     <asp:TableCell>
+                                        <asp:Label ID="Label4" runat="server" Text="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disponíveis" Width="80px" Font-Bold="True" ></asp:Label><br />
                                         <asp:ListBox ID="ListBox1" runat="server" Width="168px" ></asp:ListBox>   
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -31,15 +33,18 @@
                                         <asp:Button ID="Button9" runat="server" onclick="Button9_Click" Text="Remover" style="height: 26px" /><br />   
                                     </asp:TableCell>
                                     <asp:TableCell>
+                                    <asp:Label ID="Label5" runat="server" Text="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Destacadas" Width="80px" Font-Bold="True" ></asp:Label><br />
                                         <asp:ListBox ID="ListBox2" runat="server" Width="168px"></asp:ListBox>     
                                     </asp:TableCell>
                                 </asp:TableRow>    
                             </asp:Table>
                             <br />
-                            <br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label6" runat="server" Text="Destacamento de Helicópteros" Width="205px" Font-Bold="True" BorderStyle="Inset"></asp:Label><br />
                             <asp:Table ID="Table3" runat="server" BorderStyle="Groove">
                                 <asp:TableRow runat="server">
                                     <asp:TableCell>
+                                        <asp:Label ID="Label7" runat="server" Text="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disponíveis" Width="80px" Font-Bold="True" ></asp:Label><br />
                                         <asp:ListBox ID="ListBox3" runat="server" Width="168px"></asp:ListBox>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -47,6 +52,7 @@
                                         <asp:Button ID="Button12" runat="server" onclick="Button12_Click" Text="Remover" style="height: 26px" /><br />
                                     </asp:TableCell>
                                     <asp:TableCell>
+                                        <asp:Label ID="Label8" runat="server" Text="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Destacados" Width="80px" Font-Bold="True" ></asp:Label><br />
                                         <asp:ListBox ID="ListBox4" runat="server" Width="168px"></asp:ListBox>                 
                                     </asp:TableCell>
                                 </asp:TableRow>    
@@ -57,33 +63,21 @@
                             &nbsp; Km&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="Button13" runat="server" onclick="Button13_Click" Text="Actualizar" align="middle"/>
                             &nbsp;( Exemplo: 15,2 )
-                            <asp:Label ID="RaioInvalido" runat="server" BorderColor="Red" ForeColor="Red" Text="*Invalido" Visible="False"></asp:Label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Label ID="RaioSucesso" runat="server" ForeColor="#3366FF" Text=" Raio do Fogo Alterado" Visible="False"></asp:Label>
-                            <br />
                             <asp:Label ID="Label1" runat="server" Text="Raio de Segurança" Width="120px"></asp:Label>
                             <asp:TextBox ID="RaioSeguranca" runat="server" Height="23px" Width="23px" align="middle"></asp:TextBox>
                             &nbsp; Km&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="Button14" runat="server" Text="Actualizar" onclick="Button14_Click" align="middle"/>
                             &nbsp;( Exemplo: 17,4)
-                            <asp:Label ID="RaioSInvalido" runat="server" ForeColor="Red" Text="*Invalido" Visible="False"></asp:Label>
-                            &nbsp;&nbsp;
-                            <asp:Label ID="RaioSSucesso" runat="server" Text="Raio de Segurança Alterado" ForeColor="#3366FF" Visible="False"></asp:Label>
                             <br />
-                            <asp:Button ID="ButEstAct" runat="server" BackColor="Red" onclick="ButEstAct_Click" Text="Activo" Width="113px" />
-                            <asp:Button ID="ButEstCir" runat="server" BackColor="#FF9933" onclick="Button17_Click" Text="Circunscrito" Width="113px" />
-                            <asp:Button ID="ButEstExt" runat="server" BackColor="#66FF33" onclick="ButEstExt_Click" Text="Extinto" Width="113px" />
                             <br />
-                            Estado do fogo:
-                            <asp:Label ID="LabEstadoFogo" runat="server" ForeColor="#663300" Text="EstadoFogo"></asp:Label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label9" runat="server" Text="Alteração do Estado do Fogo" Width="205px" Font-Bold="True" BorderStyle="Inset"></asp:Label><br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="ButEstAct" runat="server" onclick="ButEstAct_Click" Text="Activo" Width="113px" />
+                            <asp:Button ID="ButEstCir" runat="server" onclick="Button17_Click" Text="Circunscrito" Width="113px" />
+                            <asp:Button ID="ButEstExt" runat="server" onclick="ButEstExt_Click" Text="Extinto" Width="113px" />
                             <br />
-                            Data de inicio :<asp:Label ID="LabDataEstado1" runat="server"></asp:Label>
-                            <br />
-                            Data de Circunscrito :<asp:Label ID="LabDataEstado2" runat="server"></asp:Label>
-                            <br />
-                            Data de Extinto:
-                            <asp:Label ID="LabDataEstado3" runat="server"></asp:Label>                            
+                            
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     </asp:Panel>
