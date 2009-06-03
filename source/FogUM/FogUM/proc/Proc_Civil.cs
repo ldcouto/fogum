@@ -114,5 +114,10 @@ namespace FogUM
            return bd.getCodTipDepByName(p);
            
        }
+
+       public FogUM.bd.EstFogo getEFAux(int cod_fog)
+       {
+           return bd.getEFAux(cod_fog);
+       }
     }
 }

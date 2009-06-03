@@ -63,12 +63,10 @@ public partial class Relatorios : PageBase
     protected void Button2_Click(object sender, EventArgs e)
     {
         String drop = ListBox_rels.Text;
-        Image20.Visible = false; // KO l_b_civ
-                                //l_b_civ.Visible = false;
-                                 //l_b_bomb.Visible = false;
-        Image30.Visible = false;
-        Image1.Visible = false;//ko l_b_bomb
-        Image2.Visible = false;
+        img_bx_bomb_KO.Visible = false;
+        img_bx_bomb_ok.Visible = false;
+        img_bx_civ_KO.Visible = false;
+        img_bx_civ_ok.Visible = false;
 
 
         if (drop != "")
@@ -97,19 +95,21 @@ public partial class Relatorios : PageBase
     protected void Button3_Click(object sender, EventArgs e)
     {
         bool flag = true;
-        Image1.Visible = false;
-        Image20.Visible = false;
+        img_bx_bomb_KO.Visible = false;
+        img_bx_bomb_ok.Visible = true;
+        img_bx_civ_KO.Visible = false;
+        img_bx_civ_ok.Visible = true;
 
         if (IsNumeric(txt_baixas_bomb.Text)) 
         {
-            Image1.Visible = true;
-            Image2.Visible = false;
+            img_bx_bomb_KO.Visible = true;
+            img_bx_bomb_ok.Visible = false;
             flag = false;
         }
         if (IsNumeric(txt_baixas_civis.Text)) 
         {
-            Image20.Visible = true;
-            Image30.Visible = false;
+            img_bx_civ_KO.Visible = true;
+            img_bx_civ_ok.Visible = false;
             flag = false;
         }
 
@@ -133,6 +133,10 @@ public partial class Relatorios : PageBase
             txt_data_fim.Text = "";
             txt_data_ini.Text = "";
             ListBox_rels.Items.Remove(ListBox_rels.SelectedItem.Text);
+            img_bx_bomb_KO.Visible = false;
+            img_bx_bomb_ok.Visible = false;
+            img_bx_civ_KO.Visible = false;
+            img_bx_civ_ok.Visible = false;            
            
         }
         //foreach (string x in ListBox1.Text)
@@ -222,14 +226,18 @@ public partial class Relatorios : PageBase
 
     protected void btn_reiniciar_fogo_Click(object sender, EventArgs e)
     {
+        l_sel_fogo.Visible = false;
         String drop = ListBox_fogos.Text;
-        string[] aux = drop.Split('-');
-        int cod = Convert.ToInt32(aux[0]);
-        proc.getFogo(cod);
-        Session["fogoActivo"] = proc.FogoCombate.Codigo;
-        Response.Redirect("~/cmd/Painel_Cmd.aspx");
-        //PostBackOptions p = new PostBackOptions(this);
-        //p.ActionUrl = "http://localhost:1414/website/cmd/Painel_Cmd.aspx";
+        if (drop != "")
+        {
+            string[] aux = drop.Split('-');
+            int cod = Convert.ToInt32(aux[0]);
+            proc.getFogo(cod);
+            Session["fogoActivo"] = proc.FogoCombate.Codigo;
+            Response.Redirect("~/cmd/Painel_Cmd.aspx");
+        }
+        else l_sel_fogo.Visible=true;
+        
         
       
         

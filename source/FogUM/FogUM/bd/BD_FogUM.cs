@@ -521,7 +521,7 @@ namespace FogUM
 
             var relQuery =
                 from aux in bdf.FOGOs
-                where aux.COD_RELATORIO == null && aux.COMANDANTE.USERNAME == cmdUsername
+                where aux.COD_RELATORIO == null && aux.COD_ESTADO == COD_ESTADO_EXTINTO && aux.COMANDANTE.USERNAME == cmdUsername
                 select aux;
 
             if (relQuery.Count()>0)
