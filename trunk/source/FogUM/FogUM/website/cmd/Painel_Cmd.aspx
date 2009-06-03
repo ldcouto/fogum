@@ -9,19 +9,19 @@
     <title>Painel de Controlo FogUM</title>
 </head>
 <body>
-    <h3 style="width: 45px"><a href="Painel_Cmd.aspx">Back</a></h3>
+    <a href="Relatorios.aspx">Voltar Atrás</a>
     <form id="form1" runat="server">
          <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <asp:Table ID="Table1" runat="server" BorderStyle="Groove">
             <asp:TableRow runat="server">
                 <asp:TableCell>
-                    <asp:Panel ID="Panel2" runat="server" BorderStyle="Solid" Height="500px" Width="430px">
+                    <asp:Panel ID="Panel2" runat="server" BorderStyle="Solid" Height="450px" Width="430px">
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <asp:Button ID="Button15" runat="server" BackColor="#0033CC" onclick="Button15_Click" Text="Inicializar Teste" Width="430px" />
                             <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Label ID="Label3" runat="server" Text="Destacamento de Corporações" Width="205px" Font-Bold="True" BorderStyle="Inset"></asp:Label><br />
+                            <asp:Label ID="Label3" runat="server" Text="Destacamento de Corporações" Width="220px" Font-Bold="True" BorderStyle="Inset"></asp:Label><br />
                             <asp:Table ID="Table2" runat="server" BorderStyle="Groove">
                                 <asp:TableRow ID="TableRow1" runat="server">
                                     <asp:TableCell>
@@ -40,7 +40,7 @@
                             </asp:Table>
                             <br />
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Label ID="Label6" runat="server" Text="Destacamento de Helicópteros" Width="205px" Font-Bold="True" BorderStyle="Inset"></asp:Label><br />
+                            <asp:Label ID="Label6" runat="server" Text="Destacamento de Helicópteros" Width="225px" Font-Bold="True" BorderStyle="Inset"></asp:Label><br />
                             <asp:Table ID="Table3" runat="server" BorderStyle="Groove">
                                 <asp:TableRow runat="server">
                                     <asp:TableCell>
@@ -58,12 +58,12 @@
                                 </asp:TableRow>    
                             </asp:Table>
                             <br />
-                            <asp:Label ID="Label2" runat="server" Text="Raio de Fogo" Width="120px"></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text="Raio de Fogo:" Width="140px" Font-Bold="True"></asp:Label>
                             <asp:TextBox ID="RaioFogo" runat="server" Height="23px" Width="23px" align="middle"></asp:TextBox>                            
                             &nbsp; Km&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="Button13" runat="server" onclick="Button13_Click" Text="Actualizar" align="middle"/>
                             &nbsp;( Exemplo: 15,2 )
-                            <asp:Label ID="Label1" runat="server" Text="Raio de Segurança" Width="120px"></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text="Raio de Segurança:" Width="140px" Font-Bold="True"></asp:Label>
                             <asp:TextBox ID="RaioSeguranca" runat="server" Height="23px" Width="23px" align="middle"></asp:TextBox>
                             &nbsp; Km&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="Button14" runat="server" Text="Actualizar" onclick="Button14_Click" align="middle"/>
@@ -81,9 +81,20 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     </asp:Panel>
+                    <asp:Panel ID="Panel3" runat="server" BorderStyle="Solid" Height="50px" Width="430px">
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                            <ContentTemplate>
+                                <asp:ImageButton ID="ImageButton1" runat="server" Height="50px" onclick="ImageButton1_Click" Width="50px" ImageUrl="~/icons/play2.jpeg" ImageAlign="Right" />
+                                <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" onclick="ImageButton2_Click" Width="50px" ImageUrl="~/icons/pause.jpg" Visible="False" ImageAlign="Right" />
+                                <asp:Label ID="Label10" runat="server" Text="Pressione Play para Iniciar a Simulação" Width="300px" Font-Bold="True" ></asp:Label>
+                                <asp:Label ID="Label11" runat="server" Text="Pressione Pause para Parar a Simulação" Width="300px" Font-Bold="True" Visible="False"></asp:Label>
+                                <asp:Label ID="Label12" runat="server" Text="Verifique se o campo que seleccionou está correcto!" Width="350px" Font-Italic="True" Visible="False" ForeColor="Red"></asp:Label>
+                            </ContentTemplate>                    
+                        </asp:UpdatePanel>
+                        </asp:Panel>
                 </asp:TableCell>
                 <asp:TableCell runat="server">
-                    <asp:Panel ID="Panel1" runat="server" BorderStyle="Solid" Height="500px" Width="800px">
+                    <asp:Panel ID="Panel1" runat="server" BorderStyle="Solid" Height="508px" Width="800px">
                         <uc1:GoogleMapForASPNet ID="GoogleMapForASPNet1" runat="server" />
                     </asp:Panel>
                 </asp:TableCell>
@@ -95,11 +106,7 @@
                     <asp:Timer ID="Timer1" runat="server" Enabled="False" Interval="100" 
                         ontick="Timer1_Tick">
                     </asp:Timer>
-                    <asp:ImageButton ID="ImageButton1" runat="server" Height="66px" 
-                        onclick="ImageButton1_Click" Width="66px" ImageUrl="~/icons/play2.jpeg" />
-                    <asp:ImageButton ID="ImageButton2" runat="server" Height="66px" 
-                        onclick="ImageButton2_Click" Width="66px" ImageUrl="~/icons/pause.jpg" 
-                        Visible="False" />
+                    
                 </ContentTemplate>
             </asp:UpdatePanel>
                     

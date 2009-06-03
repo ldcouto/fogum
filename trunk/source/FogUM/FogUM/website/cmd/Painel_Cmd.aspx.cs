@@ -139,8 +139,9 @@ public partial class Painel_Cmd : System.Web.UI.Page
     //adiciona corporacao ao mapa
     protected void Button8_Click(object sender, EventArgs e)
     {
-        if (ListBox1.Text != "")
+        if (ListBox1.SelectedIndex != -1)
         {
+            Label12.Visible = false;
             String result = ListBox1.SelectedValue.ToString();
             String[] n = result.Split('|');
 
@@ -163,17 +164,16 @@ public partial class Painel_Cmd : System.Web.UI.Page
             ViewState["amx"] = amx;
             ViewState["cm"] = cm;
         }
-        else
-        {
-            //WebMsgBox.Show("ola");
-        }
+        else Label12.Visible = true;
     }
 
     //remove corporacao do mapa
     protected void Button9_Click(object sender, EventArgs e)
     {
-        if (ListBox2.Text != "")
+
+        if (ListBox2.SelectedIndex != -1)
         {
+            Label12.Visible = false;
             String result = ListBox2.SelectedValue.ToString();
             String[] n = result.Split('|');
             int x = Convert.ToInt32(n[0]);
@@ -200,7 +200,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
             ViewState["amx"] = amx;
             ViewState["cm"] = cm;
         }
-        //else WebMsgBox.Show("ola");
+        else Label12.Visible = true;   
     }
 
     public void actListBox()
@@ -239,11 +239,13 @@ public partial class Painel_Cmd : System.Web.UI.Page
         RaioFogo.Text = procCmd.FogoCombate.Raio_fogo.ToString();
         RaioSeguranca.Text = procCmd.FogoCombate.Raio_seg.ToString();
     }
-
+    
+    //Adiciona heli ao mapa
     protected void Button11_Click(object sender, EventArgs e)
     {
-        if (ListBox3.Text != "")
+        if (ListBox3.SelectedIndex != -1)
         {
+            Label12.Visible = false;
             String result = ListBox3.SelectedValue.ToString();
             String[] n = result.Split('|');
 
@@ -274,14 +276,15 @@ public partial class Painel_Cmd : System.Web.UI.Page
             ViewState["helicm"] = helicm;
             ViewState["pontosAgua"] = pontosAgua;
         }
-        //else WebMsgBox.Show("ola");
+        else Label12.Visible = true;
     }
 
     //Remove helis do fogo
     protected void Button12_Click(object sender, EventArgs e)
     {
-        
-        
+        if (ListBox4.SelectedIndex != -1)
+        {
+            Label12.Visible = false;       
             String result = ListBox4.SelectedValue.ToString();
             String[] n = result.Split('|');
 
@@ -311,9 +314,8 @@ public partial class Painel_Cmd : System.Web.UI.Page
 
             ViewState["pontosAgua"] = new SortedDictionary<double, int>();
             criaAgua(1);
-            
-        
-        //else WebMsgBox.Show("ols");
+        }
+        else Label12.Visible = true;
     }
 
     //muda raio normal
@@ -321,13 +323,14 @@ public partial class Painel_Cmd : System.Web.UI.Page
     {
         float raioFog;
         float.TryParse(RaioFogo.Text.ToString(), out raioFog);
-        if (raioFog == 0 || RaioFogo.Text.ToString().Contains('.'))
+        if (raioFog == 0 || RaioFogo.Text.Contains('.'))
         {
-           // WebMsgBox.Show("Raio Invalido");
             RaioFogo.Text = procCmd.FogoCombate.Raio_fogo.ToString();
+            Label12.Visible = true;
         }
         else
         {
+            Label12.Visible = false;
             procCmd.setRaio(raioFog);
             actListBox();
             GoogleMapForASPNet1.GoogleMapObject.Polylines.Clear();
@@ -342,13 +345,14 @@ public partial class Painel_Cmd : System.Web.UI.Page
     {
         float raioSeg;
         float.TryParse(RaioSeguranca.Text.ToString(), out raioSeg);
-        if (raioSeg == 0 || raioSeg<=procCmd.FogoCombate.Raio_fogo || RaioSeguranca.Text.ToString().Contains('.'))
+        if (raioSeg == 0 || raioSeg<=procCmd.FogoCombate.Raio_fogo || RaioSeguranca.Text.Contains('.'))
         {
-           // WebMsgBox.Show("Raio Invalido");
             RaioSeguranca.Text = procCmd.FogoCombate.Raio_seg.ToString();
+            Label12.Visible = true;
         }
         else
         {
+            Label12.Visible = false;
             procCmd.setRaioS(raioSeg);
             GoogleMapForASPNet1.GoogleMapObject.Polylines.Clear();
             drawCircle(GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], procCmd.FogoCombate.Raio_seg, 1);
@@ -648,6 +652,8 @@ public partial class Painel_Cmd : System.Web.UI.Page
             ImageButton1.Visible = false;
             ImageButton2.Visible = true;
             Timer1.Enabled = true;
+            Label10.Visible = false;
+            Label11.Visible = true;
         }
     }
     protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
@@ -658,6 +664,8 @@ public partial class Painel_Cmd : System.Web.UI.Page
             ImageButton1.Visible = true;
             ImageButton2.Visible = false;
             Panel2.Enabled = true;
+            Label11.Visible = false;
+            Label10.Visible = true;
         }
     }
 }
