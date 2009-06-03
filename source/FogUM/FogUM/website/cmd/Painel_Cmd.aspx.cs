@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.IO;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -11,6 +12,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using FogUM;
+using FogUM.bd;
 using System.Collections.Generic;
 
 public partial class Painel_Cmd : System.Web.UI.Page
@@ -27,6 +29,26 @@ public partial class Painel_Cmd : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        // Make backup
+        bool flag = true;
+        try
+        {
+            FileStream f = new FileStream(Server.MapPath("~/")+"/bda/xmls/" + "DumpFogUM-" + DateTime.Now.ToShortDateString().ToString() + ".xml", FileMode.Open);
+        }
+        catch (Exception exc)
+        {
+            flag = false;
+        }
+
+        if (flag == false)
+        {
+            Parser ps = new Parser();
+            ps.criarXML(Server.MapPath("~/"));
+        }
+
+
+
         procCmd.Cmd = procCmd.getCmdbyuser(User.Identity.Name);
         int cod = (int)Session["fogoActivo"];
         procCmd.getFogo(cod);

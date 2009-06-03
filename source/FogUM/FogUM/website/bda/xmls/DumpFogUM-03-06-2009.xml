@@ -309,11 +309,54 @@
 			<codVoluntario>10</codVoluntario>
 			<disponibilidade>0</disponibilidade>
 		</VOLUNTARIO>
+		<VOLUNTARIO>
+			<nome>Joao</nome>
+			<numTelefone>123245678</numTelefone>
+			<email>joao@mail.com</email>
+			<codDistrito>234</codDistrito>
+			<codVoluntario>11</codVoluntario>
+			<disponibilidade>3</disponibilidade>
+		</VOLUNTARIO>
+		<VOLUNTARIO>
+			<nome>Joao</nome>
+			<numTelefone>123245678</numTelefone>
+			<email>joao@mail.com</email>
+			<codDistrito>234</codDistrito>
+			<codVoluntario>12</codVoluntario>
+			<disponibilidade>3</disponibilidade>
+		</VOLUNTARIO>
 	</TAB_VOLUNTARIADO>
 	<TAB_CORPORACAO>
 		<CORPORACAO>
+			<codCorporacao> 24</codCorporacao>
+			<designCorporacao>Simu BV</designCorporacao>
+			<latitude>41,734873737083</latitude>
+			<longitude>-8,15945684909821</longitude>
+			<numHomens>63</numHomens>
+			<numVeiculos>11</numVeiculos>
+			<disponibilidade>True</disponibilidade>
+		</CORPORACAO>
+		<CORPORACAO>
+			<codCorporacao> 25</codCorporacao>
+			<designCorporacao>Simu BM</designCorporacao>
+			<latitude>41,7193037690835</latitude>
+			<longitude>-8,17247092723846</longitude>
+			<numHomens>63</numHomens>
+			<numVeiculos>11</numVeiculos>
+			<disponibilidade>True</disponibilidade>
+		</CORPORACAO>
+		<CORPORACAO>
+			<codCorporacao> 26</codCorporacao>
+			<designCorporacao>Simu BV</designCorporacao>
+			<latitude>41,734873737083</latitude>
+			<longitude>-8,15945684909821</longitude>
+			<numHomens>63</numHomens>
+			<numVeiculos>11</numVeiculos>
+			<disponibilidade>True</disponibilidade>
+		</CORPORACAO>
+		<CORPORACAO>
 			<codCorporacao> 1</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Amares</designCorporacao>
+			<designCorporacao>B.V. Amares</designCorporacao>
 			<latitude>41,626671</latitude>
 			<longitude>-8,370177</longitude>
 			<numHomens>50</numHomens>
@@ -322,7 +365,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 2</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Barcelos</designCorporacao>
+			<designCorporacao>B.V. Barcelos</designCorporacao>
 			<latitude>41,532925</latitude>
 			<longitude>-8,614719</longitude>
 			<numHomens>72</numHomens>
@@ -331,7 +374,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 3</codCorporacao>
-			<designCorporacao>Companhia de Bombeiros Sapadores de Braga</designCorporacao>
+			<designCorporacao>C.B.S. Braga</designCorporacao>
 			<latitude>41,553461</latitude>
 			<longitude>-8,429216</longitude>
 			<numHomens>85</numHomens>
@@ -340,7 +383,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 4</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Braga</designCorporacao>
+			<designCorporacao>B.V. Braga</designCorporacao>
 			<latitude>41,547574</latitude>
 			<longitude>-8,428412</longitude>
 			<numHomens>120</numHomens>
@@ -349,7 +392,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 5</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Cabeceiras de Basto</designCorporacao>
+			<designCorporacao>B.V. Cabeceiras de Basto</designCorporacao>
 			<latitude>41,514083</latitude>
 			<longitude>-7,990121</longitude>
 			<numHomens>58</numHomens>
@@ -358,7 +401,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 6</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Esposende</designCorporacao>
+			<designCorporacao>B.V. Esposende</designCorporacao>
 			<latitude>41,533558</latitude>
 			<longitude>-8,778852</longitude>
 			<numHomens>65</numHomens>
@@ -367,7 +410,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 7</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Fafe</designCorporacao>
+			<designCorporacao>B.V. Fafe</designCorporacao>
 			<latitude>41,447822</latitude>
 			<longitude>-8,17529</longitude>
 			<numHomens>63</numHomens>
@@ -376,7 +419,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 8</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Guimarães</designCorporacao>
+			<designCorporacao>B.V. Guimarães</designCorporacao>
 			<latitude>41,4466992636547</latitude>
 			<longitude>-8,29843282699585</longitude>
 			<numHomens>103</numHomens>
@@ -385,7 +428,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 9</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários da Póvoa de Lanhoso</designCorporacao>
+			<designCorporacao>B.V. Póvoa de Lanhoso</designCorporacao>
 			<latitude>41,577395</latitude>
 			<longitude>-8,27284</longitude>
 			<numHomens>83</numHomens>
@@ -394,7 +437,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 10</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Vieira do Minho</designCorporacao>
+			<designCorporacao>B.V. Vieira do Minho</designCorporacao>
 			<latitude>41,631322</latitude>
 			<longitude>-8,143294</longitude>
 			<numHomens>54</numHomens>
@@ -403,7 +446,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 11</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Famalicão</designCorporacao>
+			<designCorporacao>B.V. Famalicão</designCorporacao>
 			<latitude>41,400993</latitude>
 			<longitude>-8,518058</longitude>
 			<numHomens>74</numHomens>
@@ -412,7 +455,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 12</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Vila Verde</designCorporacao>
+			<designCorporacao>B.V. Vila Verde</designCorporacao>
 			<latitude>41,651549</latitude>
 			<longitude>-8,438548</longitude>
 			<numHomens>49</numHomens>
@@ -421,7 +464,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 13</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Vizela</designCorporacao>
+			<designCorporacao>B.V. Vizela</designCorporacao>
 			<latitude>41,376032</latitude>
 			<longitude>-8,311937</longitude>
 			<numHomens>55</numHomens>
@@ -430,7 +473,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 14</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Arcos de Valdevez</designCorporacao>
+			<designCorporacao>B.V. Arcos de Valdevez</designCorporacao>
 			<latitude>41,84688</latitude>
 			<longitude>-8,4199595</longitude>
 			<numHomens>58</numHomens>
@@ -439,7 +482,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 15</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Caminha</designCorporacao>
+			<designCorporacao>B.V. Caminha</designCorporacao>
 			<latitude>41,874701</latitude>
 			<longitude>-8,840004</longitude>
 			<numHomens>65</numHomens>
@@ -448,7 +491,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 16</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Melgaço</designCorporacao>
+			<designCorporacao>B.V. Melgaço</designCorporacao>
 			<latitude>42,111699</latitude>
 			<longitude>-8,257202</longitude>
 			<numHomens>49</numHomens>
@@ -457,7 +500,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 17</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Monção</designCorporacao>
+			<designCorporacao>B.V. Monção</designCorporacao>
 			<latitude>42,073045</latitude>
 			<longitude>-8,484106</longitude>
 			<numHomens>53</numHomens>
@@ -466,7 +509,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 18</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Paredes de Coura</designCorporacao>
+			<designCorporacao>B.V. Paredes de Coura</designCorporacao>
 			<latitude>41,911563</latitude>
 			<longitude>-8,558834</longitude>
 			<numHomens>48</numHomens>
@@ -475,7 +518,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 19</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Ponte de Lima</designCorporacao>
+			<designCorporacao>B.V. Ponte de Lima</designCorporacao>
 			<latitude>41,766919</latitude>
 			<longitude>-8,580735</longitude>
 			<numHomens>52</numHomens>
@@ -484,7 +527,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 20</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Valença</designCorporacao>
+			<designCorporacao>B.V. Valença</designCorporacao>
 			<latitude>42,025972</latitude>
 			<longitude>-8,647937</longitude>
 			<numHomens>57</numHomens>
@@ -493,7 +536,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 21</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Viana do Castelo</designCorporacao>
+			<designCorporacao>B.V. Viana do Castelo</designCorporacao>
 			<latitude>41,694974</latitude>
 			<longitude>-8,829839</longitude>
 			<numHomens>65</numHomens>
@@ -502,7 +545,7 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 22</codCorporacao>
-			<designCorporacao>Bombeiros Municipais de Viana do Castelo</designCorporacao>
+			<designCorporacao>B.M. Viana do Castelo</designCorporacao>
 			<latitude>41,705177</latitude>
 			<longitude>-8,813336</longitude>
 			<numHomens>89</numHomens>
@@ -511,27 +554,9 @@
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 23</codCorporacao>
-			<designCorporacao>Bombeiros Voluntários de Vila Nova de Cerveira</designCorporacao>
+			<designCorporacao>B.V. Vila Nova de Cerveira</designCorporacao>
 			<latitude>41,939883</latitude>
 			<longitude>-8,743089</longitude>
-			<numHomens>63</numHomens>
-			<numVeiculos>11</numVeiculos>
-			<disponibilidade>True</disponibilidade>
-		</CORPORACAO>
-		<CORPORACAO>
-			<codCorporacao> 24</codCorporacao>
-			<designCorporacao>Bombeiros para teste</designCorporacao>
-			<latitude>41,7188713275555</latitude>
-			<longitude>-8,16736400127411</longitude>
-			<numHomens>63</numHomens>
-			<numVeiculos>11</numVeiculos>
-			<disponibilidade>True</disponibilidade>
-		</CORPORACAO>
-		<CORPORACAO>
-			<codCorporacao> 25</codCorporacao>
-			<designCorporacao>equipa fogum</designCorporacao>
-			<latitude>41,7230754987341</latitude>
-			<longitude>-8,16736400127411</longitude>
 			<numHomens>63</numHomens>
 			<numVeiculos>11</numVeiculos>
 			<disponibilidade>True</disponibilidade>
@@ -540,50 +565,46 @@
 	<TAB_HELI>
 		<HELICOPTERO>
 			<codHelicoptero>1</codHelicoptero>
-			<designHelicoptero>Helicópetro de Resgate 01</designHelicoptero>
+			<designHelicoptero>Heli Resgate 01</designHelicoptero>
 			<disponibilidade>True</disponibilidade>
 		</HELICOPTERO>
 		<HELICOPTERO>
 			<codHelicoptero>2</codHelicoptero>
-			<designHelicoptero>Helicópetro de Resgate 02</designHelicoptero>
+			<designHelicoptero>Heli Resgate 02</designHelicoptero>
 			<disponibilidade>True</disponibilidade>
 		</HELICOPTERO>
 		<HELICOPTERO>
 			<codHelicoptero>3</codHelicoptero>
-			<designHelicoptero>Helicópetro de Resgate 03</designHelicoptero>
+			<designHelicoptero>Heli Resgate 03</designHelicoptero>
 			<disponibilidade>True</disponibilidade>
 		</HELICOPTERO>
 		<HELICOPTERO>
 			<codHelicoptero>4</codHelicoptero>
-			<designHelicoptero>Helicópetro de Combate 01</designHelicoptero>
+			<designHelicoptero>Heli Combate 01</designHelicoptero>
 			<disponibilidade>True</disponibilidade>
 		</HELICOPTERO>
 		<HELICOPTERO>
 			<codHelicoptero>5</codHelicoptero>
-			<designHelicoptero>Helicópetro de Combate 02</designHelicoptero>
+			<designHelicoptero>Heli Combate 02</designHelicoptero>
 			<disponibilidade>True</disponibilidade>
 		</HELICOPTERO>
 		<HELICOPTERO>
 			<codHelicoptero>6</codHelicoptero>
-			<designHelicoptero>Helicópetro de Combate 03</designHelicoptero>
+			<designHelicoptero>Heli Combate 03</designHelicoptero>
 			<disponibilidade>True</disponibilidade>
 		</HELICOPTERO>
 		<HELICOPTERO>
 			<codHelicoptero>7</codHelicoptero>
-			<designHelicoptero>Helicópetro de Suporte 01</designHelicoptero>
+			<designHelicoptero>Heli Suporte 01</designHelicoptero>
 			<disponibilidade>True</disponibilidade>
 		</HELICOPTERO>
 		<HELICOPTERO>
 			<codHelicoptero>8</codHelicoptero>
-			<designHelicoptero>Helicópetro de Suporte 02</designHelicoptero>
+			<designHelicoptero>Heli Suporte 02</designHelicoptero>
 			<disponibilidade>True</disponibilidade>
 		</HELICOPTERO>
 	</TAB_HELI>
 	<TAB_ESTADO_FOGO>
-		<ESTADO_FOGO>
-			<codEstado>3</codEstado>
-			<designEstado>Extinto</designEstado>
-		</ESTADO_FOGO>
 		<ESTADO_FOGO>
 			<codEstado>1</codEstado>
 			<designEstado>Não Circunscrito</designEstado>
@@ -591,6 +612,10 @@
 		<ESTADO_FOGO>
 			<codEstado>2</codEstado>
 			<designEstado>Circunscrito</designEstado>
+		</ESTADO_FOGO>
+		<ESTADO_FOGO>
+			<codEstado>3</codEstado>
+			<designEstado>Extinto</designEstado>
 		</ESTADO_FOGO>
 	</TAB_ESTADO_FOGO>
 	<TAB_DEPOSITO>
@@ -665,21 +690,21 @@
 			<longitude>-8,044739</longitude>
 		</DEPOSITO>
 		<DEPOSITO>
-			<codDeposito>11</codDeposito>
+			<codDeposito>12</codDeposito>
 			<codTipoDeposito>3</codTipoDeposito>
 			<volume>5000</volume>
 			<latitude>41,7004738421885</latitude>
 			<longitude>-8,17399978637695</longitude>
 		</DEPOSITO>
 		<DEPOSITO>
-			<codDeposito>12</codDeposito>
+			<codDeposito>13</codDeposito>
 			<codTipoDeposito>1</codTipoDeposito>
 			<volume>1000</volume>
 			<latitude>41,7289208418327</latitude>
 			<longitude>-8,16519677639008</longitude>
 		</DEPOSITO>
 		<DEPOSITO>
-			<codDeposito>13</codDeposito>
+			<codDeposito>14</codDeposito>
 			<codTipoDeposito>1</codTipoDeposito>
 			<volume>1230</volume>
 			<latitude>41,7038141337754</latitude>
@@ -687,6 +712,22 @@
 		</DEPOSITO>
 	</TAB_DEPOSITO>
 	<TAB_FOGO>
+		<FOGO>
+			<codFogo>10</codFogo>
+			<codEstado>1</codEstado>
+			<codConcelho>15</codConcelho>
+			<codComandante>6</codComandante>
+			<latitude>41,7161084363652</latitude>
+			<longitude>-8,15595753417969</longitude>
+			<dataCircunscrito>29-05-2009 5:41:43</dataCircunscrito>
+			<dataFim>29-05-2009 12:32:23</dataFim>
+			<dataInicio>26-05-2009 15:51:10</dataInicio>
+			<raioFogo>0,8</raioFogo>
+			<raioSeguranca>1,3</raioSeguranca>
+			<baixasBomb>0</baixasBomb>
+			<baixasCivis>2</baixasCivis>
+			<codRelatorio></codRelatorio>
+		</FOGO>
 		<FOGO>
 			<codFogo>1</codFogo>
 			<codEstado>3</codEstado>
@@ -698,7 +739,7 @@
 			<dataFim>25-05-2009 11:43:23</dataFim>
 			<dataInicio>24-05-2009 14:25:10</dataInicio>
 			<raioFogo>500</raioFogo>
-			<raioSeguranca>100</raioSeguranca>
+			<raioSeguranca>600</raioSeguranca>
 			<baixasBomb>2</baixasBomb>
 			<baixasCivis>0</baixasCivis>
 			<codRelatorio>1</codRelatorio>
@@ -714,7 +755,7 @@
 			<dataFim>22-04-2009 19:55:23</dataFim>
 			<dataInicio>21-04-2009 12:25:10</dataInicio>
 			<raioFogo>534</raioFogo>
-			<raioSeguranca>100</raioSeguranca>
+			<raioSeguranca>634</raioSeguranca>
 			<baixasBomb>1</baixasBomb>
 			<baixasCivis>10</baixasCivis>
 			<codRelatorio>2</codRelatorio>
@@ -730,7 +771,7 @@
 			<dataFim>25-05-2009 18:33:23</dataFim>
 			<dataInicio>24-05-2009 11:25:10</dataInicio>
 			<raioFogo>54</raioFogo>
-			<raioSeguranca>20</raioSeguranca>
+			<raioSeguranca>74</raioSeguranca>
 			<baixasBomb>0</baixasBomb>
 			<baixasCivis>7</baixasCivis>
 			<codRelatorio>3</codRelatorio>
@@ -746,7 +787,7 @@
 			<dataFim>28-05-2009 9:13:23</dataFim>
 			<dataInicio>26-05-2009 22:25:10</dataInicio>
 			<raioFogo>103</raioFogo>
-			<raioSeguranca>30</raioSeguranca>
+			<raioSeguranca>133</raioSeguranca>
 			<baixasBomb>0</baixasBomb>
 			<baixasCivis>4</baixasCivis>
 			<codRelatorio>4</codRelatorio>
@@ -762,14 +803,14 @@
 			<dataFim>25-05-2009 11:21:23</dataFim>
 			<dataInicio>24-04-2009 14:25:10</dataInicio>
 			<raioFogo>78</raioFogo>
-			<raioSeguranca>20</raioSeguranca>
+			<raioSeguranca>98</raioSeguranca>
 			<baixasBomb>1</baixasBomb>
 			<baixasCivis>3</baixasCivis>
 			<codRelatorio>5</codRelatorio>
 		</FOGO>
 		<FOGO>
 			<codFogo>6</codFogo>
-			<codEstado>1</codEstado>
+			<codEstado>3</codEstado>
 			<codConcelho>11</codConcelho>
 			<codComandante>6</codComandante>
 			<latitude>41,701627</latitude>
@@ -778,14 +819,14 @@
 			<dataFim>16-05-2009 11:03:23</dataFim>
 			<dataInicio>12-05-2009 23:35:10</dataInicio>
 			<raioFogo>200</raioFogo>
-			<raioSeguranca>75</raioSeguranca>
+			<raioSeguranca>275</raioSeguranca>
 			<baixasBomb>3</baixasBomb>
 			<baixasCivis>2</baixasCivis>
 			<codRelatorio>6</codRelatorio>
 		</FOGO>
 		<FOGO>
 			<codFogo>7</codFogo>
-			<codEstado>1</codEstado>
+			<codEstado>3</codEstado>
 			<codConcelho>3</codConcelho>
 			<codComandante>6</codComandante>
 			<latitude>41,55243</latitude>
@@ -794,14 +835,14 @@
 			<dataFim>09-05-2009 4:05:23</dataFim>
 			<dataInicio>07-05-2009 10:45:10</dataInicio>
 			<raioFogo>150</raioFogo>
-			<raioSeguranca>50</raioSeguranca>
+			<raioSeguranca>200</raioSeguranca>
 			<baixasBomb>5</baixasBomb>
 			<baixasCivis>1</baixasCivis>
 			<codRelatorio>7</codRelatorio>
 		</FOGO>
 		<FOGO>
 			<codFogo>8</codFogo>
-			<codEstado>1</codEstado>
+			<codEstado>3</codEstado>
 			<codConcelho>6</codConcelho>
 			<codComandante>6</codComandante>
 			<latitude>41,545846</latitude>
@@ -810,14 +851,14 @@
 			<dataFim>29-05-2009 6:34:23</dataFim>
 			<dataInicio>28-05-2009 9:12:10</dataInicio>
 			<raioFogo>76</raioFogo>
-			<raioSeguranca>20</raioSeguranca>
+			<raioSeguranca>96</raioSeguranca>
 			<baixasBomb>2</baixasBomb>
 			<baixasCivis>10</baixasCivis>
 			<codRelatorio>8</codRelatorio>
 		</FOGO>
 		<FOGO>
 			<codFogo>9</codFogo>
-			<codEstado>1</codEstado>
+			<codEstado>3</codEstado>
 			<codConcelho>23</codConcelho>
 			<codComandante>6</codComandante>
 			<latitude>41,731995</latitude>
@@ -826,74 +867,10 @@
 			<dataFim>29-05-2009 17:21:23</dataFim>
 			<dataInicio>29-05-2009 7:51:10</dataInicio>
 			<raioFogo>89</raioFogo>
-			<raioSeguranca>30</raioSeguranca>
+			<raioSeguranca>119</raioSeguranca>
 			<baixasBomb>1</baixasBomb>
 			<baixasCivis>0</baixasCivis>
 			<codRelatorio>9</codRelatorio>
-		</FOGO>
-		<FOGO>
-			<codFogo>10</codFogo>
-			<codEstado>1</codEstado>
-			<codConcelho>15</codConcelho>
-			<codComandante>6</codComandante>
-			<latitude>41,7161084363652</latitude>
-			<longitude>-8,15595753417969</longitude>
-			<dataCircunscrito>02-06-2009 2:00:55</dataCircunscrito>
-			<dataFim>02-06-2009 2:01:05</dataFim>
-			<dataInicio>26-05-2009 15:51:10</dataInicio>
-			<raioFogo>0,899999976158142</raioFogo>
-			<raioSeguranca>1,39999997615814</raioSeguranca>
-			<baixasBomb>0</baixasBomb>
-			<baixasCivis>2</baixasCivis>
-			<codRelatorio>10</codRelatorio>
-		</FOGO>
-		<FOGO>
-			<codFogo>11</codFogo>
-			<codEstado>1</codEstado>
-			<codConcelho>1</codConcelho>
-			<codComandante>6</codComandante>
-			<latitude>0</latitude>
-			<longitude>0</longitude>
-			<dataCircunscrito>03-06-2009 1:44:44</dataCircunscrito>
-			<dataFim>03-06-2009 1:44:44</dataFim>
-			<dataInicio>03-06-2009 1:44:44</dataInicio>
-			<raioFogo>0</raioFogo>
-			<raioSeguranca>0</raioSeguranca>
-			<baixasBomb>0</baixasBomb>
-			<baixasCivis>0</baixasCivis>
-			<codRelatorio></codRelatorio>
-		</FOGO>
-		<FOGO>
-			<codFogo>12</codFogo>
-			<codEstado>1</codEstado>
-			<codConcelho>1</codConcelho>
-			<codComandante>6</codComandante>
-			<latitude>0</latitude>
-			<longitude>0</longitude>
-			<dataCircunscrito>03-06-2009 1:45:18</dataCircunscrito>
-			<dataFim>03-06-2009 1:45:18</dataFim>
-			<dataInicio>03-06-2009 1:45:18</dataInicio>
-			<raioFogo>0</raioFogo>
-			<raioSeguranca>0</raioSeguranca>
-			<baixasBomb>0</baixasBomb>
-			<baixasCivis>0</baixasCivis>
-			<codRelatorio></codRelatorio>
-		</FOGO>
-		<FOGO>
-			<codFogo>13</codFogo>
-			<codEstado>1</codEstado>
-			<codConcelho>1</codConcelho>
-			<codComandante>6</codComandante>
-			<latitude>0</latitude>
-			<longitude>0</longitude>
-			<dataCircunscrito>03-06-2009 1:46:08</dataCircunscrito>
-			<dataFim>03-06-2009 1:46:08</dataFim>
-			<dataInicio>03-06-2009 1:46:08</dataInicio>
-			<raioFogo>0</raioFogo>
-			<raioSeguranca>0</raioSeguranca>
-			<baixasBomb>0</baixasBomb>
-			<baixasCivis>0</baixasCivis>
-			<codRelatorio></codRelatorio>
 		</FOGO>
 	</TAB_FOGO>
 	<TAB_RELATORIO>
@@ -941,11 +918,6 @@
 			<codRelatorio>9</codRelatorio>
 			<codFogo>9</codFogo>
 			<comentario>Zona de Viana do Castelo. Excelente execução. Servirá como bom exemplo.</comentario>
-		</RELATORIO>
-		<RELATORIO>
-			<codRelatorio>10</codRelatorio>
-			<codFogo>10</codFogo>
-			<comentario>Zona dos Arcos de Valdevez. Fogo posto. Muitas complicações logísticas atrasaram o combate.</comentario>
 		</RELATORIO>
 	</TAB_RELATORIO>
 	<TAB_HELIFOGOS>

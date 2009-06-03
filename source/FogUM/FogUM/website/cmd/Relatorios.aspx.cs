@@ -32,6 +32,15 @@ public partial class Relatorios : PageBase
             getFogos_ACtivos(proc.Cmd.Cod);
             
         }
+        // BUILD STATS LIST
+        Proc_Civil pci = new Proc_Civil();
+        BListStats.Items.Add("Corporações: " + pci.getTotCorps().ToString());
+        BListStats.Items.Add("Comandantes: " + pci.getTotCmds().ToString());
+        BListStats.Items.Add("Helicópetros: " + pci.getTotHelis().ToString());
+        BListStats.Items.Add("Fogos: " + pci.getTotFogs().ToString());
+        BListStats.Items.Add("Voluntários: " + pci.getTotVols().ToString());
+        BListStats.Items.Add("Depósitos: " + pci.getTotDepos().ToString());
+
       //      WebMsgBox.Show("Olá " + proc.Cmd.Nome);
 
     }
@@ -241,6 +250,10 @@ public partial class Relatorios : PageBase
         
       
         
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
     }
 }
  

@@ -116,8 +116,8 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
                     
-                    </div>    
+                    </div>
     </form>
-    <MARQUEE BEHAVIOR=SCROLL DIRECTION="RIGHT" BGCOLOR="YELLOW"WIDTH=50%>SIMULAÇÃO EM EXECUÇ</MARQUEE>
+&nbsp;
 </body>
 </html>
