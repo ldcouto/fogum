@@ -30,24 +30,26 @@ public partial class Painel_Cmd : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        // Make backup
-        bool flag = true;
-        try
+        if (!IsPostBack)
         {
-            FileStream f = new FileStream(Server.MapPath("~/")+"/bda/xmls/" + "DumpFogUM-" + DateTime.Now.ToShortDateString().ToString() + ".xml", FileMode.Open);
-        }
-        catch (Exception exc)
-        {
-            flag = false;
-        }
+            // Make backup
+            bool flag = true;
+            try
+            {
+                FileStream f = new FileStream(Server.MapPath("~/") + "/bda/xmls/" + "DumpFogUM-" + DateTime.Now.ToShortDateString().ToString() + ".xml", FileMode.Open);
+            }
+            catch (Exception exc)
+            {
+                flag = false;
+            }
 
-        if (flag == false)
-        {
-            Parser ps = new Parser();
-            ps.criarXML(Server.MapPath("~/"));
+            if (flag == false)
+            {
+                Parser ps = new Parser();
+                ps.criarXML(Server.MapPath("~/"));
+            }
+
         }
-
-
 
         procCmd.Cmd = procCmd.getCmdbyuser(User.Identity.Name);
         int cod = (int)Session["fogoActivo"];
