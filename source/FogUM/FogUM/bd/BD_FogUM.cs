@@ -632,6 +632,29 @@ namespace FogUM
             return r;
         }
 
+        public Dictionary<int, Fogo> getFogos_Activos(int cod)
+        {
+            Dictionary<int, Fogo> r = new Dictionary<int, Fogo>();
+            DBLinqDataContext bdf = new DBLinqDataContext();
+
+            // Make Select Query
+            var fireQuery =
+                from fog in bdf.FOGOs 
+                where fog.ESTADO_FOGO.ESTADO_DESIGN != "Extinto" && fog.COD_COMANDANTE==cod
+                select fog;
+
+            if (fireQuery != null)
+            {
+                // Run Query
+                foreach (FOGO f in fireQuery)
+                {
+                    Fogo f2 = new Fogo(f);
+                    r.Add(f2.Codigo, f2);
+                }
+            }
+            return r;
+        }
+
         /// <summary>
         /// Devolver um dicionário de unidades disponíveis
         /// </summary>

@@ -298,6 +298,11 @@ namespace FogUM
             }
         }
 
+        public List<Deposito> get_List_Deposito()
+        {
+            return bd.getDepositos();
+        }
+
         public double distanciaFogo(float lat, float longit)
         {
             return GeoCodeCalc.CalcDistance(fogoCombate.Latitude, fogoCombate.Longitude, lat, longit, GeoCodeCalcMeasurement.Kilometers);
@@ -375,5 +380,10 @@ namespace FogUM
             bd.updateFogo(fogoCombate);
         }
 
+
+        public Dictionary<int, Fogo> selectMapaIncendios(int cod)
+        {
+            return bd.getFogos_Activos(cod); 
+        }
     }
 }

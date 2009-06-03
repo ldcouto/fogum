@@ -23,17 +23,20 @@ public partial class Relatorios : PageBase
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        proc.Cmd = proc.getCmdbyuser(User.Identity.Name);
+        proc = new Proc_Cmd(proc.Cmd);
         
         if (!IsPostBack)
         {
-            proc.Cmd=proc.getCmdbyuser(User.Identity.Name);
-            getRelsPendentes(proc.Cmd.User);
-            getFogos_ACtivos();
-      //      WebMsgBox.Show("Olá " + proc.Cmd.Nome);
+            getRelsPendentes();
+            getFogos_ACtivos(proc.Cmd.Cod);
+            
         }
+      //      WebMsgBox.Show("Olá " + proc.Cmd.Nome);
+
     }
 
-    protected void getRelsPendentes(string cmdUsername)
+    protected void getRelsPendentes()
     {
         Dictionary<Fogo, Relatorio> rels = proc.Relatorios;
         if (rels!=null)
@@ -70,6 +73,7 @@ public partial class Relatorios : PageBase
 
         if (drop != "")
         {
+            
             string[] aux = drop.Split('-');
             int cod = Convert.ToInt32(aux[0]);
             Dictionary<Fogo, Relatorio> rels = proc.Relatorios;
@@ -84,6 +88,7 @@ public partial class Relatorios : PageBase
                     txt_data_ini.Text = fr.Key.Dh_comeco.ToString();
                     txt_baixas_civis.Text = fr.Key.Baixas_civis.ToString();
                     txt_baixas_bomb.Text = fr.Key.Baixas_bombeiros.ToString();
+                    btn_sub_rel.Enabled = true;
                 }
         }
 
@@ -107,6 +112,7 @@ public partial class Relatorios : PageBase
             Image30.Visible = false;
             flag = false;
         }
+
         if (flag)
         {
             int cod = Convert.ToInt32(txt_cod_rel.Text);
@@ -138,13 +144,14 @@ public partial class Relatorios : PageBase
 
     }
 
-    private void getFogos_ACtivos()
+    private void getFogos_ACtivos(int cod)
     {
-        Dictionary<int, Fogo> fogos = proc_civ.selectMapaIncendios();
+        Dictionary<int, Fogo> fogos = proc.selectMapaIncendios(cod);
         //TODO ISTO NÃO TÁ direito! Está a mostrar fogos activos com relatórios já preenchidos.
         // Tem de se iterar sobre o conjunto de fogos devolvido pelo rels pendentes
         foreach (Fogo f in fogos.Values)
         {
+
             string[] aux = f.Dh_comeco.ToString().Split(' ');
             ListBox_fogos.Items.Add(f.Codigo+" - "+f.Concelho+"-"+aux[0]);
             
@@ -219,7 +226,13 @@ public partial class Relatorios : PageBase
         string[] aux = drop.Split('-');
         int cod = Convert.ToInt32(aux[0]);
         proc.getFogo(cod);
-        ViewState["fogoActivo"] = proc.FogoCombate;
+        Session["fogoActivo"] = proc.FogoCombate.Codigo;
+        Response.Redirect("~/cmd/Painel_Cmd.aspx");
+        //PostBackOptions p = new PostBackOptions(this);
+        //p.ActionUrl = "http://localhost:1414/website/cmd/Painel_Cmd.aspx";
+        
+      
+        
     }
 }
  

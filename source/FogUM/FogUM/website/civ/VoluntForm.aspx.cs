@@ -163,11 +163,11 @@ public partial class VoluntForm : PageBase
            else
            {
                vol.CodDist = pc.testaCodDistr(DropDownList1.Text.ToString());
-               vol.Cod = 1;
+               vol.Cod = 1;  // ????
                vol.Email = email.Text.ToString();
                vol.Nome = nome.Text.ToString();
                vol.Telefone = telefone.Text.ToString();
-               vol.Disp = disp;
+               vol.Disp = disp;// ???
 
                pc.submeterVoluntario(vol);
 
