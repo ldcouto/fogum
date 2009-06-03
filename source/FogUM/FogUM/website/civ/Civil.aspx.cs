@@ -94,17 +94,17 @@ public partial class Civil : PageBase
     protected void Button1_Click(object sender, EventArgs e)
     {
      
-        MailMessage mail = new MailMessage();
-        mail.To.Add(TextBox1.Text.ToString());
-        mail.Subject = "NewsLetterFogUM";
-        mail.From = new MailAddress("FogUM@gmail.com");
+     //   MailMessage mail = new MailMessage();
+     //   mail.To.Add(TextBox1.Text.ToString());
+     //   mail.Subject = "NewsLetterFogUM";
+     //   mail.From = new MailAddress("FogUM@gmail.com");
 
 
-     //   mail.Body = "<a href=\"http://localhost:1414/website/ConfMailForm.aspx/\"</a>Confirme o seu email";
-        mail.Body = "FOGUM";
-        mail.IsBodyHtml = true;
-        System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
-        smtp.Send(mail);
+     ////   mail.Body = "<a href=\"http://localhost:1414/website/ConfMailForm.aspx/\"</a>Confirme o seu email";
+     //   mail.Body = "FOGUM";
+     //   mail.IsBodyHtml = true;
+     //   System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
+     //   smtp.Send(mail);
     
     }
 }

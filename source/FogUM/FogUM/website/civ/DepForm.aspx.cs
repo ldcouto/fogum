@@ -165,6 +165,12 @@ public partial class DepForm : PageBase
             compr.Text = "";
             largura.Text = "";
             altura.Text = "";
+            Image25.Visible = false;
+            Image26.Visible = false;
+            Image27.Visible = false;
+            Image28.Visible = false;
+            Image29.Visible = false;
+            Image30.Visible = false;
         }
     }
 
