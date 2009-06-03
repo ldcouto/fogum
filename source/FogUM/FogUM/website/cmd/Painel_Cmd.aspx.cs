@@ -163,7 +163,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
         }
         else
         {
-            WebMsgBox.Show("ola");
+            //WebMsgBox.Show("ola");
         }
     }
 
@@ -198,7 +198,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
             ViewState["amx"] = amx;
             ViewState["cm"] = cm;
         }
-        else WebMsgBox.Show("ola");
+        //else WebMsgBox.Show("ola");
     }
 
     public void actListBox()
@@ -272,23 +272,23 @@ public partial class Painel_Cmd : System.Web.UI.Page
             ViewState["helicm"] = helicm;
             ViewState["pontosAgua"] = pontosAgua;
         }
-        else WebMsgBox.Show("ola");
+        //else WebMsgBox.Show("ola");
     }
 
     //Remove helis do fogo
     protected void Button12_Click(object sender, EventArgs e)
     {
-        if (ListBox3.Text != "")
-        {
+        
+        
             String result = ListBox4.SelectedValue.ToString();
             String[] n = result.Split('|');
 
             int x = Convert.ToInt32((n[0]));
             procCmd.remHeli(procCmd.getHeli(x));
             actListBox();
-            GoogleMapForASPNet1.GoogleMapObject.Points["H" + x.ToString()].Latitude = 41.71887132733453;
-            GoogleMapForASPNet1.GoogleMapObject.Points["H" + x.ToString()].Longitude = -8.167364001274109;
-
+            GoogleMapForASPNet1.GoogleMapObject.Points["H" + x.ToString()].Latitude = 41.723067491050024;
+            GoogleMapForASPNet1.GoogleMapObject.Points["H" + x.ToString()].Longitude = -8.170298337936401;
+            
             heliamx = (Dictionary<int, Dictionary<int, int>>)ViewState["heliamx"];
             if (heliamx == null)
                 heliamx = new Dictionary<int, Dictionary<int, int>>();
@@ -309,8 +309,9 @@ public partial class Painel_Cmd : System.Web.UI.Page
 
             ViewState["pontosAgua"] = new SortedDictionary<double, int>();
             criaAgua(1);
-        }
-        else WebMsgBox.Show("ols");
+            
+        
+        //else WebMsgBox.Show("ols");
     }
 
     //muda raio normal
@@ -320,7 +321,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
         float.TryParse(RaioFogo.Text.ToString(), out raioFog);
         if (raioFog == 0 || RaioFogo.Text.ToString().Contains('.'))
         {
-            WebMsgBox.Show("Raio Invalido");
+           // WebMsgBox.Show("Raio Invalido");
             RaioFogo.Text = procCmd.FogoCombate.Raio_fogo.ToString();
         }
         else
@@ -341,7 +342,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
         float.TryParse(RaioSeguranca.Text.ToString(), out raioSeg);
         if (raioSeg == 0 || raioSeg<=procCmd.FogoCombate.Raio_fogo || RaioSeguranca.Text.ToString().Contains('.'))
         {
-            WebMsgBox.Show("Raio Invalido");
+           // WebMsgBox.Show("Raio Invalido");
             RaioSeguranca.Text = procCmd.FogoCombate.Raio_seg.ToString();
         }
         else
@@ -369,14 +370,14 @@ public partial class Painel_Cmd : System.Web.UI.Page
             ButEstExt.Enabled = true;
         }
         actListBox();
-       
+        
         GoogleMapForASPNet1.GoogleMapObject.CenterPoint = new GooglePoint("1", procCmd.FogoCombate.Latitude, procCmd.FogoCombate.Longitude);
         //icon fogo
         GooglePoint GP2 = new GooglePoint();
         GP2.ID = "fogo";
         GP2.Latitude = procCmd.FogoCombate.Latitude;
         GP2.Longitude = procCmd.FogoCombate.Longitude;
-        GP2.InfoHTML = "Centro do fogo";
+        GP2.InfoHTML = "Centro do Fogo";
         GP2.IconImage = "icons/fire.png";
         GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP2);
 
@@ -432,13 +433,15 @@ public partial class Painel_Cmd : System.Web.UI.Page
            
             GooglePoint GP4 = new GooglePoint();
             GP4.ID = "H" + h.Key;
-            GP4.Latitude = 41.71887132733453;
-            GP4.Longitude = -8.167364001274109;
+            GP4.Latitude = 41.723067491050024;
+            GP4.Longitude = -8.170298337936401;
             GP4.InfoHTML = h.Value.Desig;
             GP4.IconImage = "icons/helicopter2.png";
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(GP4);
-        }
 
+
+        }
+       criaAgua(0);
         foreach (KeyValuePair<int, Heli> he in procCmd.getHelisDestacados())
         {
 
@@ -450,8 +453,33 @@ public partial class Painel_Cmd : System.Web.UI.Page
             HE4.IconImage = "icons/helicopter2.png";
             HE4.Draggable = true;
             GoogleMapForASPNet1.GoogleMapObject.Points.Add(HE4);
+            int x = he.Key;
+            //move no google maps
+            heliamx = (Dictionary<int, Dictionary<int, int>>)ViewState["heliamx"];
+            if (heliamx == null)
+                heliamx = new Dictionary<int, Dictionary<int, int>>();
+
+            helicm = (Dictionary<int, GooglePoints>)ViewState["helicm"];
+            if (helicm == null)
+                helicm = new Dictionary<int, GooglePoints>();
+            pontosAgua = (SortedDictionary<double, int>)ViewState["pontosAgua"];
+            if (pontosAgua == null)
+                pontosAgua = new SortedDictionary<double, int>();
+            double agua = pontosAgua.First().Value;
+            pontosAgua.Remove(pontosAgua.First().Key);
+            GooglePoints pts = getPontosaDistancia(100, GoogleMapForASPNet1.GoogleMapObject.Points["H" + x.ToString()], GoogleMapForASPNet1.GoogleMapObject.Points["A" + agua.ToString()], 0);
+
+            Dictionary<int, int> novo = new Dictionary<int, int>();
+            novo.Add(0, 0);
+            heliamx.Add(x, novo);
+            helicm.Add(x, pts);
+            ViewState["heliamx"] = heliamx;
+            ViewState["helicm"] = helicm;
+            ViewState["pontosAgua"] = pontosAgua;
+
+
         }
-        criaAgua(0);
+       
        
     }
     public void criaAgua(int x)
@@ -504,7 +532,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
         ButEstExt.Enabled = false;
         actListBox();
     }
-
+    // por Fogo Extinto
     protected void ButEstExt_Click(object sender, EventArgs e)
     {
         procCmd.selTermComb();
@@ -515,7 +543,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
     {
         mexe();
     }
-
+    // animacoes
     public void mexe()
     {
       //move corporacao
