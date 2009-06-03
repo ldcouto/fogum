@@ -101,10 +101,11 @@
                     <asp:Timer ID="Timer1" runat="server" Enabled="False" Interval="100" 
                         ontick="Timer1_Tick">
                     </asp:Timer>
-                    <asp:ImageButton ID="ImageButton1" runat="server" Height="20px" 
-                        onclick="ImageButton1_Click" Width="66px" />
-                    <asp:ImageButton ID="ImageButton2" runat="server" Height="17px" 
-                        onclick="ImageButton2_Click" Width="66px" />
+                    <asp:ImageButton ID="ImageButton1" runat="server" Height="66px" 
+                        onclick="ImageButton1_Click" Width="66px" ImageUrl="~/icons/play2.jpeg" />
+                    <asp:ImageButton ID="ImageButton2" runat="server" Height="66px" 
+                        onclick="ImageButton2_Click" Width="66px" ImageUrl="~/icons/pause.jpg" 
+                        Visible="False" />
                 </ContentTemplate>
             </asp:UpdatePanel>
                     
