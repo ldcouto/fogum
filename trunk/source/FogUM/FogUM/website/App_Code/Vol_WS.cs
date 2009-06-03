@@ -81,24 +81,29 @@ using FogUM;
 
         private string makeDisp(int cod)
         {
-            string r="Nenhuma";
+            System.Text.StringBuilder r = new System.Text.StringBuilder();
+            r.Append(cod);
+            r.Append(" meses");
+            return r.ToString();
 
-            switch (cod)
-            {
-                case 0:
-                    r = "Baixa";
-                    break;
-                case 1:
-                    r = "Média";
-                    break;
-                case 2:
-                    r = "Alta";
-                    break;
-                default:
-                    break;
-            }
 
-            return r;
+            //string r="Nenhuma";
+            //switch (cod)
+            //{
+            //    case 0:
+            //        r = "Baixa";
+            //        break;
+            //    case 1:
+            //        r = "Média";
+            //        break;
+            //    case 2:
+            //        r = "Alta";
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            //return r;
         }
 
     }
