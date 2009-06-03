@@ -334,7 +334,7 @@
 			<longitude>-8,15945684909821</longitude>
 			<numHomens>63</numHomens>
 			<numVeiculos>11</numVeiculos>
-			<disponibilidade>True</disponibilidade>
+			<disponibilidade>False</disponibilidade>
 		</CORPORACAO>
 		<CORPORACAO>
 			<codCorporacao> 25</codCorporacao>
@@ -1078,6 +1078,12 @@
 			<codFogo>9</codFogo>
 			<numHomens>76</numHomens>
 			<numVeiculos>9</numVeiculos>
+		</CORP_FOGO>
+		<CORP_FOGO>
+			<codCorporacao>24</codCorporacao>
+			<codFogo>10</codFogo>
+			<numHomens>0</numHomens>
+			<numVeiculos>0</numVeiculos>
 		</CORP_FOGO>
 	</TAB_CORPFOGO>
 </FogUM>
