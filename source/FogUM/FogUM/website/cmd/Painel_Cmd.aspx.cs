@@ -22,7 +22,7 @@ public partial class Painel_Cmd : System.Web.UI.Page
 
     public Dictionary<int, Dictionary<int,int> > heliamx;
     public Dictionary<int, GooglePoints> helicm;
-
+    
     public SortedDictionary<double, int> pontosAgua;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -332,13 +332,12 @@ public partial class Painel_Cmd : System.Web.UI.Page
         else
         {
             procCmd.setRaioS(raioSeg);
-            actListBox();
             RaioSInvalido.Visible = false;
             RaioSSucesso.Visible = true;
             GoogleMapForASPNet1.GoogleMapObject.Polylines.Clear();
-            drawCircle(GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], procCmd.FogoCombate.Raio_fogo, 0);
             drawCircle(GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], procCmd.FogoCombate.Raio_seg, 1);
-     
+            drawCircle(GoogleMapForASPNet1.GoogleMapObject.Points["fogo"], procCmd.FogoCombate.Raio_fogo, 0);
+            actListBox();
         }
     }
 
@@ -588,10 +587,22 @@ public partial class Painel_Cmd : System.Web.UI.Page
     }
     protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
     {
-        Timer1.Enabled = true;
+        if (!Timer1.Enabled)
+        {
+            Panel2.Enabled = false;
+            ImageButton1.Visible = false;
+            ImageButton2.Visible = true;
+            Timer1.Enabled = true;
+        }
     }
     protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
     {
-        Timer1.Enabled = false;
+        if (Timer1.Enabled)
+        {
+            Timer1.Enabled = false;
+            ImageButton1.Visible = true;
+            ImageButton2.Visible = false;
+            Panel2.Enabled = true;
+        }
     }
 }
